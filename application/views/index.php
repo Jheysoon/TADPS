@@ -43,7 +43,18 @@
             </div>
         </div>
     </div>
+
+    <div class="content-section-b">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12" style="background-color:red;">
+                    Headlines
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php $this->load->view('includes/footer') ?>
-    
+
 </body>
 </html>

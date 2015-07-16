@@ -160,7 +160,7 @@ h6 {
     }
 }
 
-footer {
+footer,.content-section-c {
     padding: 50px 0;
     background-color: #f8f8f8;
 }
