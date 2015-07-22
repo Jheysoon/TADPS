@@ -1,5 +1,7 @@
 <?php $this->load->view('includes/header') ?>
 <body>
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">

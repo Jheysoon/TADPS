@@ -45,6 +45,21 @@ class Main extends CI_Controller
     function home()
     {
         echo "dfsdf";
+        // RSS for fetching news
+    }
+
+    function subscribe()
+    {
+        // @todo:
+        // reCaptcha
+        // Signup "thank you" page
+        // Opt-in confirmation email
+        // Confirmation "thank you" page
+        // Final "welcome" email
+        // Unsubscribe success page
+        // "Goodbye" email
+        $this->load->helper('form');
+        $this->load->view('email/email_page');
     }
 
     function logout()
