@@ -13,10 +13,12 @@ class Subscribe extends CI_Controller
         $this->load->helper(array('form', 'captcha', 'string'));
         $this->load->library('form_validation');
 
+        // validation rules for form posting
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('txt_captcha', 'Captcha' ,'required');
 
+        // test if the post form meet the standard
         if($this->form_validation->run() === FALSE)
         {
             $this->load->view('email/email_page');
