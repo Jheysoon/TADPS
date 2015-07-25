@@ -7,7 +7,7 @@
                         <a href="#about">About</a>
                     </li>
                 </ul>
-                <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                <p class="copyright text-muted small">Copyright &copy; TADPS <?php echo date('Y') ?>. All Rights Reserved</p>
             </div>
         </div>
     </div>

@@ -58,7 +58,7 @@ class Main extends CI_Controller
         // Final "welcome" email
         // Unsubscribe success page
         // "Goodbye" email
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'captcha', 'string'));
         $this->load->view('email/email_page');
     }
 
