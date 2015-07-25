@@ -40,7 +40,7 @@
                         <h1>TADPS</h1>
                         <hr class="intro-divider">
                         <h4>Tacloban Awareness And Disaster Preparedness System</h4>
-                        <a href="/subcribe" class="btn btn-primary btn-lg">Subscribe to Email</a>
+                        <a href="/subscribe" class="btn btn-primary btn-lg">Subscribe to Email</a>
                     </div>
                 </div>
             </div>
