@@ -11,8 +11,7 @@ class Subscribe extends CI_Controller
         // Unsubscribe success page
         // "Goodbye" email
         $this->load->helper(array('form', 'captcha', 'string'));
-        $this->load->library('form_validation');
-
+        $this->load->library(array('form_validation'));
         // validation rules for form posting
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -25,7 +24,27 @@ class Subscribe extends CI_Controller
         }
         else
         {
-            // please confirm your email page
+            // please confirm your email page and send email
+        }
+    }
+
+    function email_confirm($id = '')
+    {
+        if(!empty($id))
+        {
+            $this->db->where('id', $id);
+            $this->db->update('emails', ['status' => 1]);
+            $this->load->view('email/confirm_email', ['message' => 'You Have Successfully Confirmed Your Email']);
+        }
+    }
+
+    function unsubscribe($id = '')
+    {
+        if(!empty($id))
+        {
+            $this->db->where('id', $id);
+            $this->db->delete('emails');
+            $this->load->view('email/confirm_email', ['message' => 'You are successfully unsubscribe']);
         }
     }
 }

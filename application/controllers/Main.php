@@ -4,7 +4,8 @@ class Main extends CI_Controller
 {
     function index()
     {
-        if(!$this->session->has_userdata('id'))
+        //if(!$this->session->has_userdata('id'))
+        if(FALSE)
             $this->load->view('index');
         else
             $this->home();
@@ -44,7 +45,7 @@ class Main extends CI_Controller
 
     function home()
     {
-        echo "dfsdf";
+        $this->load->view('user/home');
         // RSS for fetching news
     }
 
