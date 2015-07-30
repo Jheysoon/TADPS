@@ -2,3 +2,10 @@
 {
     margin-top: 5px;
 }
+.table_header
+{
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}

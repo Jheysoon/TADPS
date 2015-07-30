@@ -46,7 +46,6 @@ class Main extends CI_Controller
     function home()
     {
         $this->load->view('user/home');
-        // RSS for fetching news
     }
 
     function logout()

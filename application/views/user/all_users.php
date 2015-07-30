@@ -9,7 +9,22 @@
             </div>
             <div class="col-md-6">
                 <div class="well well-lg">
-                    <a href="#">Add User</a>
+                    <span class="clearfix"></span>
+                    <br/>
+                    <table class="table">
+                        <tr class="table_header">
+                            <th>Name</th>
+                            <th>Office</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                dfgdfg
+                            </td>
+                            <td>
+                                dfgdfg
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div class="col-md-3">
