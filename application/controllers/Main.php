@@ -4,8 +4,8 @@ class Main extends CI_Controller
 {
     function index()
     {
-        //if(!$this->session->has_userdata('id'))
-        if(FALSE)
+        if(!$this->session->has_userdata('id'))
+        //if(FALSE)
             $this->load->view('index');
         else
             $this->home();

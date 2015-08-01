@@ -57,4 +57,4 @@ $route['login']     = 'main/login';
 $route['subscribe'] = 'subscribe/email_page';
 $route['confirm']   = 'subscribe/email_confirm';
 $route['users']     = 'users/all_users';
-$route['register']  = '';
+$route['register']  = 'register/reg';
