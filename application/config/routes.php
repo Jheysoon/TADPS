@@ -58,3 +58,6 @@ $route['subscribe'] = 'subscribe/email_page';
 $route['confirm']   = 'subscribe/email_confirm';
 $route['users']     = 'users/all_users';
 $route['register']  = 'register/reg';
+$route['myprofile'] = 'main/profile';
+$route['logout']    = 'main/logout';
+$route['change_password'] = 'main/change_pass';

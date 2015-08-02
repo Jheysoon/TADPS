@@ -1,7 +1,8 @@
 <?php $this->load->view('includes/header') ?>
 <body>
 
-    <?php $this->load->view('includes/menu', array('active' => 'users')) ?>
+    <?php $this->load->view('includes/menu', array('active' => 'profile')) ?>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
@@ -9,22 +10,14 @@
             </div>
             <div class="col-md-6">
                 <div class="well well-lg">
-                    <span class="clearfix"></span>
-                    <br/>
+                    <img src="/assets/uploads/<?php echo $pic ?>" style="max-width:120px;" class="img-responsive center-block" alt="" />
                     <table class="table">
-                        <tr class="table_header">
-                            <th>Name</th>
-                            <th>Office</th>
-                        </tr>
                         <tr>
-                            <td>
-                                dfgdfg
-                            </td>
-                            <td>
-                                dfgdfg
-                            </td>
+                            <td>Name</td>
+                            <td><?php echo $fname.' '.$lname.' '.$mname ?></td>
                         </tr>
                     </table>
+
                 </div>
             </div>
             <div class="col-md-3">

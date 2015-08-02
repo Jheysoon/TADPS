@@ -17,8 +17,11 @@ class Main extends CI_Controller
 
         $data['error'] = '';
         //rules
-        $this->form_validation->set_rules('username','Username','trim|required');
-        $this->form_validation->set_rules('password','Password','trim|required');
+        $rules = [
+                    ['field' => 'username', 'label' => 'Username', 'rules' => 'trim|required'],
+                    ['field' => 'password', 'label' => 'Password', 'rules' => 'trim|required']
+                ];
+        $this->form_validation->set_rules($rules);
 
         if($this->form_validation->run() === FALSE)
             $this->load->view('login', $data);
@@ -32,7 +35,12 @@ class Main extends CI_Controller
             $user_id = $this->user->login($username, $password);
             if($user_id != FALSE)
             {
-                $this->session->set_userdata('id', $user_id);
+                $this->db->where('id', $user_id);
+                $this->db->select('type');
+                $type = $this->db->get('users')->row_array();
+                $info = array('id' => $user_id,'type' => $type['type']);
+                // set the session
+                $this->session->set_userdata($info);
                 redirect(base_url());
             }
             else
@@ -45,11 +53,41 @@ class Main extends CI_Controller
 
     function home()
     {
-        $this->load->view('user/home');
+        if($this->session->userdata('type') == 'admin')
+            $this->load->view('admin/home');
+        else
+            $this->load->view('user/home');
+    }
+
+    function profile()
+    {
+        if($this->session->userdata('type') == 'admin')
+        {
+            $this->db->where('id', $this->session->userdata('id'));
+            $data = $this->db->get('users')->row_array();
+            $this->load->view('admin/profile', $data);
+        }
+        else
+            $this->load->view('user/profile');
+    }
+
+    function change_pass()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $rules = [
+                    ['field' => 'n_pass', 'label' => 'Password', 'rules' => 'required'],
+                    ['field' => 'r_pass', 'label' => 'Password', 'rules' => 'required']
+                ];
+        $this->form_validation->set_rules($rules);
+
+        $this->load->view('change_pass');
     }
 
     function logout()
     {
         $this->session->unset_userdata('id');
+        redirect(base_url());
     }
 }

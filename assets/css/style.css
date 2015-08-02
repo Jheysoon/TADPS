@@ -9,3 +9,7 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
+.profile_pic
+{
+    max-width: 60px !important;
+}

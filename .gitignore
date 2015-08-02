@@ -22,4 +22,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.xml
 .idea/workspace.xml
 .idea/workspace.xml
-assets/captcha/*.jpg
+assets/captcha/*
+assets/uploads/*

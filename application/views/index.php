@@ -41,14 +41,17 @@
                 <div class="col-lg-12">
                     <div class="intro-message" style="color:#000;">
                         <h1></h1>
+
                         <hr class="intro-divider">
                         <h4></h4>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
-
+    <a href="/subscribe" class="btn btn-primary btn-lg center-block" style="width:200px;">Subscribe to Email</a>
     <div class="content-section-b">
         <div class="container-fluid">
             <div class="row">
