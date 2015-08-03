@@ -12,15 +12,23 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <?php echo $error; ?>
-                    <div>
-                        <form action="/login" class="center-block" method="post" style="max-width:300px;">
-                            <h3>Please Sign In</h3>
-                            <input type="text" class="form-control input-lg" name="username" value="<?php echo set_value('username'); ?>" autofocus placeholder="Username">
-                            <input type="text" class="form-control input-lg margin-top-5px" name="password" placeholder="Password">
-                            <a href="<?php echo base_url(); ?>" class="btn btn-default btn-sm margin-top-5px">Back</a>
-                            <input type="submit" class="btn btn-primary btn-sm pull-right margin-top-5px" name="btnSubmit" value="Login">
-                        </form>
-                    </div>
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <form action="/login" class="center-block" method="post" style="max-width:300px;">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Please Sign In</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" class="form-control input-lg" name="username" value="<?php echo set_value('username'); ?>" autofocus placeholder="Username">
+                                    <input type="text" class="form-control input-lg margin-top-5px" name="password" placeholder="Password">
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="<?php echo base_url(); ?>" class="btn btn-default margin-top-5px">Back</a>
+                                    <input type="submit" class="btn btn-primary pull-right margin-top-5px" name="btnSubmit" value="Login">
+                                </div>
+                          </form>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
                 </div>
                 <div class="col-sm-4"></div>
             </div>
