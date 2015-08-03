@@ -11,7 +11,7 @@ class Subscribe extends CI_Controller
         // Unsubscribe success page
         // "Goodbye" email
         $this->load->helper(array('form', 'captcha', 'string'));
-        $this->load->library(array('form_validation'));
+        $this->load->library(array('form_validation', 'email'));
         // validation rules for form posting
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -25,7 +25,31 @@ class Subscribe extends CI_Controller
         else
         {
             // please confirm your email page and send email
-        }
+
+            $email = $this->input->post('email');
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $config['protocol'] = "smtp";
+                $config['smtp_host'] = 'ssl://smtp.gmail.com';
+                $config['smtp_port'] = '465';
+                $config['smtp_user'] = 'sonitgregorio@gmail.com';
+                $config['smtp_pass'] = 'posterpolang';
+                $config['mailtype'] = 'html';
+                $config['charset'] = 'utf-8';
+                $config['newline'] = "\r\n";
+                $config['wordwrap'] = TRUE;
+
+                $this->email->initialize($config);
+
+                $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal');
+                $this->email->to($email);
+
+                $this->email->subject('Email Test');
+                $this->email->message('Please click the link for the password recovery' ;
+                $this->email->send();
+            }
+            else {
+                //invalid email
+            }
     }
 
     function email_confirm($id = '')
