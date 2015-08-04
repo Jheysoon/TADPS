@@ -44,12 +44,13 @@ class Subscribe extends CI_Controller
                 $this->email->to($email);
 
                 $this->email->subject('Email Test');
-                $this->email->message('Please click the link for the password recovery' ;
+                $this->email->message('Please click the link for the password recovery');
                 $this->email->send();
             }
             else {
                 //invalid email
             }
+        }
     }
 
     function email_confirm($id = '')
