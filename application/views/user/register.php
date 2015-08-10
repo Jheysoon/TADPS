@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <form class="" action="/register" method="post">
                     <label>Firstname</label>
-                    <input type="text" class="form-control" name="fname" value="<?php echo set_value('fname') ?>">
+                    <input type="text" class="form-control" name="fname" value="<?php echo set_value('fname') ?>" autofocus>
                     <label>Lastname</label>
                     <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
                     <label>Middlename</label>

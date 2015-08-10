@@ -19,6 +19,7 @@
 
     <!-- Custom Fonts -->
     <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="<?php echo base_url('assets/img/logo.ico'); ?>">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
