@@ -38,6 +38,7 @@ class Main extends CI_Controller
                 $this->db->where('id', $user_id);
                 $this->db->select('type');
                 $type = $this->db->get('users')->row_array();
+                
                 $info = array('id' => $user_id,'type' => $type['type']);
                 // set the session
                 $this->session->set_userdata($info);
@@ -61,14 +62,14 @@ class Main extends CI_Controller
 
     function profile()
     {
-        if($this->session->userdata('type') == 'admin')
-        {
+        // if($this->session->userdata('type') == 'admin')
+        // {
             $this->db->where('id', $this->session->userdata('id'));
             $data = $this->db->get('users')->row_array();
             $this->load->view('admin/profile', $data);
-        }
-        else
-            $this->load->view('user/profile');
+        // }
+        // else
+        //     $this->load->view('user/profile');
     }
 
     function change_pass()
@@ -83,6 +84,26 @@ class Main extends CI_Controller
         $this->form_validation->set_rules($rules);
 
         $this->load->view('change_pass');
+    }
+
+    function hotline()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('office', 'Office', 'required');
+        $this->form_validation->set_rules('number', 'Telephone Number', 'required');
+
+        if($this->form_validation->run() === FALSE)
+            $this->load->view('admin/hotline');
+        else
+        {
+            $data['office'] = ucwords($this->input->post('office'));
+            $data['num']    = $this->input->post('number');
+
+            $this->db->insert('hotlines', $data);
+            redirect('/hotline');
+        }
     }
 
     function logout()

@@ -2,6 +2,10 @@
 {
     margin-top: 5px;
 }
+.margin-top-15px
+{
+    margin-top: 15px;
+}
 .table_header
 {
     color: #fff;
@@ -12,4 +16,49 @@
 .profile_pic
 {
     max-width: 60px !important;
+}
+.convo_left
+{
+    background-color:#a0c3ff;
+}
+.convo_right,.convo_left
+{
+    padding:8px;
+    border-radius: 3px;
+}
+.convo_right
+{
+    background-color: #00b875;
+}
+.tip_left
+{
+    margin-left: 5px;
+    margin-top:-15px;
+    border-top: 8px dashed #a0c3ff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+.tip_right, .tip_left
+{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+}
+.tip_right
+{
+    position: relative;
+    margin-right: 5px;
+    border-top: 8px solid #00b875;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+textarea.form-control
+{
+    resize: vertical;
+}
+#message_body
+{
+    max-height: 300px;
+    overflow-y: auto;
 }

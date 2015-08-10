@@ -47,4 +47,9 @@ class Subscribe extends CI_Controller
             $this->load->view('email/confirm_email', ['message' => 'You are successfully unsubscribe']);
         }
     }
+
+    function all()
+    {
+        $this->load->view('admin/email');
+    }
 }

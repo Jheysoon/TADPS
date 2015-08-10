@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">TADPS</a>
+      <a class="navbar-brand" href="/">TADPS</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,8 +17,12 @@
           <li <?php echo $active == 'home' ? 'class="active"':'' ?>><a href="<?php echo base_url() ?>"><span class="fa fa-home fa-lg"></span> Home</a></li>
           <li <?php echo $active == 'profile' ? 'class="active"':'' ?>><a href="/myprofile"><span class="fa fa-user fa-lg"></span> Profile</a></li>
         <?php if ($this->session->userdata('type') == 'admin'): ?>
-            <li <?php echo $active == 'users' ? 'class="active"':'' ?>><a href="/users"><span class="fa fa-users fa-lg"></span>Users</a></li>
+            <li <?php echo $active == 'users' ? 'class="active"':'' ?>><a href="/users"><span class="fa fa-users fa-lg"></span> Users</a></li>
+            <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
+            <li <?php echo $active == 'email' ? 'class="active"':'' ?>><a href="/email"><span class="fa fa-envelope fa-lg"></span> Email</a></li>
         <?php endif; ?>
+            <li <?php echo $active == 'post' ? 'class="active"':'' ?>><a href="/mypost"><span class="glyphicon glyphicon-file fa-lg"></span> Post</a></li>
+            <li <?php echo $active == 'messages' ? 'class="active"':'' ?>><a href="/messages"><span class="glyphicon glyphicon-comment fa-lg"></span> Messages</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

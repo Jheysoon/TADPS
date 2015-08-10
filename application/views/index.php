@@ -24,9 +24,6 @@
                     <li>
                         <a href="/login">Login</a>
                     </li>
-                    <li>
-                        <a href="/register">Register</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -55,6 +52,36 @@
     <div class="content-section-b">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-md-3">
+                    <?php
+                    $expiration = config_item('sess_expiration');
+                    echo ( ! isset($expiration))
+        				? 0 : (int) $expiration; ?>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-center">Hotline Numbers <span class="glyphicon glyphicon-earphone"></span></h2>
+                    <table class="table">
+                        <tr>
+                            <th class="text-center">
+                                Name Of the Office
+                            </th>
+                            <th class="text-center">
+                                Contact No.
+                            </th>
+                        </tr>
+                        <tr class="text-center">
+                            <td>
+                                CDRRMO
+                            </td>
+                            <td>
+                                09091234567
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-3">
+
+                </div>
             </div>
         </div>
     </div>

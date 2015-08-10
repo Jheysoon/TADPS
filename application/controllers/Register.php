@@ -30,6 +30,7 @@ class Register extends CI_Controller
             $data['username']   = $this->input->post('username');
             $data['password']   = password_hash($this->input->post('password'), 1);
             $this->db->insert('users', $data);
+            redirect('/register');
         }
 
     }

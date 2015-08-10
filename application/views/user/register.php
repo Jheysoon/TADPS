@@ -1,11 +1,6 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-    <div class="content-section-c">
-        <div class="container-fluid">
-            <div class="row">
-            </div>
-        </div>
-    </div>
+    <?php $this->load->view('includes/menu', array('active' => '')) ?>
 
     <div class="container-fluid">
         <div class="row">
@@ -26,7 +21,7 @@
                     <input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?>">
                     <label>Password</label>
                     <input type="text" name="password" class="form-control" value="<?php echo set_value('password') ?>">
-                    <a href="<?php echo base_url() ?>" class="btn btn-default pull-left margin-top-5px">Back</a>
+                    <a href="<?php echo base_url('users') ?>" class="btn btn-default pull-left margin-top-5px">Back</a>
                     <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
                 </form>
             </div>

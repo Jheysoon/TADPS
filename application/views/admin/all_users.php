@@ -9,6 +9,7 @@
                 <div class="well well-lg">
                     <span class="clearfix"></span>
                     <br/>
+                    <a href="/register" class="btn btn-primary pull-right">Add New User</a>
                     <table class="table">
                         <tr class="table_header">
                             <th>Name</th>
