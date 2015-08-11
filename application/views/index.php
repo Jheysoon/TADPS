@@ -52,12 +52,7 @@
     <div class="content-section-b">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
-                    <?php
-                    $expiration = config_item('sess_expiration');
-                    echo ( ! isset($expiration))
-        				? 0 : (int) $expiration; ?>
-                </div>
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <h2 class="text-center">Hotline Numbers <span class="glyphicon glyphicon-earphone"></span></h2>
                     <table class="table">
