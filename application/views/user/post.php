@@ -21,7 +21,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Relive operation in quarry district
+                                Relief operation in quarry district
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-xs">View</a>
