@@ -48,7 +48,6 @@
 
         </div>
     </div>
-    <a href="/subscribe" class="btn btn-primary btn-lg center-block" style="width:200px;">Subscribe to Email</a>
     <div class="content-section-b">
         <div class="container-fluid">
             <div class="row">
