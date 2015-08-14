@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <input type="text" class="form-control input-lg" name="username" value="<?php echo set_value('username'); ?>" autofocus placeholder="Username">
-                                    <input type="text" class="form-control input-lg margin-top-5px" name="password" placeholder="Password">
+                                    <input type="password" class="form-control input-lg margin-top-5px" name="password" placeholder="Password">
                                 </div>
                                 <div class="modal-footer">
                                     <a href="<?php echo base_url(); ?>" class="btn btn-default margin-top-5px">Back</a>
