@@ -54,15 +54,44 @@
     <hr>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <img src="/assets/img/pagasa.png" class="img-thumbnail" alt="" />
                 <h3 class="text-center"><a href="http://www.pagasa.dost.gov.ph" target="_blank">PAGASA OFFICIAL WEBSITE</a></h3>
             </div>
+            <div class="col-md-6">
+                <img src="/assets/img/phivolcs.png" class="img-thumbnail" alt="" />
+                <h3 class="text-center"><a href="http://www.phivolcs.dost.gov.ph" target="_blank">PHIVOLCS OFFICIAL WEBSITE</a></h3>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-3">
-
+                <img src="/assets/img/flood.jpg" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/img/lique.jpg" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/img/ground.jpg" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/img/tsunami.jpg" class="img-thumbnail" alt="...">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/assets/img/storm_surge.jpg" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-4">
+                <img src="/assets/img/landslide.jpg" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-4">
+                <img src="/assets/img/earthquake.jpg" class="img-thumbnail" alt="...">
             </div>
         </div>
     </div>
