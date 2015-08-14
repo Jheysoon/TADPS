@@ -11,7 +11,6 @@ class Register extends CI_Controller
                     ['field' => 'fname',    'label' => 'Firstname',     'rules' => 'required'],
                     ['field' => 'lname',    'label' => 'Lastname',      'rules' => 'required'],
                     ['field' => 'mname',    'label' => 'Middlename',    'rules' => 'required'],
-                    ['field' => 'office',   'label' => 'Office',        'rules' => 'required'],
                     ['field' => 'username', 'label' => 'Username',      'rules' => 'required'],
                     ['field' => 'password', 'label' => 'Password',      'rules' => 'required']
                 ];
@@ -26,7 +25,10 @@ class Register extends CI_Controller
             $data['fname']      = ucwords($this->input->post('fname'));
             $data['lname']      = ucwords($this->input->post('lname'));
             $data['mname']      = ucwords($this->input->post('mname'));
-            $data['office']     = ucwords($this->input->post('office'));
+            if($this->session->has_userdata('id'))
+            {
+                $data['office']     = ucwords($this->input->post('office'));
+            }
             $data['username']   = $this->input->post('username');
             $data['password']   = password_hash($this->input->post('password'), 1);
             $this->db->insert('users', $data);

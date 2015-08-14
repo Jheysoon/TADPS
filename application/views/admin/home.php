@@ -10,7 +10,8 @@
             </div>
             <div class="col-md-6">
                 <div class="well well-lg">
-
+                    <img src="/assets/img/pagasa.png" class="img-thumbnail" alt="" />
+                    <h2 class="text-center"><a href="http://www.pagasa.dost.gov.ph" target="_blank">PAGASA OFFICIAL WEBSITE</a></h2>
                 </div>
             </div>
             <div class="col-md-3">

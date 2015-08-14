@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-6">
                 <div class="well well-lg">
-
+                    
                 </div>
             </div>
             <div class="col-md-3">

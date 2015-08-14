@@ -1,6 +1,21 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-    <?php $this->load->view('includes/menu', array('active' => '')) ?>
+    <?php
+        if($this->session->has_userdata('id'))
+        {
+            $this->load->view('includes/menu', array('active' => ''));
+        }
+        else {
+            ?>
+            <div class="content-section-c">
+                <div class="container-fluid">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    ?>
 
     <div class="container-fluid">
         <div class="row">
@@ -15,13 +30,18 @@
                     <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
                     <label>Middlename</label>
                     <input type="text" class="form-control" name="mname" value="<?php echo set_value('mname') ?>">
+                    <?php if($this->session->has_userdata('id')){ ?>
                     <label>Office</label>
                     <input type="text" class="form-control" name="office" value="<?php echo set_value('office') ?>">
+                    <?php }else{ ?>
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" value="<?php echo set_value('email') ?>">
+                    <?php } ?>
                     <label>Username</label>
                     <input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?>">
                     <label>Password</label>
                     <input type="text" name="password" class="form-control" value="<?php echo set_value('password') ?>">
-                    <a href="<?php echo base_url('users') ?>" class="btn btn-default pull-left margin-top-5px">Back</a>
+                    <a href="<?php echo ($this->session->has_userdata('id')) ? base_url('users') : base_url() ?>" class="btn btn-default pull-left margin-top-5px">Back</a>
                     <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
                 </form>
             </div>

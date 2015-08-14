@@ -24,6 +24,9 @@
                     <li>
                         <a href="/login">Login</a>
                     </li>
+                    <li>
+                        <a href="/register">Register</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -46,6 +49,21 @@
 
             </div>
 
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/img/pagasa.png" class="img-thumbnail" alt="" />
+                <h3 class="text-center"><a href="http://www.pagasa.dost.gov.ph" target="_blank">PAGASA OFFICIAL WEBSITE</a></h3>
+            </div>
+            <div class="col-md-3">
+
+            </div>
         </div>
     </div>
     <div class="content-section-b">
