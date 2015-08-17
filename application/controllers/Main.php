@@ -38,7 +38,7 @@ class Main extends CI_Controller
                 $this->db->where('id', $user_id);
                 $this->db->select('type');
                 $type = $this->db->get('users')->row_array();
-                
+
                 $info = array('id' => $user_id,'type' => $type['type']);
                 // set the session
                 $this->session->set_userdata($info);
@@ -106,9 +106,14 @@ class Main extends CI_Controller
         }
     }
 
+    function wheather()
+    {
+        $this->load->view('wheather');
+    }
+
     function logout()
     {
-        $this->session->unset_userdata('id');
+        $this->session->unset_userdata(['id', 'type']);
         redirect(base_url());
     }
 }

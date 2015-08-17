@@ -15,7 +15,15 @@
                             <th>Name</th>
                             <th>Office</th>
                         </tr>
-                        <?php
+                        <tr>
+                            <td>
+                                Jude Wanda Deguito
+                            </td>
+                            <td>
+                                Red Cross
+                            </td>
+                        </tr>
+                        <!-- <?php
                             $this->db->where('type !=', 'admin');
                             $u = $this->db->get('users')->result_array();
                             foreach($u as $users)
@@ -31,7 +39,7 @@
                                 </tr>
                         <?php
                             }
-                         ?>
+                         ?> -->
                     </table>
                 </div>
             </div>

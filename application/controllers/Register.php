@@ -29,6 +29,9 @@ class Register extends CI_Controller
             {
                 $data['office']     = ucwords($this->input->post('office'));
             }
+            else {
+                $data['email']  = $this->input->post('email');
+            }
             $data['username']   = $this->input->post('username');
             $data['password']   = password_hash($this->input->post('password'), 1);
             $this->db->insert('users', $data);

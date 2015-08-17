@@ -15,6 +15,8 @@
             </div>
             <div class="col-md-4">
                 <form action="/change_password" method="post">
+                    <label>Old password</label>
+                    <input type="text" class="form-control" name="old_pass" value="<?php echo set_value('old_pass') ?>">
                     <label>New password</label>
                     <input type="text" class="form-control" name="new_pass" value="<?php echo set_value('new_pass') ?>">
                     <label>Re-peat password</label>

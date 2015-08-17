@@ -7,4 +7,9 @@ class Users extends CI_Controller
         if($this->session->userdata('type') == 'admin')
             $this->load->view('admin/all_users');
     }
+
+    function hotline()
+    {
+        $this->load->view('user/hotline');
+    }
 }

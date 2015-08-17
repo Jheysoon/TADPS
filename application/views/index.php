@@ -27,6 +27,9 @@
                     <li>
                         <a href="/register">Register</a>
                     </li>
+                    <li>
+                        <a href="http://web.pagasa.dost.gov.ph/#weather-map" target="_blank">Wheather</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -95,6 +98,38 @@
             </div>
         </div>
     </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <video src="/assets/uploads/v1.mp4" width="650" autoplay></video>
+            </div>
+            <div class="col-md-6">
+                <video src="/assets/uploads/v2.mp4" width="650" autoplay></video>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <video src="/assets/uploads/v3.mp4" width="650" autoplay></video>
+            </div>
+            <div class="col-md-6">
+                <video src="/assets/uploads/v4.mp4" width="650" autoplay></video>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <video src="/assets/uploads/v5.mp4" width="650" autoplay></video>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
     <div class="content-section-b">
         <div class="container-fluid">
             <div class="row">
@@ -126,7 +161,41 @@
             </div>
         </div>
     </div>
-
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">MISSION</div>
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">VISION</div>
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php $this->load->view('includes/footer') ?>
 
 </body>

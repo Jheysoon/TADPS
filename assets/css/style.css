@@ -62,3 +62,9 @@ textarea.form-control
     max-height: 300px;
     overflow-y: auto;
 }
+.media
+{
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+}
