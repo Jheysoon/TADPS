@@ -102,10 +102,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <video src="/assets/uploads/v1.mp4" width="650" autoplay></video>
+                <video src="/assets/uploads/v1.mp4" controls width="650"></video>
             </div>
             <div class="col-md-6">
-                <video src="/assets/uploads/v2.mp4" width="650" autoplay></video>
+                <video src="/assets/uploads/v2.mp4" controls width="650"></video>
             </div>
         </div>
     </div>
@@ -113,10 +113,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <video src="/assets/uploads/v3.mp4" width="650" autoplay></video>
+                <video src="/assets/uploads/v3.mp4" controls width="650"></video>
             </div>
             <div class="col-md-6">
-                <video src="/assets/uploads/v4.mp4" width="650" autoplay></video>
+                <video src="/assets/uploads/v4.mp4" controls width="650"></video>
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <video src="/assets/uploads/v5.mp4" width="650" autoplay></video>
+                <video src="/assets/uploads/v5.mp4" controls width="650"></video>
             </div>
             <div class="col-md-3"></div>
         </div>
