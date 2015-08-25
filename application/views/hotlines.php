@@ -1,6 +1,5 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-    <?php $this->load->view('includes/menu', array('active' => 'hotline')) ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -19,7 +18,7 @@
                       <tr class="table_header">
                           <th>Government Agency</th>
                           <th>Contact</th>
-                          <th>Action</th>
+                          <!-- <th>Action</th> -->
                       </tr>
                       <tr>
                           <td>
@@ -28,10 +27,10 @@
                           <td>
                             0909090900
                           </td>
-                          <td>
+                          <!-- <td>
                             <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
                             <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
+                          </td> -->
                       </tr>
                       <tr>
                           <td>
@@ -40,10 +39,10 @@
                           <td>
                             0912345670
                           </td>
-                          <td>
+                          <!-- <td>
                             <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
                             <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
+                          </td> -->
                       </tr>
                       <tr>
                           <td>
@@ -52,10 +51,10 @@
                           <td>
                             321-2223
                           </td>
-                          <td>
+                          <!-- <td>
                             <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
                             <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
+                          </td> -->
                       </tr>
 
 

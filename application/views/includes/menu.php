@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="border-radius:0;margin-bottom:30px">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,9 +21,13 @@
             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
             <li <?php echo $active == 'email' ? 'class="active"':'' ?>><a href="/email"><span class="fa fa-envelope fa-lg"></span> Email</a></li>
         <?php endif; ?>
+          <li <?php echo $active == 'maps' ? 'class="active"':'' ?>><a href="/hazzardmaps"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hazzard Maps</a></li>
+
             <li <?php echo $active == 'post' ? 'class="active"':'' ?>><a href="/mypost"><span class="glyphicon glyphicon-file fa-lg"></span> Post</a></li>
             <li <?php echo $active == 'messages' ? 'class="active"':'' ?>><a href="/messages"><span class="glyphicon glyphicon-comment fa-lg"></span> Chat</a></li>
+            <?php if($this->session->userdata('type') != 'admin') {?>
             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline_numbers"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
+            <?php } ?>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -40,3 +44,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<br /></br /><br />

@@ -1,6 +1,5 @@
 <?php
 
-// chat messages
 class Messages extends CI_Controller
 {
 

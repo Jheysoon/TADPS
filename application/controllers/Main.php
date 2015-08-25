@@ -116,4 +116,24 @@ class Main extends CI_Controller
         $this->session->unset_userdata(['id', 'type']);
         redirect(base_url());
     }
+    function hazzard(){
+      $this->load->view('includes/header');
+      $this->load->view('includes/outsidemenu');
+      $this->load->view('hazzardmap');
+      $this->load->view('includes/footer');
+    }
+    function hot()
+    {
+      $this->load->view('includes/header');
+      $this->load->view('includes/outsidemenu');
+      $this->load->view('hotlines');
+      $this->load->view('includes/footer');
+    }
+    function hazzardmaps()
+    {
+      $this->load->view('includes/header');
+      $this->load->view('includes/menu', array('active' =>  'maps'));
+      $this->load->view('hazzardmap');
+      $this->load->view('includes/footer');
+    }
 }

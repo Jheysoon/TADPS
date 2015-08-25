@@ -2,37 +2,37 @@
 <body>
     <?php $this->load->view('includes/menu', array('active' => 'email')) ?>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
 
-            </div>
-            <div class="col-md-6">
-                <div class="well well-lg">
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email Address</th>
-                            <th>
-                                Action
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                Mary Jude Wanda Deguito
-                            </td>
-                            <td>
-                                jude@gmail.com
-                            </td>
-                            <td>
-                                <a href="/" class="btn btn-danger btn-xs">Delete</a>
-                            </td>
-                        </tr>
-                    </table>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><h3 class="panel-title">List of Emails</h3></div>
+                  <div class="panel-body">
+                    <table class="table table-bordered">
+                          <tr class="table_header">
+                              <th>Name</th>
+                              <th>Email Address</th>
+                              <th>
+                                  Action
+                              </th>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Mary Jude Wanda Deguito
+                              </td>
+                              <td>
+                                  jude@gmail.com
+                              </td>
+                              <td>
+                                  <a href="/" class="btn btn-danger btn-xs">Delete</a>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-3">
+
 
             </div>
+
         </div>
     </div>
     <?php $this->load->view('includes/footer') ?>

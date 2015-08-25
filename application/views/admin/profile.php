@@ -16,6 +16,18 @@
                             <td>Name</td>
                             <td><?php echo $fname.' '.$lname.' '.$mname ?></td>
                         </tr>
+                        <tr>
+                          <td>Address</td>
+                          <td>Barangay Burayan San Jose, Tacloban City</td>
+                        </tr>
+                        <tr>
+                          <td>Contact Number</td>
+                          <td>0909090999</td>
+                        </tr>
+                        <tr>
+                          <td>Email Address</td>
+                          <td>maryjudewanda@gmail.com</td>
+                        </tr>
                     </table>
 
                 </div>
