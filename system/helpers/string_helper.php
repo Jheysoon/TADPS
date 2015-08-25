@@ -253,11 +253,41 @@ if ( ! function_exists('increment_string'))
 	 */
 	function increment_string($str, $separator = '_', $first = 1)
 	{
-		preg_match('/(.+)'.$separator.'([0-9]+)$/', $str, $match);
+		preg_match('/(.+)'.preg_quote($separator, '/').'([0-9]+)$/', $str, $match);
 		return isset($match[2]) ? $match[1].$separator.($match[2] + 1) : $str.$separator.$first;
 	}
 }
 
+
+if( ! function_exists('increment_exists'))
+{
+	// @todo:
+	// input hello_2
+	// but hello_1 is not in array
+	// so hello_1 is return not hello_3
+	function increment_exists($str, $data, $separator = '', $first = 1)
+	{
+		// get the integer in string
+		//preg_match('!\d+!', $str, $matches);
+
+		// get the string in string
+		//preg_match('!\D+!', $str, $matches);
+
+		if(in_array($str, $data))
+		{
+			preg_match('!\D+!', $str, $matches);
+			$str = $matches[0];
+			do
+			{
+				$str = increment_string($str, $separator, $first);
+			}
+			while (in_array($str, $data));
+			return $str;
+		}
+		return $str;
+	}
+
+}
 // ------------------------------------------------------------------------
 
 if ( ! function_exists('alternator'))
