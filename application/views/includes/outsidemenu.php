@@ -13,24 +13,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                  <a href="#about"><span class="fa fa-comment"></span>&nbsp;About</a>
-              </li>
-              <li>
-                <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
-              </li>
-              <li>
-                <a href="/hazzard"><span class="fa fa-map   "></span>&nbsp;Hazzard Maps</a>
-              </li>
+                <li>
+                    <a href="#about"><span class="fa fa-comment"></span>&nbsp;About</a>
+                </li>
+                <li>
+                    <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
+                </li>
+                <li>
+                    <a href="/hazzard"><span class="fa fa-map   "></span>&nbsp;Hazzard Maps</a>
+                </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
                 </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#reg">Register</a>
                 </li>
-                <!-- <li>
-                    <a href="http://web.pagasa.dost.gov.ph/#weather-map" target="_blank">Weather</a>
-                </li> -->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
