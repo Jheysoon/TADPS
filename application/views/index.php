@@ -77,12 +77,12 @@
             <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Weather</h4></div>
             <div class="panel-body">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal">
+                    <!-- <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"> -->
                 <!--
                 By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
                 -->
                     </a>
-                    <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+                    <!-- <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script> -->
                 </a>
             </div>
         </div>
@@ -95,7 +95,7 @@
     ?>
     <script type="text/javascript">
         $('.carousel').carousel({
-            interval: false;
+            interval: false
         });
         $('#button').click(function(){
            $("input[type='file']").trigger('click');
@@ -103,6 +103,27 @@
 
         $("input[type='file']").change(function(){
            $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+        });
+        $('#login_form').on('submit', function(e){
+            var $btn    = $('#btnSubmit').button('loading');
+            $username   = $('input[name=username]');
+            $password   = $('input[name=password]');
+            $close      = $('#close');
+            $username.attr('disabled','');
+            $password.attr('disabled','');
+            $close.attr('disabled','');
+            $.post('/login', $(this).serialize(), function(data){
+                if(data != 'success')
+                {
+                    $('#error_message').html(data);
+                    $username.removeAttr('disabled');
+                    $password.removeAttr('disabled');
+                    $close.removeAttr('disabled');
+                    $btn.button('reset');
+                }
+            });
+            e.preventDefault();
+
         });
     </script>
 </body>

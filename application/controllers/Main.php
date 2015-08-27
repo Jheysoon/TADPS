@@ -24,7 +24,9 @@ class Main extends CI_Controller
         $this->form_validation->set_rules($rules);
 
         if($this->form_validation->run() === FALSE)
-            $this->load->view('login', $data);
+        {
+            echo '<div class="alert alert-danger">Username/Password is required </div>';
+        }
         else
         {
             $username = $this->input->post('username');
@@ -42,12 +44,14 @@ class Main extends CI_Controller
                 $info = array('id' => $user_id,'type' => $type['type']);
                 // set the session
                 $this->session->set_userdata($info);
-                redirect(base_url());
+                //redirect(base_url());
+                echo 'success';
             }
             else
             {
-                $data['error'] = '<div class="alert alert-danger">Authentication Failed</div>';
-                $this->load->view('login', $data);
+                echo '<div class="alert alert-danger">Authentication Failed</div>';
+                // $data['error'] = '<div class="alert alert-danger">Authentication Failed</div>';
+                // $this->load->view('login', $data);
             }
         }
     }
