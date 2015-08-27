@@ -88,6 +88,22 @@
         </div>
       <br /><br />
     </div>
-    <?php $this->load->view('includes/footer') ?>
+    <?php
+        $this->load->view('forms/login');
+        $this->load->view('forms/registration');
+        $this->load->view('includes/footer');
+    ?>
+    <script type="text/javascript">
+        $('.carousel').carousel({
+            interval: false;
+        });
+        $('#button').click(function(){
+           $("input[type='file']").trigger('click');
+        });
+
+        $("input[type='file']").change(function(){
+           $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+        });
+    </script>
 </body>
 </html>
