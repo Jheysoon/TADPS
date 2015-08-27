@@ -14,13 +14,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                  <a href="#about">About</a>
+                  <a href="#about"><span class="fa fa-comment"></span>&nbsp;About</a>
               </li>
               <li>
-                <a href="/hotlines">Hotline</a>
+                <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
               </li>
               <li>
-                <a href="/hazzard">Hazzard Maps</a>
+                <a href="/hazzard"><span class="fa fa-map   "></span>&nbsp;Hazzard Maps</a>
               </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
