@@ -104,15 +104,15 @@
         $("input[type='file']").change(function(){
            $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
         });
-        $('#login_form').on('submit', function(e){
+        $('#login_form').submit(function(e){
             var $btn    = $('#btnSubmit').button('loading');
-            $username   = $('input[name=username]');
-            $password   = $('input[name=password]');
+            $username   = $('input[name=username1]');
+            $password   = $('input[name=password1]');
             $close      = $('#close');
             $username.attr('disabled','');
             $password.attr('disabled','');
             $close.attr('disabled','');
-            $.post('/login', $(this).serialize(), function(data){
+            $.post('/login', {username:$username.val(), password:$password.val()}, function(data){
                 if(data != 'success')
                 {
                     $('#error_message').html(data);
@@ -120,6 +120,9 @@
                     $password.removeAttr('disabled');
                     $close.removeAttr('disabled');
                     $btn.button('reset');
+                }
+                else {
+                    location.href = '/';
                 }
             });
             e.preventDefault();
