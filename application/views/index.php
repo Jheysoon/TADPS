@@ -94,39 +94,40 @@
         $this->load->view('includes/footer');
     ?>
     <script type="text/javascript">
-        $('.carousel').carousel({
-            interval: false
-        });
-        $('#button').click(function(){
-           $("input[type='file']").trigger('click');
-        });
-
-        $("input[type='file']").change(function(){
-           $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
-        });
-        $('#login_form').submit(function(e){
-            var $btn    = $('#btnSubmit').button('loading');
-            $username   = $('input[name=username1]');
-            $password   = $('input[name=password1]');
-            $close      = $('#close');
-            $username.attr('disabled','');
-            $password.attr('disabled','');
-            $close.attr('disabled','');
-            $.post('/login', {username:$username.val(), password:$password.val()}, function(data){
-                if(data != 'success')
-                {
-                    $('#error_message').html(data);
-                    $username.removeAttr('disabled');
-                    $password.removeAttr('disabled');
-                    $close.removeAttr('disabled');
-                    $btn.button('reset');
-                }
-                else {
-                    location.href = '/';
-                }
+        $(document).ready(function(){
+            $('.carousel').carousel({
+                interval: false
             });
-            e.preventDefault();
+            $('#button').click(function(){
+               $("input[type='file']").trigger('click');
+            });
 
+            $("input[type='file']").change(function(){
+               $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+            });
+            $('#login_form').submit(function(e){
+                var $btn    = $('#btnSubmit').button('loading');
+                $username   = $('input[name=username1]');
+                $password   = $('input[name=password1]');
+                $close      = $('#close');
+                $username.attr('disabled','');
+                $password.attr('disabled','');
+                $close.attr('disabled','');
+                $.post('/login', {username:$username.val(), password:$password.val()}, function(data){
+                    if(data != 'success')
+                    {
+                        $('#error_message').html(data);
+                        $username.removeAttr('disabled');
+                        $password.removeAttr('disabled');
+                        $close.removeAttr('disabled');
+                        $btn.button('reset');
+                    }
+                    else {
+                        location.href = '/';
+                    }
+                });
+                e.preventDefault();
+            });
         });
     </script>
 </body>
