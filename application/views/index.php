@@ -6,7 +6,7 @@
     <!-- Navigation -->
   <!--Videos and Links  -->
 
-<div class="contaner-fluid">
+<div class="container-fluid">
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title"><span class="glyphicon glyphicon-film"></span>&nbsp;&nbsp;Videos</h4></div>
@@ -34,7 +34,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo">
                 <h4 class="panel-title">
-                    <span class="glyphicon glyphicon-list-alt"></span>
+                    <span class="fa fa-newspaper-o"></span>
                     &nbsp;&nbsp;Announcement
                 </h4>
             </div>
