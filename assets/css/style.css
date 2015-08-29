@@ -89,3 +89,23 @@ textarea.form-control
     opacity: 0;
     filter: alpha(opacity=0);
 }
+.aw-widget-36hour,.gte-950
+{
+    width:80%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+#gov_modal
+{
+    max-height:400px;
+    overflow-y: auto;
+}
+#no_scroll
+{
+    overflow: hidden;
+}
+.fa-facebook-square
+{
+    color: #4374e0;
+}

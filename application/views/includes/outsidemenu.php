@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand topnav" href="#">TADPS</a>
+            <img src="/assets/img/logo1.jpg" class="img-circle" alt="" style="width:40px;padding-top:6px;" />
+            <a class="navbar-brand topnav" href="/">CDRRMO </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,7 +21,10 @@
                     <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
                 </li>
                 <li>
-                    <a href="/hazzard"><span class="fa fa-map   "></span>&nbsp;Hazzard Maps</a>
+                    <a href="/hazzard"><span class="fa fa-map"></span>&nbsp;Hazzard Maps</a>
+                </li>
+                <li>
+                    <a href="/locator"><span class="fa fa-globe fa-lg"></span>&nbsp;Locator</a>
                 </li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#myModal">Login</a>

@@ -10,8 +10,8 @@
                     <div id="error_message">
 
                     </div>
-                    <input type="text" class="form-control input-lg" name="username"  autofocus placeholder="Username">
-                    <input type="password" class="form-control input-lg margin-top-5px" name="password" placeholder="Password">
+                    <input type="text" class="form-control input-lg" name="username1"  autofocus placeholder="Username" required>
+                    <input type="password" class="form-control input-lg margin-top-5px" name="password1" placeholder="Password" required>
                     <div class="modal-footer">
                         <a href="#" data-dismiss="modal" id="close" class="btn btn-default margin-top-5px">Close</a>
                         <button type="submit" class="btn btn-primary pull-right margin-top-5px" id="btnSubmit" data-loading-text="Loading..." name="btnSubmit">Login</button>

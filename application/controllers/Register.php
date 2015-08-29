@@ -18,25 +18,49 @@ class Register extends CI_Controller
 
         if($this->form_validation->run() === FALSE)
         {
-            $this->load->view('user/register');
+            echo '<div class="alert alert-danger text-center">Username/Password is required</div>';
         }
         else
         {
-            $data['fname']      = ucwords($this->input->post('fname'));
-            $data['lname']      = ucwords($this->input->post('lname'));
-            $data['mname']      = ucwords($this->input->post('mname'));
-            if($this->session->has_userdata('id'))
+            $username = $this->input->post('username');
+            $this->db->where('username', $username);
+            $count = $this->db->count_all_results('users');
+            if($count > 0)
             {
-                $data['office']     = ucwords($this->input->post('office'));
-            }
-            else {
-                $data['email']  = $this->input->post('email');
-            }
-            $data['username']   = $this->input->post('username');
-            $data['password']   = password_hash($this->input->post('password'), 1);
-            $this->db->insert('users', $data);
-            redirect('/register');
-        }
+                $this->load->helper('string');
 
+                $ar     = $this->db->get('users')->result_array();
+                $data   = array();
+
+                foreach($ar as $user)
+                {
+                    $data[] = $user['username'];
+                }
+
+                $suggest = increment_exists($username, $data);
+                echo '<div class="alert alert-danger text-center">
+                        Username is already taken <br/>
+                        Recommended username: '.$suggest.'</div>';
+            }
+            else
+            {
+                $data['fname']      = ucwords($this->input->post('fname'));
+                $data['lname']      = ucwords($this->input->post('lname'));
+                $data['mname']      = ucwords($this->input->post('mname'));
+                if($this->session->has_userdata('id'))
+                {
+                    $data['office']     = ucwords($this->input->post('office'));
+                    $data['type']       = 'ngo';
+                }
+                else
+                {
+                    $data['email']  = $this->input->post('email');
+                }
+                $data['username']   = $username;
+                $data['password']   = password_hash($this->input->post('password'), 1);
+                $this->db->insert('users', $data);
+                echo 'Successfully registered';
+            }
+        }
     }
 }

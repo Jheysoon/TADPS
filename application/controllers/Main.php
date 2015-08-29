@@ -12,47 +12,31 @@ class Main extends CI_Controller
     }
     function login()
     {
-        $this->load->library('form_validation');
-        $this->load->helper('form');
+        //echo '<div class="alert alert-danger">Username/Password is required </div>';
 
-        $data['error'] = '';
-        //rules
-        $rules = [
-                    ['field' => 'username', 'label' => 'Username', 'rules' => 'trim|required'],
-                    ['field' => 'password', 'label' => 'Password', 'rules' => 'trim|required']
-                ];
-        $this->form_validation->set_rules($rules);
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
 
-        if($this->form_validation->run() === FALSE)
+        $this->load->model('user');
+
+        $user_id = $this->user->login($username, $password);
+        if($user_id != FALSE)
         {
-            echo '<div class="alert alert-danger">Username/Password is required </div>';
+            $this->db->where('id', $user_id);
+            $this->db->select('type');
+            $type = $this->db->get('users')->row_array();
+
+            $info = array('id' => $user_id,'type' => $type['type']);
+            // set the session
+            $this->session->set_userdata($info);
+            //redirect(base_url());
+            echo 'success';
         }
         else
         {
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-
-            $this->load->model('user');
-
-            $user_id = $this->user->login($username, $password);
-            if($user_id != FALSE)
-            {
-                $this->db->where('id', $user_id);
-                $this->db->select('type');
-                $type = $this->db->get('users')->row_array();
-
-                $info = array('id' => $user_id,'type' => $type['type']);
-                // set the session
-                $this->session->set_userdata($info);
-                //redirect(base_url());
-                echo 'success';
-            }
-            else
-            {
-                echo '<div class="alert alert-danger">Authentication Failed</div>';
-                // $data['error'] = '<div class="alert alert-danger">Authentication Failed</div>';
-                // $this->load->view('login', $data);
-            }
+            echo '<div class="alert alert-danger text-center">Authentication Failed</div>';
+            // $data['error'] = '<div class="alert alert-danger">Authentication Failed</div>';
+            // $this->load->view('login', $data);
         }
     }
 

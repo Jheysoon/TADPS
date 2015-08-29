@@ -1,5 +1,15 @@
 <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:30px;padding:0;text-align:center;margin-top:50px;">
-  <p class="copyright text-muted small" style="color:white">Copyright &copy; TADPS <?php echo date('Y') ?>. All Rights Reserved</p>
+    <p class="copyright text-muted small" style="color:white">
+        Developers:
+        <a href="#" class="btn btn-link">Firstname, Lastname</a>
+        <span class="fa fa-facebook-square fa-lg"></span>
+        &nbsp;&nbsp;
+        <a href="#" class="btn btn-link">Firstname, Lastname</a>
+        <span class="fa fa-facebook-square fa-lg"></span>
+        &nbsp;&nbsp;
+        <a href="#" class="btn btn-link">Firstname, Lastname</a>
+        <span class="fa fa-facebook-square fa-lg"></span>
+    </p>
 </div>
 </div>
 

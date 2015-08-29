@@ -69,3 +69,4 @@ $route['email']                 = 'subscribe/all';
 $route['add_post']              = 'post/add_post';
 $route['wheather']              = 'main/wheather';
 $route['hotline_numbers']       = 'users/hotline';
+$route['hazzard']               = 'main/hazzard';
