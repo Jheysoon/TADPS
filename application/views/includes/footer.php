@@ -11,7 +11,6 @@
         <span class="fa fa-facebook-square fa-lg"></span>
     </p>
 </div>
-</div>
 
 <script src="/assets/js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
