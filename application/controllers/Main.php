@@ -94,9 +94,9 @@ class Main extends CI_Controller
         }
     }
 
-    function wheather()
+    function locator()
     {
-        $this->load->view('wheather');
+        $this->load->view('locator');
     }
 
     function logout()
