@@ -8,17 +8,10 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12" style="height:340px;">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Weather</h4></div>
-                <div class="panel-body">
-                    <div class="" style="">
-                        <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"></a>
-                        <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div>
-                        <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-12" style="height:300px;">
+                <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"></a>
+                <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div>
+                <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
             <br /><br />
         </div>
     </div>
@@ -27,7 +20,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="row well" style="min-height:200px;">
+            <div class="row well" style="min-height:250px;">
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
