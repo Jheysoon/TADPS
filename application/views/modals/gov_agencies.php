@@ -1,9 +1,9 @@
 <div class="modal fade" id="gov_agencies" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header navbar-inverse">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">
+                <h4 class="modal-title" id="myModalLabel" style="color:#fff;">
                     &nbsp;Government Agencies
                 </h4>
             </div>
