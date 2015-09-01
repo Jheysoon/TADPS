@@ -53,7 +53,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
- 	date_default_timezone_set('Asia/Manila');
+	date_default_timezone_set('Asia/Manila');
     ini_set('upload_max_filesize', '10M');
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
