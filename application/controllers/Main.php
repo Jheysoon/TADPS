@@ -163,4 +163,9 @@ class Main extends CI_Controller
       $this->load->view('hazzardmap');
       $this->load->view('includes/footer');
     }
+
+    function locator()
+    {
+        $this->load->view('locator');
+    }
 }
