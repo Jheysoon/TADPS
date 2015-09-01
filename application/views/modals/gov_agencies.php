@@ -11,12 +11,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="text-center h3" href="http://www.pagasa.dost.gov.ph">PAGASA</a>
+                            <a class="text-center h3" href="http://www.pagasa.dost.gov.ph" target="_blank">PAGASA</a>
                             <img src="/assets/img/pagasa.png" class="img-thumbnail" alt="" />
                             <br>
                         </div>
                         <div class="col-md-12">
-                            <a class="text-center h3" href="http://www.phivolcs.dost.gov.ph">PHIVOLCS</a>
+                            <a class="text-center h3" href="http://www.phivolcs.dost.gov.ph" target="_blank">PHIVOLCS</a>
                             <img src="/assets/img/phivolcs.png" class="img-thumbnail" alt="" />
                             <br>
                         </div>
