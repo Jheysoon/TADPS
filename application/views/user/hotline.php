@@ -3,10 +3,7 @@
     <?php $this->load->view('includes/menu', array('active' => 'hotline')) ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="well well-lg">
                     <h2 class="text-center">Hotline Numbers <span class="glyphicon glyphicon-earphone"></span></h2>
                     <table class="table">
@@ -28,9 +25,6 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-            <div class="col-md-3">
-
             </div>
         </div>
     </div>

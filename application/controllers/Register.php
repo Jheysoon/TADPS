@@ -18,7 +18,7 @@ class Register extends CI_Controller
 
         if($this->form_validation->run() === FALSE)
         {
-            echo '<div class="alert alert-danger text-center">Username/Password is required</div>';
+            echo '<div class="alert alert-danger text-center">All fields are required</div>';
         }
         else
         {
@@ -47,18 +47,10 @@ class Register extends CI_Controller
                 $data['fname']      = ucwords($this->input->post('fname'));
                 $data['lname']      = ucwords($this->input->post('lname'));
                 $data['mname']      = ucwords($this->input->post('mname'));
-                if($this->session->has_userdata('id'))
-                {
-                    $data['office']     = ucwords($this->input->post('office'));
-                    $data['type']       = 'ngo';
-                }
-                else
-                {
-                    $data['email']  = $this->input->post('email');
-                }
+                $data['email']      = $this->input->post('email');
                 $data['username']   = $username;
                 $data['password']   = password_hash($this->input->post('password'), 1);
-                $this->db->insert('users', $data);
+                //$this->db->insert('users', $data);
                 echo 'Successfully registered';
             }
         }

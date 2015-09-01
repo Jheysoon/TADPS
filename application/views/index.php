@@ -8,10 +8,17 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12" style="height:300px;">
-                <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"></a>
-                <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div>
-                <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+        <div class="col-md-12" style="height:340px;">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Weather</h4></div>
+                <div class="panel-body">
+                    <div class="" style="">
+                        <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"></a>
+                        <div id="awtd1440249309919" class="aw-widget-36hour"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1440249309919" data-editlocation="true"></div>
+                        <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+                    </div>
+                </div>
+            </div>
             <br /><br />
         </div>
     </div>
@@ -20,7 +27,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="row well" style="min-height:250px;">
+            <div class="row well" style="min-height:200px;">
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -87,53 +94,8 @@
             $("input[type='file']").change(function(){
                $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
             });
-            $('#login_form').submit(function(e){
-                var $btn    = $('#btnSubmit').button('loading');
-                $username   = $('input[name=username1]');
-                $password   = $('input[name=password1]');
-                $close      = $('#close');
-                $username.attr('disabled','');
-                $password.attr('disabled','');
-                $close.attr('disabled','');
-                $.post('/login', {username:$username.val(), password:$password.val()}, function(data){
-                    if(data != 'success')
-                    {
-                        $('#error_message').html(data);
-                        $username.removeAttr('disabled').focus();
-                        $password.removeAttr('disabled');
-                        $close.removeAttr('disabled');
-                        $btn.button('reset');
-                    }
-                    else {
-                        location.href = '/';
-                    }
-                });
-                e.preventDefault();
-            });
-            $('#myModal, #reg').on('show.bs.modal', function(){
-                $('input[name=password1]').val('');
-                $('#error_message').html('');
-                $('input[name=username1]').val('');
-
-                $('input[name=password], input[name=username], input[name=fname], input[name=lname], input[name=mname], input[name=contact], input[name=email], input[name=con_pass]').val('');
-            });
-            $('#register_form').submit(function(e){
-                $.post('/register', $(this).serialize(), function(data){
-                    if(data != 'Successfully registered')
-                    {
-                        $('#register_error').html(data);
-                    }
-                    else
-                    {
-                        // empty all the values in textbox
-                        $('input[name=password], input[name=username], input[name=fname], input[name=lname], input[name=mname], input[name=contact], input[name=email], input[name=con_pass]').val('');
-                        $('input[name=fname]').focus();
-                        $('#register_error').html('<div class="alert alert-success text-center">Successfully Registered</div>');
-                    }
-                });
-                e.preventDefault();
-            });
         });
     </script>
+    <script type="text/javascript" src="/assets/js/login_register.js"></script>
 </body>
 </html>

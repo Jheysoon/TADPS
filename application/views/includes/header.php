@@ -15,8 +15,9 @@
 
     <!-- Custom CSS -->
     <link href="/assets/css/landing-page.css" rel="stylesheet">
+    <link href="/assets/css/getui-overlay.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
-
+    
     <!-- Custom Fonts -->
     <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="<?php echo base_url('assets/img/logo1.jpg'); ?>">

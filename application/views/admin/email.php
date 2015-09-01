@@ -23,7 +23,7 @@
                                   jude@gmail.com
                               </td>
                               <td>
-                                  <a href="/" class="btn btn-danger btn-xs">Delete</a>
+                                  <a href="/" class="btn btn-danger btn-xs btn-block">Delete</a>
                               </td>
                           </tr>
                       </table>

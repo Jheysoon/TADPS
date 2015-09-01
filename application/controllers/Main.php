@@ -74,29 +74,70 @@ class Main extends CI_Controller
         $this->load->view('change_pass');
     }
 
-    function hotline()
+    function hotline($id = '')
     {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        if(empty($id))
+        {
+            $this->load->helper('form');
+            $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('office', 'Office', 'required');
-        $this->form_validation->set_rules('number', 'Telephone Number', 'required');
+            $this->form_validation->set_rules('office', 'Office', 'required');
+            $this->form_validation->set_rules('number', 'Telephone Number', 'required');
 
-        if($this->form_validation->run() === FALSE)
-            $this->load->view('admin/hotline');
+            if($this->form_validation->run() === FALSE)
+            {
+                $d['id']        = '';
+                $d['office']    = '';
+                $d['num']       = '';
+                $this->load->view('admin/hotline', $d);
+            }
+            else
+            {
+                $data['office'] = ucwords($this->input->post('office'));
+                $data['num']    = $this->input->post('number');
+
+                $this->db->insert('hotlines', $data);
+                redirect('/hotline');
+            }
+        }
         else
         {
-            $data['office'] = ucwords($this->input->post('office'));
-            $data['num']    = $this->input->post('number');
+            $this->load->helper('form');
+            $this->load->library('form_validation');
 
-            $this->db->insert('hotlines', $data);
-            redirect('/hotline');
+            $this->form_validation->set_rules('office', 'Office', 'required');
+            $this->form_validation->set_rules('number', 'Telephone Number', 'required');
+            if($this->form_validation->run() === FALSE)
+            {
+                $this->db->where('id', $id);
+                $h = $this->db->get('hotlines')->row_array();
+
+                $d['office']    = $h['office'];
+                $d['id']        = $h['id'];
+                $d['num']       = $h['num'];
+                $this->load->view('admin/hotline', $d);
+            }
+            else
+            {
+                $data['office'] = $this->input->post('office');
+                $data['num']    = $this->input->post('number');
+                $this->db->where('id', $id);
+                $this->db->update('hotlines', $data);
+                redirect('/hotline');
+            }
         }
     }
 
-    function locator()
+    function hotline_delete($id)
     {
-        $this->load->view('locator');
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+        redirect('/hotline');
+    }
+
+    function wheather()
+    {
+        $this->load->view('wheather');
     }
 
     function logout()
@@ -104,11 +145,9 @@ class Main extends CI_Controller
         $this->session->unset_userdata(['id', 'type']);
         redirect(base_url());
     }
-    function hazzard(){
-      $this->load->view('includes/header');
-      $this->load->view('includes/outsidemenu');
+    function hazzard()
+    {
       $this->load->view('hazzardmap');
-      $this->load->view('includes/footer');
     }
     function hot()
     {

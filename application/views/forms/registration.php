@@ -33,7 +33,7 @@
                     <input type="password" name="con_pass" class="form-control" value="">
                     <div class="modal-footer">
                         <a href="#" data-dismiss="modal" class="btn btn-default margin-top-5px">Close</a>
-                        <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
+                        <input type="submit" id="reg_button" data-loading-text="Loading..." class="btn btn-primary pull-right margin-top-5px" value="Register">
                     </div>
                 </form>
             </div>

@@ -8,7 +8,8 @@
                 <div class="well well-lg">
                     <span class="clearfix"></span>
                     <br/>
-                    <form class="form-horizontal" action="/register" method="post">
+                    <?php echo $error; ?>
+                    <form class="form-horizontal" action="/users" method="post">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Firstname</label>
@@ -40,7 +41,7 @@
                             <div class="form-group">
                               <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Contact Number</label>
                               <div class="col-sm-8">
-                                <input type="number" class="form-control" name="contact" value="<?php echo set_value('contact') ?>">
+                                <input type="number" class="form-control" maxlength="11" name="contact" value="<?php echo set_value('contact') ?>">
                               </div>
                             </div>
                             <div class="form-group">
@@ -69,61 +70,41 @@
                             </div>
                         </div>
 
-
-                        <!-- <?php if($this->session->has_userdata('id')){ ?>
-                        <?php }else{ ?>
-                        <label>Contact Number</label>
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" value="<?php echo set_value('email') ?>">
-                        <?php } ?> -->
-                        <!-- <a href="<?php echo ($this->session->has_userdata('id')) ? base_url('users') : base_url() ?>" class="btn btn-default pull-left margin-top-5px">Back</a> -->
-
                     </form>
-                                        <!-- <a href="/register" class="btn btn-primary pull-right">Add New User</a> -->
                     <table class="table table-bordered">
                         <tr class="table_header">
-                            <th>Name</th>
-                            <th>Office</th>
-                            <th>Contact</th>
-                            <th>Action</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Office</th>
+                            <th class="text-center">Contact</th>
+                            <th class="text-center">Action</th>
                         </tr>
-                        <tr>
-                            <td>
-                                Jude Wanda Deguito
-                            </td>
-                            <td>
-                                Red Cross
-                            </td>
-                            <td>
-                              0909090900
-                            </td>
-                            <td>
-                              <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                              <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                            </td>
-
-                        </tr>
-                        <!-- <?php
-                            $this->db->where('type !=', 'admin');
+                        <?php
+                            $this->db->where('type', 'ngo');
                             $u = $this->db->get('users')->result_array();
                             foreach($u as $users)
                             {
                                 ?>
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         <?php echo $users['fname'].' '.$users['lname'].' '.$users['mname'] ?>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <?php echo $users['office'] ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php echo $users['contact'] ?>
+                                    </td>
+                                    <td>
+                                      <a href="#" class="label label-info col-sm-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                                      <a href="#" class="label label-danger col-sm-5 col-sm-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                                     </td>
                                 </tr>
                         <?php
                             }
-                         ?> -->
+                         ?>
                     </table>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
     </div>
 

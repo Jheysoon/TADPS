@@ -6,59 +6,42 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="well well-lg">
                   <?php if ($this->session->userdata('type') == 'admin'): ?>
-                    <form class="" action="index.html" method="post">
+                    <form class="" action="<?php echo empty($id) ? '/hotline' : '/hotline/'.$id ?>" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id ?>">
                         <label>Government Agency</label>
-                        <input type="text" name="office" class="form-control" value="">
+                        <input type="text" name="office" class="form-control" value="<?php echo $office ?>">
                         <label>Contact No.</label>
-                        <input type="text" name="number" class="form-control" value="">
-                        <input type="submit" name="name" class="btn btn-primary pull-right margin-top-5px" value="Add" style="margin-bottom:10px;">
+                        <input type="text" name="number" class="form-control" value="<?php echo $num ?>">
+                        <input type="submit" name="name" class="btn btn-primary pull-right margin-top-5px" value="<?php echo empty($id) ? 'Add' : 'Save' ?>" style="margin-bottom:10px;">
                         <span class="clearfix"></span>
                     </form>
                   <?php endif; ?>
                   <table class="table table-bordered">
-                      <tr class="table_header">
-                          <th>Government Agency</th>
-                          <th>Contact</th>
-                          <th>Action</th>
-                      </tr>
-                      <tr>
-                          <td>
-                              Red Cross
-                          </td>
-                          <td>
-                            0909090900
-                          </td>
-                          <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              Philippine National Police Tacloban City
-                          </td>
-                          <td>
-                            0912345670
-                          </td>
-                          <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              BUREAU OF FIRE AND PROTECTION
-                          </td>
-                          <td>
-                            321-2223
-                          </td>
-                          <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td>
-                      </tr>
-
-
+                        <tr class="table_header">
+                            <th>Government Agency</th>
+                            <th>Contact</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        <?php
+                            $h = $this->db->get('hotlines')->result_array();
+                            foreach($h as $hotline)
+                            {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php  echo $hotline['office']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $hotline['num'] ?>
+                                    </td>
+                                    <td>
+                                        <a href="/hotline/<?php echo $hotline['id'] ?>" class="label label-info col-md-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                                        <a href="/hotline_delete/<?php echo $hotline['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="label label-danger col-md-5 col-md-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                         ?>
                   </table>
                 </div>
                 <div class="col-md-12">
