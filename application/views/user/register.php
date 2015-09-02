@@ -1,29 +1,26 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-    <?php
-        if($this->session->has_userdata('id'))
-        {
-            $this->load->view('includes/menu', array('active' => ''));
-        }
-        else {
-            ?>
-            <div class="content-section-c">
-                <div class="container-fluid">
-                    <div class="row">
-                    </div>
-                </div>
-            </div>
-    <?php
-        }
-    ?>
-
+    <?php $this->load->view('includes/outsidemenu') ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
-                <form class="" action="/register" method="post">
+            <div class="col-md-4 col-md-offset-4">
+                <form action="/register" method="post" enctype="multipart/form-data">
+                    <?php
+                        echo $error;
+                        echo $this->session->flashdata('message');
+                    ?>
+                    <div class="fileinput fileinput-new center-block" style="margin-left:100px;" data-provides="fileinput">
+                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="userfile">
+                            </span>
+                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                    </div>
+                    <br>
                     <label>Firstname</label>
                     <input type="text" class="form-control" name="fname" value="<?php echo set_value('fname') ?>" autofocus>
                     <label>Lastname</label>
@@ -49,12 +46,12 @@
                     <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
                 </form>
             </div>
-            <div class="col-md-4">
-
-            </div>
         </div>
     </div>
-
+    <br><br><br>
     <?php $this->load->view('includes/footer') ?>
+    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js">
+
+    </script>
 </body>
 </html>

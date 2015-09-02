@@ -30,7 +30,7 @@
                     <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#reg">Register</a>
+                    <a href="/register">Register</a>
                 </li>
             </ul>
         </div>

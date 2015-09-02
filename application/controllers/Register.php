@@ -18,7 +18,8 @@ class Register extends CI_Controller
 
         if($this->form_validation->run() === FALSE)
         {
-            echo '<div class="alert alert-danger text-center">All fields are required</div>';
+            $d['error'] = validation_errors();
+            $this->load->view('user/register', $d);
         }
         else
         {
@@ -38,9 +39,10 @@ class Register extends CI_Controller
                 }
 
                 $suggest = increment_exists($username, $data);
-                echo '<div class="alert alert-danger text-center">
+                $d['error'] = '<div class="alert alert-danger text-center">
                         Username is already taken <br/>
                         Recommended username: '.$suggest.'</div>';
+                $this->load->view('user/register', $d);
             }
             else
             {
@@ -59,12 +61,14 @@ class Register extends CI_Controller
                     $data['email']      = $this->input->post('email');
                     $data['username']   = $username;
                     $data['password']   = password_hash($this->input->post('password'), 1);
-                    //$this->db->insert('users', $data);
-                    echo 'Successfully registered';
+                    $this->db->insert('users', $data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully registered</div');
+                    redirect('/register');
                 }
                 else
                 {
-                    echo 'Please select a photo';
+                    $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                    $this->load->view('user/register', $d);
                 }
             }
         }

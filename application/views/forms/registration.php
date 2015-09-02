@@ -6,7 +6,7 @@
                 <h4 class="modal-title" id="myModalLabel" style="color:white">Please Register</h4>
             </div>
             <div class="modal-body">
-                <form class="" action="/register" method="post" id="register_form">
+                <form class="" action="/register" method="post" id="register_form" enctype="multipart/form-data">
                     <div id="register_error">
 
                     </div>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
 
-
+                    <br>
                     <label>Firstname</label>
                     <input type="text" class="form-control" name="fname" value="">
                     <label>Lastname</label>
