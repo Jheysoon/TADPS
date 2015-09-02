@@ -5,8 +5,11 @@ class Main extends CI_Controller
     function index()
     {
         if(!$this->session->has_userdata('id'))
-        //if(FALSE)
+        {
+            $this->load->helper('text');
+            $this->load->model('announce');
             $this->load->view('index');
+        }
         else
             $this->home();
     }
