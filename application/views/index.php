@@ -37,8 +37,16 @@
                             </h4>
                         </div>
                         <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod <a href="#" data-toggle="modal" data-target="#announcement"> . . . See More</a>
+                            <?php
+                                $a = $this->announce->latest();
+                                if(strlen($a['message']) > 50)
+                                {
+                                    echo character_limiter($a['message'], 50);
+                                    ?>
+                                    <a href="#" data-toggle="modal" data-target="#announcement">See More</a>
+                            <?php
+                                }
+                            ?>
                             <br>
                         </div>
                     </div>
