@@ -31,10 +31,47 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <?php
+                                    $m = $this->db->get('hazard_maps')->result_array();
+                                    $ctr = 1;
+                                    foreach($m as $maps)
+                                    {
+                                        if($ctr == 1)
+                                        {
+                                            ?>
+                                            <div class="col-md-12" style="margin-top:10px;">
+                                    <?php
+                                        }
+                                        ?>
+                                        <div class="col-md-4">
+                                            <figure class="uk-overlay uk-overlay-hover" href="">
+                                                <a href="#" data-param="<?php echo $maps['pic'] ?>" class="hazzardmap">
+                                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" class="img-thumbnail" alt="...">
+                                                    <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <?php
+                                        if($ctr == 3)
+                                        {
+                                            $ctr = 0;
+                                            ?>
+                                            </div>
+                                    <?php
+                                        }
+                                        $ctr++;
+                                    }
+                                 ?>
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <?php $this->load->view('includes/footer') ?>
     <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
