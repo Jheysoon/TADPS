@@ -44,14 +44,28 @@ class Register extends CI_Controller
             }
             else
             {
-                $data['fname']      = ucwords($this->input->post('fname'));
-                $data['lname']      = ucwords($this->input->post('lname'));
-                $data['mname']      = ucwords($this->input->post('mname'));
-                $data['email']      = $this->input->post('email');
-                $data['username']   = $username;
-                $data['password']   = password_hash($this->input->post('password'), 1);
-                //$this->db->insert('users', $data);
-                echo 'Successfully registered';
+                $config['upload_path']          = './assets/uploads/';
+                // check if the attachment belongs to image
+                $config['allowed_types']        = 'jpg|png|jpeg';
+                $config['max_size']             = 2048;
+                $config['encrypt_name']         = TRUE;
+                $this->load->library('upload', $config);
+                if(! $this->upload->do_upload())
+                {
+                    $data['pic']        = $this->upload->data('file_name');
+                    $data['fname']      = ucwords($this->input->post('fname'));
+                    $data['lname']      = ucwords($this->input->post('lname'));
+                    $data['mname']      = ucwords($this->input->post('mname'));
+                    $data['email']      = $this->input->post('email');
+                    $data['username']   = $username;
+                    $data['password']   = password_hash($this->input->post('password'), 1);
+                    //$this->db->insert('users', $data);
+                    echo 'Successfully registered';
+                }
+                else
+                {
+                    echo 'Please select a photo';
+                }
             }
         }
     }

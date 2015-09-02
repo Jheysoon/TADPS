@@ -82,6 +82,7 @@
         $this->load->view('forms/registration');
         $this->load->view('includes/footer');
     ?>
+    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.carousel').carousel({
