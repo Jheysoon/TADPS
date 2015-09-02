@@ -21,8 +21,10 @@
                         ?>
                         <div class="col-md-3">
                             <figure class="uk-overlay uk-overlay-hover" href="">
-                                <img src="/assets/uploads/<?php echo $maps['pic']?>" class="img-thumbnail" alt="...">
-                                <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
+                                <a href="#" data-param="<?php echo $maps['pic'] ?>" class="hazzardmap">
+                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" class="img-thumbnail" alt="...">
+                                    <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
+                                </a>
                             </figure>
                         </div>
                         <?php
@@ -49,7 +51,7 @@
 </div>
 
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header navbar navbar-inverse">
@@ -59,10 +61,10 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="col-md-12">
-                        <a href="/assets/img/flood.jpg" class="btn btn-primary pull-right" download="hazzard_map" target="_blank">Download</a>
+                        <a href="" id="download_link" class="btn btn-primary pull-right" download="hazzard_map" target="_blank">Download</a>
                         <span class="clearfix"></span>
                         <br>
-                        <img src="/assets/img/flood.jpg" class="img-thumbnail" alt="..." width="100%">
+                        <img src="" id="img_hazzard" class="img-thumbnail" alt="..." width="100%">
                     </div>
                 </div>
             </div>
@@ -77,8 +79,18 @@
     $this->load->view('forms/registration');
     $this->load->view('includes/footer');
 ?>
-<script type="text/javascript" src="/assets/js/login_register.js">
-
+<script type="text/javascript" src="/assets/js/login_register.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.hazzardmap').click(function(e){
+            $img    = $(this).data('param');
+            $path   = '/assets/uploads/' + $img;
+            $('#download_link').attr('href', $path);
+            $('#img_hazzard').attr('src', $path);
+            $('#map').modal('show');
+            e.preventDefault();
+        });
+    });
 </script>
 </body>
 </html>
