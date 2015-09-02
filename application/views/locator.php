@@ -16,7 +16,10 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view('includes/footer') ?>
+    <?php
+        $this->load->view('forms/login');
+        $this->load->view('includes/footer');
+    ?>
     <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap" async defer></script>
     <script>
 // Note: This example requires that you consent to location sharing when
@@ -59,4 +62,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
 }
 </script>
+<script type="text/javascript" src="/assets/js/login_register.js"></script>
 </body>
+</html>
