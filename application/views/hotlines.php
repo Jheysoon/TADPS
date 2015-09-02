@@ -16,49 +16,26 @@
                     </form>
                   <?php endif; ?>
                   <table class="table table-bordered">
-                      <tr class="table_header">
-                          <th>Government Agency</th>
-                          <th>Contact</th>
-                          <!-- <th>Action</th> -->
-                      </tr>
-                      <tr>
-                          <td>
-                              Red Cross
-                          </td>
-                          <td>
-                            0909090900
-                          </td>
-                          <!-- <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td> -->
-                      </tr>
-                      <tr>
-                          <td>
-                              Philippine National Police Tacloban City
-                          </td>
-                          <td>
-                            0912345670
-                          </td>
-                          <!-- <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td> -->
-                      </tr>
-                      <tr>
-                          <td>
-                              BUREAU OF FIRE AND PROTECTION
-                          </td>
-                          <td>
-                            321-2223
-                          </td>
-                          <!-- <td>
-                            <a href="#" class="label label-info">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="#" class="label label-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                          </td> -->
-                      </tr>
-
-
+                        <tr class="table_header">
+                            <th>Government Agency</th>
+                            <th>Contact</th>
+                        </tr>
+                        <?php
+                            $h = $this->db->get('hotlines')->result_array();
+                            foreach($h as $hotline)
+                            {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php  echo $hotline['office']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $hotline['num'] ?>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                         ?>
                   </table>
                 </div>
             </div>
