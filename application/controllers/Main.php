@@ -151,10 +151,7 @@ class Main extends CI_Controller
     }
     function hot()
     {
-      $this->load->view('includes/header');
-      $this->load->view('includes/outsidemenu');
       $this->load->view('hotlines');
-      $this->load->view('includes/footer');
     }
     function hazzardmaps()
     {
