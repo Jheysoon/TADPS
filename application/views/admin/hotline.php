@@ -43,13 +43,7 @@
                             }
                          ?>
                   </table>
-                </div>
-                <div class="col-md-12">
-
-                </div>
-            </div>
-            <div class="col-md-3">
-
+              </div>s
             </div>
         </div>
     </div>
