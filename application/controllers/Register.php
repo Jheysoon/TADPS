@@ -18,7 +18,7 @@ class Register extends CI_Controller
 
         if($this->form_validation->run() === FALSE)
         {
-            $d['error'] = validation_errors();
+            $d['error'] = '';
             $this->load->view('user/register', $d);
         }
         else
