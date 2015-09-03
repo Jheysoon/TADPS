@@ -43,7 +43,7 @@
                             }
                          ?>
                   </table>
-              </div>s
+              </div>
             </div>
         </div>
     </div>
