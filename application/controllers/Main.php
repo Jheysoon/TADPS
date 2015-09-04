@@ -6,7 +6,7 @@ class Main extends CI_Controller
     {
         if(!$this->session->has_userdata('id'))
         {
-            $this->load->helper('text');
+            $this->load->helper(array('text', 'typography'));
             $this->load->model('announce');
             $this->load->view('index');
         }

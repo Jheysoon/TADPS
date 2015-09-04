@@ -20,7 +20,7 @@
                     </div>
                     <div class="media-body">
                         <?php
-                            echo $announce['message'];
+                            echo auto_typography($announce['message']);
                          ?>
                     </div>
                 </div>
