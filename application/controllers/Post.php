@@ -16,8 +16,8 @@ class Post extends CI_Controller
         else
         {
             $config['upload_path']          = './assets/uploads/';
-            // check if the attachment belongs to image
-            $config['allowed_types']        = 'jpg|png|jpeg';
+            // check if the attachment belongs to image/document/spreadsheet
+            $config['allowed_types']        = 'jpg|png|jpeg|doc|docx|pdf|xlsx';
             $config['max_size']             = 2048;
             $config['encrypt_name']         = TRUE;
             $this->load->library('upload', $config);
