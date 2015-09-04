@@ -15,8 +15,6 @@ class Main extends CI_Controller
     }
     function login()
     {
-        //echo '<div class="alert alert-danger">Username/Password is required </div>';
-
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
@@ -32,14 +30,11 @@ class Main extends CI_Controller
             $info = array('id' => $user_id,'type' => $type['type']);
             // set the session
             $this->session->set_userdata($info);
-            //redirect(base_url());
             echo 'success';
         }
         else
         {
             echo '<div class="alert alert-danger text-center">Authentication Failed</div>';
-            // $data['error'] = '<div class="alert alert-danger">Authentication Failed</div>';
-            // $this->load->view('login', $data);
         }
     }
 
