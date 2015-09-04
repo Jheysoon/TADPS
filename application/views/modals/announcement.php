@@ -8,15 +8,22 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </p>
+                <?php
+                    $announce = $this->announce->latest();
+                    $user = $this->db->get_where('users', ['id' => $announce['user']])->row_array();
+                 ?>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile_pic" src="/assets/uploads/<?php echo $user['pic'] ?>" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <?php
+                            echo $announce['message'];
+                         ?>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
