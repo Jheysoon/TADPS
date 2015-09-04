@@ -72,6 +72,7 @@ $route['hotline_numbers']       = 'users/hotline';
 $route['hazzard']               = 'main/hazzard';
 $route['register_ngo']          = 'users/reg_users';
 $route['hotline/(:num)']        = 'main/hotline/$1';
+$route['hotline']               = 'main/hotline';
 $route['hotline_delete/(:num)'] = 'main/hotline_delete/$1';
 $route['hazzard_maps']          = 'hazzard/maps';
 $route['locator']               = 'main/locator';
