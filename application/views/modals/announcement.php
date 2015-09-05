@@ -21,6 +21,12 @@
                     <div class="media-body">
                         <?php
                             echo auto_typography($announce['message']);
+                            if(! empty($announce['attach']))
+                            {
+                                ?>
+                            <a href="/assets/uploads/<?php echo $announce['attach'] ?>" download="attachment_file">Download Attachment</a>
+                        <?php
+                            }
                          ?>
                     </div>
                 </div>
