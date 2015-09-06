@@ -95,7 +95,7 @@
                                         <?php echo $users['contact'] ?>
                                     </td>
                                     <td>
-                                      <a href="#" class="label label-info col-sm-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                                      <a href="/delete_user/<?php echo $users['id']; ?>" class="label label-info col-sm-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
                                       <a href="#" class="label label-danger col-sm-5 col-sm-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                                     </td>
                                 </tr>

@@ -87,4 +87,11 @@ class Users extends CI_Controller
 
         }
     }
+
+    function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+        redirect('/users');
+    }
 }
