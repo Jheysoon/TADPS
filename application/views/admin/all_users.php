@@ -95,8 +95,8 @@
                                         <?php echo $users['contact'] ?>
                                     </td>
                                     <td>
-                                      <a href="/delete_user/<?php echo $users['id']; ?>" class="label label-info col-sm-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                                      <a href="#" class="label label-danger col-sm-5 col-sm-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                                      <a href="" class="label label-info col-sm-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                                      <a href="/delete_user/<?php echo $users['id']; ?>" class="delete label label-danger col-sm-5 col-sm-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                                     </td>
                                 </tr>
                         <?php
@@ -109,5 +109,12 @@
     </div>
 
     <?php $this->load->view('includes/footer') ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.delete').click(function(){
+                return confirm('Are you sure you want to delete ?');
+            });
+        });
+    </script>
 </body>
 </html>
