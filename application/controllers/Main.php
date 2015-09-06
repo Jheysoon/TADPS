@@ -74,38 +74,21 @@ class Main extends CI_Controller
 
     function hotline($id = '')
     {
-        if(empty($id))
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('office', 'Office', 'required');
+        $this->form_validation->set_rules('number', 'Telephone Number', 'required');
+
+        if($this->form_validation->run() === FALSE)
         {
-            $this->load->helper('form');
-            $this->load->library('form_validation');
-
-            $this->form_validation->set_rules('office', 'Office', 'required');
-            $this->form_validation->set_rules('number', 'Telephone Number', 'required');
-
-            if($this->form_validation->run() === FALSE)
+            if(empty($id))
             {
                 $d['id']        = '';
                 $d['office']    = set_value('office');
                 $d['num']       = set_value('num');
-                $this->load->view('admin/hotline', $d);
             }
             else
-            {
-                $data['office'] = ucwords($this->input->post('office'));
-                $data['num']    = $this->input->post('number');
-
-                $this->db->insert('hotlines', $data);
-                redirect('/hotline');
-            }
-        }
-        else
-        {
-            $this->load->helper('form');
-            $this->load->library('form_validation');
-
-            $this->form_validation->set_rules('office', 'Office', 'required');
-            $this->form_validation->set_rules('number', 'Telephone Number', 'required');
-            if($this->form_validation->run() === FALSE)
             {
                 $this->db->where('id', $id);
                 $h = $this->db->get('hotlines')->row_array();
@@ -113,7 +96,18 @@ class Main extends CI_Controller
                 $d['office']    = $h['office'];
                 $d['id']        = $h['id'];
                 $d['num']       = $h['num'];
-                $this->load->view('admin/hotline', $d);
+            }
+
+            $this->load->view('admin/hotline', $d);
+        }
+        else
+        {
+            if(empty($id))
+            {
+                $data['office'] = ucwords($this->input->post('office'));
+                $data['num']    = $this->input->post('number');
+
+                $this->db->insert('hotlines', $data);
             }
             else
             {
@@ -123,6 +117,8 @@ class Main extends CI_Controller
                 $this->db->update('hotlines', $data);
                 redirect('/hotline');
             }
+
+            redirect('/hotline');
         }
     }
 
