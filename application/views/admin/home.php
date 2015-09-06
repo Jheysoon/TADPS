@@ -29,17 +29,22 @@
                 </div>
               </div>
 
-
-              <div class="panel panel-default">
+            <?php $a = $this->announce->latest(); ?>
+            <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Announcement</h4></div>
                     <div class="panel-body">
-                      <small>Date&nbsp;:&nbsp;<?php echo Date('Y-m-d'); ?></small>
-                      <p style="text-indent: 30px;text-align:justify;margin:10px">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                         dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                         ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <small>Date&nbsp;:&nbsp;<?php echo $a['date'] ?></small>
+                        <p style="text-indent: 30px;text-align:justify;margin:10px">
+                            <?php
+                                echo auto_typography($a['message']);
+                                if(!empty($a['attach']))
+                                {
+                                    ?>
+                                    <a href="/assets/upload/<?php echo $a['attach'] ?>" download="file">Download Attachment</a>
+                            <?php
+                                }
+                             ?>
+                        </p>
                     </div>
                   </div>
 

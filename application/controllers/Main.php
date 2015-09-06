@@ -41,7 +41,12 @@ class Main extends CI_Controller
     function home()
     {
         if($this->session->userdata('type') == 'admin')
+        {
+            $this->load->model('announce');
+            $this->load->helper('typography');
+
             $this->load->view('admin/home');
+        }
         else
             $this->load->view('user/home');
     }
