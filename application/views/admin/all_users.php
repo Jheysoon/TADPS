@@ -42,34 +42,34 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                              <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Contact Number</label>
-                              <div class="col-sm-8">
-                                <input type="number" class="form-control" maxlength="11" name="contact" value="<?php echo set_value('contact') ?>">
-                              </div>
+                                <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Contact Number</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" maxlength="11" name="contact" value="<?php echo set_value('contact') ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                              <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Username</label>
-                              <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?>">
-                              </div>
+                                <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Username</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                              <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Password</label>
-                              <div class="col-sm-8">
-                                <input type="password" name="password" class="form-control" value="<?php echo set_value('password') ?>">
-                              </div>
+                                <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" name="password" class="form-control" value="<?php echo set_value('password') ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                              <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Confirm Password</label>
-                              <div class="col-sm-8">
-                                <input type="password" name="con_pass" class="form-control" value="<?php echo set_value('con_pass') ?>">
-                              </div>
+                                <label class="col-sm-4 control-label" style="padding-left:0;padding-right:0">Confirm Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" name="con_pass" class="form-control" value="<?php echo set_value('con_pass') ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                              <label class="col-sm-3">&nbsp;</label>
-                              <div class="col-sm-9" style="margin-top:-15px">
+                                <label class="col-sm-3">&nbsp;</label>
+                                <div class="col-sm-9" style="margin-top:-15px">
                                     <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
-                              </div>
+                                </div>
                             </div>
                         </div>
 
