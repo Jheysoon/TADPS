@@ -85,8 +85,8 @@ class Main extends CI_Controller
             if($this->form_validation->run() === FALSE)
             {
                 $d['id']        = '';
-                $d['office']    = '';
-                $d['num']       = '';
+                $d['office']    = set_value('office');
+                $d['num']       = set_value('num');
                 $this->load->view('admin/hotline', $d);
             }
             else
