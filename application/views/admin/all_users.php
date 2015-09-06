@@ -8,7 +8,10 @@
                 <div class="well well-lg">
                     <span class="clearfix"></span>
                     <br/>
-                    <?php echo $error; ?>
+                    <?php
+                        echo $error;
+                        echo $this->session->flashdata('message');
+                    ?>
                     <form class="form-horizontal" action="/users" method="post">
                         <div class="col-md-6">
                           <div class="form-group">

@@ -92,6 +92,7 @@ class Users extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('users');
+        $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully deleted</div>');
         redirect('/users');
     }
 }
