@@ -32,6 +32,7 @@ class Post extends CI_Controller
                 $data['attachment'] = $error == '' ? $this->upload->data('file_name') : '' ;
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('uid');
+                $data['date']       = date('Y-m-d');
                 $this->db->insert('posts', $data);
                 redirect('/posts');
             }
