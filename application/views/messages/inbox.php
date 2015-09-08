@@ -73,9 +73,11 @@
 
                                             </div>
                                             <div class="col-md-12">
-                                              <form class="" action="/" method="post">
-                                                <textarea name="name" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
-                                                <input type="submit" name="name" class="btn btn-info pull-right" value="Send" style="margin-top:10px">
+                                                <form class="" action="/" method="post">
+                                                    <input type="hidden" name="user_to" value="">
+                                                    <input type="hidden" name="user_from" value="<?php echo $this->session->userdata('id') ?>">
+                                                    <textarea name="name" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
+                                                    <input type="submit" name="name" class="btn btn-info pull-right" value="Send" style="margin-top:10px">
                                                   <!-- <div class="fileUpload btn btn-primary pull-right">
                                                       <span class="glyphicon glyphicon-paperclip"></span>
                                                       <input type="file" class="upload" />
