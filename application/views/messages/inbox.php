@@ -10,28 +10,53 @@
                 <div class="container-fluid">
                     <div class="row" style="padding:0">
                         <div class="col-md-4" style="padding:0;margin:0">
-                            <button type="button" style="margin-bottom:10px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Compose</button>
+                            <!-- <button type="button" style="margin-bottom:10px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Compose</button> -->
                             <ul class="list-group">
-                                <?php  ?>
-                                <a href="/conversation/1" class="list-group-item">CDRRMO <span class="badge">1</span></a>
+                                <?php
+                                    if($this->session->userdata('type') == 'admin')
+                                    {
+                                        $this->db->where('type !=', 'admin');
+                                    }
+                                    elseif($this->session->userdata('type') == 'ngo')
+                                    {
+                                        $this->db->where('type', 'admin');
+                                        $this->db->or_where('type', 'ngo');
+                                    }
+                                    else
+                                    {
+                                        $this->db->where('type', 'admin');
+                                    }
+                                    $r = $this->db->get('users')->result_array();
+                                    foreach ($r as $user)
+                                    {
+                                    ?>
+                                <a href="#" data-user="<?php echo $user['id'] ?>" class="list-group-item chat_user">
+                                    <?php
+                                        $office = '';
+                                        if(! empty($user['office']))
+                                        {
+                                            $office = '('.$user['office'].')';
+                                        }
+                                        echo $user['fname'].' '.$user['lname'].' '.$office;
+                                     ?>
+                                </a>
+                                <?php
+                                    }
+                                 ?>
                             </ul>
                         </div>
                         <div class="col-md-8">
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;CDRRMO</h3>
+                                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span>
+                                        <span id="user_name">Please select a user</span>
+                                    </h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="panel-body" id="message_body">
-                                                <div class="">
-                                                    <div class="convo_left">
-                                                        hello world
-                                                    </div>
-                                                    <div class="tip_left"></div>
-                                                </div>
-                                                <div class="">
+                                                <!-- <div class="">
                                                     <div class="convo_left">
                                                         hello world
                                                     </div>
@@ -44,24 +69,17 @@
                                                     </div>
                                                     <div class="tip_right pull-right"></div>
                                                 </div>
-                                                <br>
-                                                <div class="">
-                                                    <div class="convo_right text-right">
-                                                        <a href="#" class="close pull-left">&times;</a>
-                                                        hello world
-                                                    </div>
-                                                    <div class="tip_right pull-right"></div>
-                                                </div>
+                                                <br> -->
 
                                             </div>
                                             <div class="col-md-12">
-                                              <form class="" action="index.html" method="post">
+                                              <form class="" action="/" method="post">
                                                 <textarea name="name" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
-                                                  <input type="submit" name="name" class="btn btn-info pull-right" value="Send" style="margin-top:10px">
-                                                  <div class="fileUpload btn btn-primary pull-right">
+                                                <input type="submit" name="name" class="btn btn-info pull-right" value="Send" style="margin-top:10px">
+                                                  <!-- <div class="fileUpload btn btn-primary pull-right">
                                                       <span class="glyphicon glyphicon-paperclip"></span>
                                                       <input type="file" class="upload" />
-                                                  </div>
+                                                  </div> -->
                                               </form>
                                             </div>
                                         </div>
