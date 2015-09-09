@@ -23,6 +23,8 @@ class Messages extends CI_Controller
 
     function converse($user_to, $user_from)
     {
+        $this->load->helper('typography');
+
         $this->db->where('user_to', $user_to)
         ->where('user_from', $user_from)
         ->or_where('user_to', $user_from)

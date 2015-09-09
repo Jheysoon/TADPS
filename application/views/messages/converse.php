@@ -9,7 +9,7 @@
             <div class="">
                 <div class="convo_right text-right">
                     <a href="#" class="close pull-left">&times;</a>
-                    <?php echo $messages['message']; ?>
+                    <?php echo auto_typography($messages['message']); ?>
                 </div>
                 <div class="tip_right pull-right"></div>
             </div>
@@ -22,7 +22,7 @@
             ?>
             <div class="">
                 <div class="convo_left">
-                    <?php echo $messages['message']; ?>
+                    <?php echo auto_typography($messages['message']); ?>
                 </div>
                 <div class="tip_left"></div>
             </div>
