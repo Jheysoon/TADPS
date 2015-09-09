@@ -24,20 +24,6 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="panel-body" id="message_body">
-                                                <!-- <div class="">
-                                                    <div class="convo_left">
-                                                        hello world
-                                                    </div>
-                                                    <div class="tip_left"></div>
-                                                </div>
-                                                <div class="">
-                                                    <div class="convo_right text-right">
-                                                        <a href="#" class="close pull-left">&times;</a>
-                                                        hello world
-                                                    </div>
-                                                    <div class="tip_right pull-right"></div>
-                                                </div>
-                                                <br> -->
 
                                             </div>
                                             <div class="col-md-12">
@@ -96,5 +82,15 @@
         </div>
     </div>
     <?php $this->load->view('includes/footer') ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.chat_user').click(function(){
+                $user = $(this).data('user');
+                $.post('/messages/chat',{user:$user},function(data) {
+                    $('#message_body').html(data);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
