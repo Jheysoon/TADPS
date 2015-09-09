@@ -24,7 +24,10 @@ class Messages extends CI_Controller
 
     function converse($user_to, $user_from)
     {
-        $this->db->where('user_to', $user_to)->where('user_from', $user_from);
+        $this->db->where('user_to', $user_to)
+        ->where('user_from', $user_from)
+        ->or_where('user_to', $user_from)
+        ->where('user_from', $user_to);
         $data['mes']        = $this->db->get('chats')->result_array();
         $data['user_to']    = $user_to;
         $data['user_from']  = $user_from;
@@ -53,7 +56,7 @@ class Messages extends CI_Controller
         $d['message']    = $this->input->post('message');
 
         $this->db->insert('chats', $d);
-        
+
         $this->converse($d['user_to'], $d['user_from']);
     }
 }
