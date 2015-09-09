@@ -84,7 +84,7 @@
     <?php $this->load->view('includes/footer') ?>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.chat_user').click(function(){
+            $('.chat_user').click(function(e){
                 $user = $(this).data('user');
                 $('input[name=user_to]').val($user);
 
@@ -97,6 +97,7 @@
                 $.post('/messages/chat', {user:$user}, function(data) {
                     $('#message_body').html(data);
                 });
+                e.preventDefault();
             });
 
             $('.chat_form').submit(function(e){
