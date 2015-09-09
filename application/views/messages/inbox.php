@@ -87,7 +87,10 @@
             $('.chat_user').click(function(){
                 $user = $(this).data('user');
                 $('input[name=user_to]').val($user);
-                $.post('/messages/chat',{user:$user},function(data) {
+                $.post('/messages/getName', {user:$user}, function(data){
+                    $('#user_name').html(data);
+                });
+                $.post('/messages/chat', {user:$user}, function(data) {
                     $('#message_body').html(data);
                 });
             });
