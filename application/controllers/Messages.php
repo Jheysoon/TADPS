@@ -19,6 +19,11 @@ class Messages extends CI_Controller
         $user_to    = $this->input->post('user');
         $user_from  = $this->session->userdata('id');
 
+        $this->converse($user_to, $user_from);
+    }
+
+    function converse($user_to, $user_from)
+    {
         $this->db->where('user_to', $user_to)->where('user_from', $user_from);
         $data['mes']        = $this->db->get('chats')->result_array();
         $data['user_to']    = $user_to;
@@ -39,5 +44,16 @@ class Messages extends CI_Controller
             $office = '('.$r['office'].')';
         }
         echo $r['fname'].' '.$r['lname'].' '.$office;
+    }
+
+    function form()
+    {
+        $d['user_to']    = $this->input->post('user_to');
+        $d['user_from']  = $this->input->post('user_from');
+        $d['message']    = $this->input->post('message');
+
+        $this->db->insert('chats', $d);
+        
+        $this->converse($d['user_to'], $d['user_from']);
     }
 }

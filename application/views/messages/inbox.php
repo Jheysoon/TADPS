@@ -30,7 +30,7 @@
                                                 <form class="chat_form" action="/" method="post">
                                                     <input type="hidden" name="user_to" value="">
                                                     <input type="hidden" name="user_from" value="<?php echo $this->session->userdata('id') ?>">
-                                                    <textarea name="name" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
+                                                    <textarea name="message" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
                                                     <input type="submit" name="name" class="btn btn-info pull-right" value="Send" style="margin-top:10px">
                                                   <!-- <div class="fileUpload btn btn-primary pull-right">
                                                       <span class="glyphicon glyphicon-paperclip"></span>
@@ -97,6 +97,13 @@
                 $.post('/messages/chat', {user:$user}, function(data) {
                     $('#message_body').html(data);
                 });
+            });
+
+            $('.chat_form').submit(function(e){
+                $.post('/messages/form', $(this).serialize(), function(data){
+                    $('#message_body').html(data);
+                });
+                e.preventDefault();
             });
         });
     </script>
