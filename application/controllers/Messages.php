@@ -40,7 +40,7 @@ class Messages extends CI_Controller
         $user = $this->input->post('user');
         $this->db->where('id', $user);
         $this->db->select('fname,lname,office');
-        $r = $this->db->get('users')->row_array();
+        $r      = $this->db->get('users')->row_array();
         $office = '';
         if(! empty($r['office']))
         {
