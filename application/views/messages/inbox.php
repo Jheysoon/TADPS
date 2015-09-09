@@ -27,7 +27,7 @@
 
                                             </div>
                                             <div class="col-md-12">
-                                                <form class="" action="/" method="post">
+                                                <form class="chat_form" action="/" method="post">
                                                     <input type="hidden" name="user_to" value="">
                                                     <input type="hidden" name="user_from" value="<?php echo $this->session->userdata('id') ?>">
                                                     <textarea name="name" class="form-control"  style="height:50px;width:100%;padding-right:10px;padding-left:10px;resize:none"></textarea>
@@ -86,6 +86,7 @@
         $(document).ready(function(){
             $('.chat_user').click(function(){
                 $user = $(this).data('user');
+                $('input[name=user_to]').val($user);
                 $.post('/messages/chat',{user:$user},function(data) {
                     $('#message_body').html(data);
                 });
