@@ -4,6 +4,7 @@
     {
         if($messages['user_from'] == $user_from)
         {
+            $ctr++;
             ?>
             <div class="">
                 <div class="convo_right text-right">
@@ -13,6 +14,8 @@
                 <div class="tip_right pull-right"></div>
             </div>
         <?php
+            if($ctr > 0)
+                echo '<br/>';
         }
         else
         {
@@ -24,9 +27,6 @@
                 <div class="tip_left"></div>
             </div>
         <?php
-            if($ctr > 0)
-                echo '<br/>';
-            $ctr++;
         }
     }
 ?>
