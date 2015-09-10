@@ -35,7 +35,7 @@
     else {
         ?>
         <div class="alert alert-info text-center">
-            No Messages Yet ....
+            No Messages Yet .... &nbsp;<span class="fa fa-refresh"></span>
         </div>
     <?php
     }
