@@ -8,7 +8,7 @@
             {
                 $ctr++;
             ?>
-            <div class="">
+            <div class="chat_container">
                 <div class="convo_right text-right">
                     <a href="#" class="close pull-left">&times;</a>
                     <?php echo auto_typography($messages['message']); ?>
@@ -22,7 +22,7 @@
             else
             {
             ?>
-            <div class="">
+            <div class="chat_container">
                 <div class="convo_left">
                     <?php echo auto_typography($messages['message']); ?>
                 </div>
