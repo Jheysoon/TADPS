@@ -83,6 +83,7 @@
     </div>
     <?php $this->load->view('includes/footer') ?>
     <script type="text/javascript">
+        var $user = 0;
         $(document).ready(function(){
             $('.chat_user').click(function(e){
                 $user = $(this).data('user');
@@ -93,12 +94,17 @@
                     $('#user_name').html(data);
                 });
 
+                getMessages();
+                e.preventDefault();
+            });
+
+            function getMessages()
+            {
                 //get messages
                 $.post('/messages/chat', {user:$user}, function(data) {
                     $('#message_body').html(data);
                 });
-                e.preventDefault();
-            });
+            }
 
             $('.chat_form').submit(function(e){
                 $.post('/messages/form', $(this).serialize(), function(data){
@@ -106,6 +112,13 @@
                 });
                 e.preventDefault();
             });
+
+            setInterval(function(){
+                if($user != 0)
+                {
+                    getMessages();
+                }
+            },1500);
         });
     </script>
 </body>
