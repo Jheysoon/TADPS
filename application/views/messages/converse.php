@@ -1,10 +1,12 @@
 <?php
     $ctr = 0;
-    foreach($mes as $messages)
+    if(count($mes))
     {
-        if($messages['user_from'] == $user_from)
+        foreach($mes as $messages)
         {
-            $ctr++;
+            if($messages['user_from'] == $user_from)
+            {
+                $ctr++;
             ?>
             <div class="">
                 <div class="convo_right text-right">
@@ -13,12 +15,12 @@
                 </div>
                 <div class="tip_right pull-right"></div>
             </div>
-        <?php
-            if($ctr > 0)
-                echo '<br/>';
-        }
-        else
-        {
+            <?php
+                if($ctr > 0)
+                    echo '<br/>';
+            }
+            else
+            {
             ?>
             <div class="">
                 <div class="convo_left">
@@ -27,6 +29,14 @@
                 <div class="tip_left"></div>
             </div>
         <?php
+            }
         }
+    }
+    else {
+        ?>
+        <div class="alert alert-info text-center">
+            No Messages Yet ....
+        </div>
+    <?php
     }
 ?>
