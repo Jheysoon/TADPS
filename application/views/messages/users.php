@@ -7,8 +7,8 @@
         elseif($this->session->userdata('type') == 'ngo')
         {
             $this->db->where('type', 'admin');
-            $this->db->where('id !=', $this->session->userdata('id'));
-            $this->db->or_where('type', 'ngo');
+            //$this->db->where('id !=', $this->session->userdata('id'));
+            //$this->db->or_where('type', 'ngo');
         }
         else
         {
