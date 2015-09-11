@@ -5,8 +5,10 @@
 
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-          <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Messages</h4></div>
-              <div class="panel-body">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">Messages</h4>
+            </div>
+            <div class="panel-body">
                 <div class="container-fluid">
                     <div class="row" style="padding:0">
                         <div class="col-md-4" style="padding:0;margin:0">
@@ -41,11 +43,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
                 <hr>
             </div>
         </div>
