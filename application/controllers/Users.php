@@ -151,4 +151,9 @@ class Users extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully deleted</div>');
         redirect('/users');
     }
+
+    function hotline()
+    {
+        $this->load->view('user/hotline');
+    }
 }
