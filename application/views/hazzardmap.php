@@ -38,11 +38,6 @@
                         $ctr++;
                     }
                  ?>
-                <div class="col-md-12">
-                    <!-- <div class="col-md-3">
-                        <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><img src="/assets/img/flood.jpg" class="img-thumbnail" alt="..."></a>
-                    </div> -->
-                </div>
             </div>
         </div>
         <br />
