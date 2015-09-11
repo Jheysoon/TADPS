@@ -20,15 +20,13 @@
             <li <?php echo $active == 'users' ? 'class="active"':'' ?>><a href="/users"><span class="fa fa-users fa-lg"></span> Users</a></li>
             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
             <li <?php echo $active == 'email' ? 'class="active"':'' ?>><a href="/email"><span class="fa fa-envelope fa-lg"></span> Email</a></li>
-        <?php endif; ?>
-          <li <?php echo $active == 'maps' ? 'class="active"':'' ?>><a href="/hazzard_maps"><span class="fa fa-map fa-lg"></span> Hazzard Maps</a></li>
-
             <li <?php echo $active == 'post' ? 'class="active"':'' ?>><a href="/post"><span class="glyphicon glyphicon-file fa-lg"></span> Post</a></li>
+        <?php endif; ?>
+            <li <?php echo $active == 'maps' ? 'class="active"':'' ?>><a href="/hazzard_maps"><span class="fa fa-map fa-lg"></span> Hazzard Maps</a></li>
             <li <?php echo $active == 'messages' ? 'class="active"':'' ?>><a href="/messages"><span class="glyphicon glyphicon-comment fa-lg"></span> Chat</a></li>
             <?php if($this->session->userdata('type') != 'admin') {?>
             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline_numbers"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
             <?php } ?>
-
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
