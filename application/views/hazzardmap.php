@@ -20,9 +20,9 @@
                         }
                         ?>
                         <div class="col-md-3">
-                            <figure class="uk-overlay uk-overlay-hover" href="">
+                            <figure class="uk-overlay uk-overlay-hover img-thumbnail" href="">
                                 <a href="#" data-param="<?php echo $maps['pic'] ?>" class="hazzardmap">
-                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" class="img-thumbnail" alt="...">
+                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" alt="...">
                                     <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
                                 </a>
                             </figure>
