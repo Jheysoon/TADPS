@@ -10,7 +10,6 @@
                 <div class="container-fluid">
                     <div class="row" style="padding:0">
                         <div class="col-md-4" style="padding:0;margin:0">
-                            <!-- <button type="button" style="margin-bottom:10px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Compose</button> -->
                             <?php $this->load->view('messages/users') ?>
                         </div>
                         <div class="col-md-8">
@@ -49,36 +48,6 @@
               </div>
                 <hr>
             </div>
-
-      </div>
-
-          <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Compose message</h4>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="recipient-name" class="control-label">Recipient:</label>
-                      <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         </div>
     </div>
     <?php $this->load->view('includes/footer') ?>
