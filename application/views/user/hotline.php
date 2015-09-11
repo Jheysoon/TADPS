@@ -15,14 +15,22 @@
                                 Contact No.
                             </th>
                         </tr>
-                        <tr class="text-center">
-                            <td>
-                                CDRRMO
-                            </td>
-                            <td>
-                                09091234567
-                            </td>
-                        </tr>
+                        <?php
+                            $h = $this->db->get('hotlines')->result_array();
+                            foreach($h as $hotline)
+                            {
+                                ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <?php  echo $hotline['office']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $hotline['num'] ?>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                         ?>
                     </table>
                 </div>
             </div>
