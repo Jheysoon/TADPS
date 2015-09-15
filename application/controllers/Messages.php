@@ -60,4 +60,11 @@ class Messages extends CI_Controller
 
         $this->converse($d['user_to'], $d['user_from']);
     }
+
+    function delete_conversation()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id', $id);
+        $this->db->delete('chats');
+    }
 }

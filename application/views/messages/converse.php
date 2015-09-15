@@ -10,7 +10,7 @@
             ?>
             <div class="chat_container">
                 <div class="convo_right text-right">
-                    <a href="#" class="close pull-left">&times;</a>
+                    <a href="#" data-param="<?php echo $messages['id'] ?>" class="close delete_conversation pull-left">&times;</a>
                     <?php echo auto_typography($messages['message']); ?>
                 </div>
                 <div class="tip_right pull-right"></div>

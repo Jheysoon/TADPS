@@ -73,6 +73,7 @@
                 //get messages
                 $.post('/messages/chat', {user:$user}, function(data) {
                     $('#message_body').html(data);
+                    delete_conv();
                 });
             }
 
@@ -88,7 +89,17 @@
                 {
                     getMessages();
                 }
-            },1500);
+            },4500);
+
+            function delete_conv() {
+                $('.delete_conversation').on('click', function(e){
+                    $val = $(this).data('param');
+                    $.post('/messages/delete_conversation', {id:$val}, function(){
+                        getMessages();
+                    });
+                    e.preventDefault();
+                });
+            }
         });
     </script>
 </body>
