@@ -46,6 +46,9 @@
                                     <a href="#" data-toggle="modal" data-target="#announcement">See More</a>
                             <?php
                                 }
+                                else {
+                                    echo $a['message'];
+                                }
                             ?>
                             <br>
                         </div>
