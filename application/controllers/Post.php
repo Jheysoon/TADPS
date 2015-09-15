@@ -31,6 +31,7 @@ class Post extends CI_Controller
             }
             else
             {
+                //<p>You did not select a file to upload.</p>
                 $data['attach']     =  $this->upload->data('file_name');
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('id');
