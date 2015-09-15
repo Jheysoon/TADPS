@@ -31,14 +31,14 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <?php $a = $this->announce->latest(); ?>
                             <h4 class="panel-title">
                                 <span class="fa fa-newspaper-o"></span>
-                                &nbsp;&nbsp;Announcement
+                                &nbsp;&nbsp;Announcement <span class="pull-right"><?php echo $a['date']; ?></span>
                             </h4>
                         </div>
                         <div class="panel-body">
                             <?php
-                                $a = $this->announce->latest();
                                 if(strlen($a['message']) > 50)
                                 {
                                     echo character_limiter($a['message'], 50);
