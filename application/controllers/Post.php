@@ -25,23 +25,19 @@ class Post extends CI_Controller
 
             // upload the file
             if(! $this->upload->do_upload('attachment'))
-                $error = $this->upload->display_errors();
-
-            if($error == 'You did not select a file to upload.' OR $error == '')
             {
-                $data['attach']     = ($error == '' OR $error == 'You did not select a file to upload.') ? $this->upload->data('file_name') : '' ;
+                $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                $this->load->view('user/post', $d);
+            }
+            else
+            {
+                $data['attach']     =  $this->upload->data('file_name');
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('id');
                 $data['date']       = date('Y-m-d');
                 $this->db->insert('announcement', $data);
                 redirect('/post');
             }
-            else
-            {
-                $d['error'] = '<div class="alert alert-danger">'.$error.'</div>';
-                $this->load->view('user/post', $d);
-            }
-
         }
     }
 
