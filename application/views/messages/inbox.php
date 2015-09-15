@@ -80,6 +80,7 @@
             $('.chat_form').submit(function(e){
                 $.post('/messages/form', $(this).serialize(), function(data){
                     $('#message_body').html(data);
+                    $('textarea[name=message]').val('');
                 });
                 e.preventDefault();
             });
