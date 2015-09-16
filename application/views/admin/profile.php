@@ -17,17 +17,15 @@
                             <td><?php echo $fname.' '.$lname.' '.$mname ?></td>
                         </tr>
                         <tr>
-                          <td>Address</td>
-                          <td>Barangay Burayan San Jose, Tacloban City</td>
-                        </tr>
-                        <tr>
                           <td>Contact Number</td>
-                          <td>0909090999</td>
+                          <td><?php echo $contact ?></td>
                         </tr>
+                        <?php if($this->session->userdata('type') == '') {?>
                         <tr>
                           <td>Email Address</td>
-                          <td>maryjudewanda@gmail.com</td>
+                          <td><?php echo $email ?></td>
                         </tr>
+                        <?php } ?>
                     </table>
 
                 </div>
