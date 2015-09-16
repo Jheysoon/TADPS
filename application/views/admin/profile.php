@@ -26,7 +26,15 @@
                           <td><?php echo $email ?></td>
                         </tr>
                         <?php } ?>
+                        <?php if($this->session->userdata('type') == 'ngo') {?>
+                        <tr>
+                          <td>Office</td>
+                          <td><?php echo $office ?></td>
+                        </tr>
+                        <?php } ?>
                     </table>
+                    <a href="#" class="btn btn-info btn-sm pull-right">Edit profile</a>
+                    <span class="clearfix"></span>
 
                 </div>
             </div>
