@@ -33,7 +33,7 @@
                         </tr>
                         <?php } ?>
                     </table>
-                    <a href="#" class="btn btn-info btn-sm pull-right">Edit profile</a>
+                    <a href="/edit_profile/<?php echo $id ?>" class="btn btn-info btn-sm pull-right">Edit profile</a>
                     <span class="clearfix"></span>
 
                 </div>

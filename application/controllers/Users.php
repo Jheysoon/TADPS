@@ -156,4 +156,84 @@ class Users extends CI_Controller
     {
         $this->load->view('user/hotline');
     }
+
+    function edit_profile($id)
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('fname', 'Firstname', 'required');
+        $this->form_validation->set_rules('lname', 'Lastname', 'required');
+        $this->form_validation->set_rules('mname', 'Middlename', 'required');
+
+        if($this->form_validation->run() === FALSE)
+        {
+            if(! $this->input->post('fname'))
+            {
+                $this->db->where('id', $id);
+                $data1          = $this->db->get('users')->row_array();
+                $data['fname']  = $data1['fname'];
+                $data['lname']  = $data1['lname'];
+                $data['mname']  = $data1['mname'];
+                $data['pic']    = $data1['pic'];
+                $data['id']     = $data1['id'];
+                $data['contact']= $data1['contact'];
+                if($this->session->userdata('type') == 'ngo')
+                    $data['office'] = $data1['office'];
+                elseif($this->session->userdata('type') == '')
+                    $data['email']  = $data1['email'];
+            }
+            else
+            {
+                $data['fname']  = set_value('fname');
+                $data['lname']  = set_value('lname');
+                $data['pic']    = '';
+                $data['mname']  = set_value('mname');
+                $data['contact']= set_value('contact');
+                if($this->session->userdata('type') == 'ngo')
+                    $data['office'] = set_value('office');
+                elseif($this->session->userdata('type') == '')
+                    $data['email']  = set_value('email');
+                $data['id']     = $id;
+            }
+            $this->load->view('user/edit_profile', $data);
+        }
+        else
+        {
+            $config['upload_path']          = './assets/uploads/';
+            // check if the attachment belongs to image
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['max_size']             = 2048;
+            $config['encrypt_name']         = TRUE;
+            $this->load->library('upload', $config);
+
+            if($this->upload->do_upload())
+            {
+                $this->update_user($id, $this->upload->data('file_name'));
+            }
+            elseif ($this->upload->display_errors() == '<p>You did not select a file to upload.</p>')
+            {
+                $this->update_user($id);
+            }
+        }
+    }
+
+    function update_user($id, $pic = '')
+    {
+        $data['fname']      = $this->input->post('fname');
+        $data['lname']      = $this->input->post('lname');
+        $data['mname']      = $this->input->post('mname');
+        $data['contact']    = $this->input->post('contact');
+        if($this->session->userdata('type') == 'ngo')
+            $data['office'] = $this->input->post('office');
+        elseif($this->session->userdata('type') == '')
+            $data['email']  = $this->input->post('email');
+
+        if($pic != '')
+            $data['pic']    = $pic;
+
+        $this->db->where('id', $id);
+        $this->db->update('users', $data);
+        redirect('/edit_profile/'.$id);
+    }
 }
