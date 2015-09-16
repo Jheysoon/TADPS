@@ -168,6 +168,7 @@ class Users extends CI_Controller
 
         if($this->form_validation->run() === FALSE)
         {
+            $data['error'] = '';
             if(! $this->input->post('fname'))
             {
                 $this->db->where('id', $id);
@@ -214,6 +215,24 @@ class Users extends CI_Controller
             elseif ($this->upload->display_errors() == '<p>You did not select a file to upload.</p>')
             {
                 $this->update_user($id);
+            }
+            else
+            {
+                $data['fname']  = set_value('fname');
+                $data['lname']  = set_value('lname');
+                $data['pic']    = '';
+                $data['mname']  = set_value('mname');
+                $data['contact']= set_value('contact');
+
+                if($this->session->userdata('type') == 'ngo')
+                    $data['office'] = set_value('office');
+                elseif($this->session->userdata('type') == '')
+                    $data['email']  = set_value('email');
+                $data['id']     = $id;
+
+                $data['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+
+                $this->load->view('user/edit_profile', $data);
             }
         }
     }
