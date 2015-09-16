@@ -22,11 +22,54 @@
                                 </form>
                             </div>
                         </div>
+                        <hr>
+                        <div class="container-fluid">
+                            <div class="col-md-12">
+                                <form class="" action="index.html" method="post">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                            <span>45%</span>
+                                        </div>
+                                    </div>
+                                    <div style="width:200px;" class="center-block">
+
+                                        <div class="fileUpload btn btn-primary btn-block">
+                                            <span class="glyphicon glyphicon-paperclip"></span>&nbsp;Uplaod a video
+                                            <input type="file" name="attachment" class="upload" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <?php $this->load->view('includes/footer') ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[name=attachment]').click(function(){
+                var file = $(this).files[0];
+
+                var formdata = new FormData();
+
+                formdata.append('file', file);
+                var ajax = new XMLHttpRequest();
+                ajax.upload.addEventListener('progress',function(){
+
+                }, false);
+                ajax.addEventListener('load',function(){
+
+                }, false);
+                ajax.addEventListener('error',function(){
+
+                }, false);
+                ajax.addEventListener('abort',function(){
+
+                }, false);
+            });
+        });
+    </script>
 </body>
 </html>
