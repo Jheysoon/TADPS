@@ -56,16 +56,16 @@
 
                 formdata.append('file', file);
                 var ajax = new XMLHttpRequest();
-                ajax.upload.addEventListener('progress',function(){
+                ajax.upload.addEventListener('progress', function(){
 
                 }, false);
-                ajax.addEventListener('load',function(){
+                ajax.addEventListener('load', function(){
 
                 }, false);
-                ajax.addEventListener('error',function(){
+                ajax.addEventListener('error', function(){
 
                 }, false);
-                ajax.addEventListener('abort',function(){
+                ajax.addEventListener('abort', function(){
 
                 }, false);
             });
