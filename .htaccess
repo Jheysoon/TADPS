@@ -6,6 +6,9 @@
 #ExpiresByType image/jpg "access plus 2 weeks"
 #ExpiresByType image/x-icon "access plus 2 weeks"
 #</IfModule>
+php_value upload_max_filesize 10M
+php_value post_max_size 20M
+php_value memory_limit 128M
 <IfModule mod_rewrite.c>
 
 	RewriteEngine on

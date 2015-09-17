@@ -26,16 +26,19 @@
                         <div class="container-fluid">
                             <div class="col-md-12">
                                 <form class="" action="index.html" method="post">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                            <span>45%</span>
+                                    <div id="message">
+                                    </div>
+
+                                    <div class="progress hide" id="prog">
+                                        <div id="prog2" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                                            <span id="upload_percent"></span>
                                         </div>
                                     </div>
                                     <div style="width:200px;" class="center-block">
 
                                         <div class="fileUpload btn btn-primary btn-block">
-                                            <span class="glyphicon glyphicon-paperclip"></span>&nbsp;Uplaod a video
-                                            <input type="file" name="attachment" class="upload" />
+                                            <span class="glyphicon glyphicon-paperclip"></span>&nbsp;Upload a video
+                                            <input type="file" name="userfile" id="userfile" class="upload" />
                                         </div>
                                     </div>
                                 </form>
@@ -49,25 +52,35 @@
     <?php $this->load->view('includes/footer') ?>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('input[name=attachment]').click(function(){
-                var file = $(this).files[0];
+            $('input[name=userfile]').change(function(){
+                var file = document.getElementById('userfile').files[0];
 
                 var formdata = new FormData();
 
                 formdata.append('file', file);
                 var ajax = new XMLHttpRequest();
-                ajax.upload.addEventListener('progress', function(){
-
+                ajax.open('POST', '/upload_vid');
+                ajax.send(formdata);
+                ajax.upload.addEventListener('progress', function(event){
+                    var percent = (event.loaded / event.total) * 100;
+                    //console.log(Math.round(percent));
+                    console.log(event);
+                    percent = Math.round(percent) + '%';
+                    $('#prog').removeClass('hide');
+                    $('#prog2').css('width', percent);
+                    //$('#upload_percent').html(percent+' Complete');
                 }, false);
-                ajax.addEventListener('load', function(){
-
+                ajax.addEventListener('load', function(data){
+                    $('#prog').addClass('hide');
+                    $('#message').html('<div class="alert alert-success">Successfully Uploaded</div>');
                 }, false);
-                ajax.addEventListener('error', function(){
-
+                ajax.addEventListener('error', function(data){
+                    $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
                 }, false);
-                ajax.addEventListener('abort', function(){
-
+                ajax.addEventListener('abort', function(data){
+                    $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
                 }, false);
+
             });
         });
     </script>

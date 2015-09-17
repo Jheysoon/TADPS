@@ -46,4 +46,26 @@ class Post extends CI_Controller
     {
         $this->load->view('user/create_report');
     }
+
+    function upload_vid()
+    {
+        $config['upload_path']          = './assets/uploads/';
+        // check if the attachment belongs to image/document/spreadsheet
+        $config['allowed_types']        = 'mp4|avi|wmv';
+        $config['max_size']             = 0;
+        $config['encrypt_name']         = TRUE;
+        $this->load->library('upload', $config);
+
+
+        if($this->upload->do_upload('file'))
+        {
+            $d['file'] = $this->upload->data('file_name');
+            $this->db->insert('video', $d);
+            echo '<div class="alert alert-danger text-center">Successfully Uploaded</div>';
+        }
+        else
+        {
+            echo '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+        }
+    }
 }

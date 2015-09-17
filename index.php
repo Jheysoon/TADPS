@@ -54,7 +54,9 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 	date_default_timezone_set('Asia/Manila');
-    ini_set('upload_max_filesize', '10M');
+    ini_set('memory_limit', '96M');
+	ini_set('post_max_size', '64M');
+	ini_set('upload_max_filesize', '64M');
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
