@@ -179,6 +179,8 @@ class Users extends CI_Controller
                 $data['pic']    = $data1['pic'];
                 $data['id']     = $data1['id'];
                 $data['contact']= $data1['contact'];
+                $data['address']= $data1['address'];
+                $data['gender'] = $data1['gender'];
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = $data1['office'];
                 elseif($this->session->userdata('type') == '')
@@ -191,6 +193,8 @@ class Users extends CI_Controller
                 $data['pic']    = '';
                 $data['mname']  = set_value('mname');
                 $data['contact']= set_value('contact');
+                $data['address']= set_value('address');
+                $data['gender'] = set_value('gender');
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = set_value('office');
                 elseif($this->session->userdata('type') == '')
@@ -243,6 +247,8 @@ class Users extends CI_Controller
         $data['lname']      = $this->input->post('lname');
         $data['mname']      = $this->input->post('mname');
         $data['contact']    = $this->input->post('contact');
+        $data['address']    = $this->input->post('address');
+        $data['gender']     = $this->input->post('gender');
         if($this->session->userdata('type') == 'ngo')
             $data['office'] = $this->input->post('office');
         elseif($this->session->userdata('type') == '')

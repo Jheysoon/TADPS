@@ -33,6 +33,19 @@
                                 <td><input type="text" class="form-control" name="mname" value="<?php echo $mname ?>"></td>
                             </tr>
                             <tr>
+                                <td>Gender</td>
+                                <td>
+                                    <select class="form-control" name="gender">
+                                        <option value="1" <?php echo $gender == 1 ? 'selected' : '' ?>>Male</option>
+                                        <option value="0" <?php echo $gender == 0 ? 'selected' : '' ?>>Female</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>Address</td>
+                              <td><input type="text" class="form-control" name="address" value="<?php echo $contact ?>"></td>
+                            </tr>
+                            <tr>
                               <td>Contact Number</td>
                               <td><input type="number" class="form-control" name="contact" value="<?php echo $contact ?>"></td>
                             </tr>
