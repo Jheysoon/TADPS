@@ -23,10 +23,10 @@
                     <br>
                     <label>Firstname</label>
                     <input type="text" class="form-control" name="fname" value="<?php echo set_value('fname') ?>" autofocus>
-                    <label>Lastname</label>
-                    <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
                     <label>Middlename</label>
                     <input type="text" class="form-control" name="mname" value="<?php echo set_value('mname') ?>">
+                    <label>Lastname</label>
+                    <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
                     <?php if($this->session->has_userdata('id')){ ?>
                     <label>Office</label>
                     <input type="text" class="form-control" name="office" value="<?php echo set_value('office') ?>">
