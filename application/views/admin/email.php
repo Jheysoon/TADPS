@@ -15,17 +15,26 @@
                                   Action
                               </th>
                           </tr>
-                          <tr>
-                              <td>
-                                  Mary Jude Wanda Deguito
-                              </td>
-                              <td>
-                                  jude@gmail.com
-                              </td>
-                              <td>
-                                  <a href="/" class="btn btn-danger btn-xs btn-block">Delete</a>
-                              </td>
-                          </tr>
+                          <?php
+                                $this->db->where('type', '');
+                                $e = $this->db->get('users')->result_array();
+                                foreach($e as $email)
+                                {
+                                    ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $email['fname'].' '.$email['lname'].' '.$email['mname'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $email['email'] ?>
+                                    </td>
+                                    <td>
+                                        <a href="/delete_email/<?php echo $email['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="btn btn-danger btn-block btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php
+                                }
+                           ?>
                       </table>
                   </div>
                 </div>

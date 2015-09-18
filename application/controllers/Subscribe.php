@@ -77,4 +77,11 @@ class Subscribe extends CI_Controller
     {
         $this->load->view('admin/email');
     }
+
+    function delete_email($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+        redirect('/email');
+    }
 }
