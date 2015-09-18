@@ -14,13 +14,15 @@
         		<div class="carousel-inner">
                     <?php
                         $vid = $this->db->get('video')->result_array();
+                        $ctr = 0;
                         foreach($vid as $video)
                         {
                             ?>
-                        <div class="item active">
+                        <div class="item <?php echo $ctr == 0 ? 'active':'' ?>">
                             <video width="100%" height="500px" src="/assets/uploads/<?php echo $video['file'] ?>" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
             			</div>
                     <?php
+                            $ctr++;
                         }
                      ?>
         		</div>
@@ -36,17 +38,24 @@
                 <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Announcement</h4></div>
                     <div class="panel-body">
                         <small>Date&nbsp;:&nbsp;<?php echo $a['date'] ?></small>
-                        <p style="text-indent: 30px;text-align:justify;margin:10px">
-                            <?php
-                                echo auto_typography($a['message']);
-                                if(!empty($a['attach']))
-                                {
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <?php
+                                        $this->db->where('id', 1);
+                                        $r = $this->db->get('users')->row_array();
                                     ?>
-                                    <a href="/assets/upload/<?php echo $a['attach'] ?>" download="file">Download Attachment</a>
+                                    <img class="media-object" style="max-width:120px;" src="/assets/uploads/<?php echo $r['pic'] ?>" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Announcement</h4>
                             <?php
-                                }
+                                $a = $this->announce->latest();
+                                echo auto_typography($a['message']);
                              ?>
-                        </p>
+                            </div>
+                        </div>
                     </div>
                   </div>
 

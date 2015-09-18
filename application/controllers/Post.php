@@ -4,8 +4,9 @@ class Post extends CI_Controller
 {
     function all()
     {
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'typography'));
         $this->load->library('form_validation');
+        $this->load->model('announce');
 
         $this->form_validation->set_rules('post', 'Message', 'required');
         if($this->form_validation->run() === FALSE)

@@ -44,6 +44,29 @@
                                 </form>
                             </div>
                         </div>
+
+                        <div class="container-fluid">
+                            <div class="col-md-12">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <?php
+                                                $this->db->where('id', 1);
+                                                $r = $this->db->get('users')->row_array();
+                                            ?>
+                                            <img class="media-object" style="max-width:120px;" src="/assets/uploads/<?php echo $r['pic'] ?>" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Announcement</h4>
+                                    <?php
+                                        $a = $this->announce->latest();
+                                        echo auto_typography($a['message']);
+                                    ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
