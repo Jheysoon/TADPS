@@ -52,6 +52,8 @@
                                                     <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
                                                 </a>
                                             </figure>
+                                            <a href="/delete_map/<?php echo $maps['id'] ?>" onclick="return confirm('Are you sure you want to delete ?')" class="btn btn-danger btn-sm pull-right">Delete</a>
+                                            <span class="clearfix"></span>
                                         </div>
                                         <?php
                                         if($ctr == 3)
@@ -64,10 +66,11 @@
                                         $ctr++;
                                     }
                                  ?>
-                                <br>
+                                <br><br><br>
                             </div>
                         </div>
                     </div>
+                    <br><br><br>
                 </div>
             </div>
         </div>

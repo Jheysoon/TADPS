@@ -80,3 +80,4 @@ $route['locator']               = 'main/locator';
 $route['delete_user/(:num)']    = 'users/delete/$1';
 $route['edit_profile/(:num)']   = 'users/edit_profile/$1';
 $route['upload_vid']            = 'post/upload_vid';
+$route['delete_map/(:num)']     = 'hazzard/delete_map/$1';
