@@ -1,7 +1,7 @@
 <?php $this->load->view('includes/header'); ?>
 <body>
 <?php $this->load->view('includes/outsidemenu') ?>
-<div class="contaner-fluid">
+<div class="container-fluid">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Hazzard Maps</h4></div>
@@ -20,9 +20,9 @@
                         }
                         ?>
                         <div class="col-md-3">
-                            <figure class="uk-overlay uk-overlay-hover img-thumbnail" href="">
+                            <figure class="uk-overlay uk-overlay-hover" style='height:300px;' href="">
                                 <a href="#" data-param="<?php echo $maps['pic'] ?>" class="hazzardmap">
-                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" alt="...">
+                                    <img src="/assets/uploads/<?php echo $maps['pic']?>" class="img-thumbnail" alt="...">
                                     <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $maps['caption'] ?></figcaption>
                                 </a>
                             </figure>
