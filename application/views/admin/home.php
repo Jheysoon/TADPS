@@ -12,15 +12,17 @@
             <div class="panel-body">
         	<div id="myCarousel" class="carousel slide" style="height: 460px;">
         		<div class="carousel-inner">
-        		    <div class="item active">
-                        <video width="100%" height="500px" src="/assets/uploads/v5.mp4" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
-        			</div>
-        			<div class="item">
-                        <video width="100%" height="500px" src="/assets/uploads/v4.mp4" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
-        			</div>
-        			<div class="item">
-                        <video width="100%" height="500px" src="/assets/uploads/v3.mp4" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
-        			</div>
+                    <?php
+                        $vid = $this->db->get('video')->result_array();
+                        foreach($vid as $video)
+                        {
+                            ?>
+                        <div class="item active">
+                            <video width="100%" height="500px" src="/assets/uploads/<?php echo $video['file'] ?>" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
+            			</div>
+                    <?php
+                        }
+                     ?>
         		</div>
         		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
         		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
