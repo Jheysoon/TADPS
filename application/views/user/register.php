@@ -27,12 +27,19 @@
                     <input type="text" class="form-control" name="mname" value="<?php echo set_value('mname') ?>">
                     <label>Lastname</label>
                     <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="address" value="<?php echo set_value('address') ?>">
+                    <label>Gender</label>
+                    <select class="form-control" name="gender">
+                        <option value="1" <?php echo set_select('gender', 1, TRUE) ?>>Male</option>
+                        <option value="0" <?php echo set_select('gender', 2) ?>>Female</option>
+                    </select>
                     <?php if($this->session->has_userdata('id')){ ?>
                     <label>Office</label>
                     <input type="text" class="form-control" name="office" value="<?php echo set_value('office') ?>">
                     <?php }else{ ?>
                     <label>Contact Number</label>
-                    <input type="number" class="form-control" name="contact" value="<?php echo set_value('contact') ?>">
+                    <input type="text" class="form-control" name="contact" value="<?php echo set_value('contact') ?>">
                     <label>Email</label>
                     <input type="email" class="form-control" name="email" value="<?php echo set_value('email') ?>">
                     <?php } ?>
