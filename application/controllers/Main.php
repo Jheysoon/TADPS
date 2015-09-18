@@ -53,14 +53,9 @@ class Main extends CI_Controller
 
     function profile()
     {
-        // if($this->session->userdata('type') == 'admin')
-        // {
-            $this->db->where('id', $this->session->userdata('id'));
-            $data = $this->db->get('users')->row_array();
-            $this->load->view('admin/profile', $data);
-        // }
-        // else
-        //     $this->load->view('user/profile');
+        $this->db->where('id', $this->session->userdata('id'));
+        $data = $this->db->get('users')->row_array();
+        $this->load->view('admin/profile', $data);
     }
 
     function change_pass()
