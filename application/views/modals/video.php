@@ -23,47 +23,17 @@
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
-                                    <div class="item active">
-                                        <video src="/assets/uploads/v1.mp4" controls>
-
-                                        </video>
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <video src="/assets/uploads/v2.mp4" controls>
-
-                                        </video>
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <video src="/assets/uploads/v3.mp4" controls>
-
-                                        </video>
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <video src="/assets/uploads/v4.mp4" controls>
-
-                                        </video>
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <video src="/assets/uploads/v5.mp4" controls>
-
-                                        </video>
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-
+                                    <?php
+                                        $vid = $this->db->get('video')->result_array();
+                                        foreach($vid as $video)
+                                        {
+                                            ?>
+                                        <div class="item active">
+                                            <video width="100%" height="500px" src="/assets/uploads/<?php echo $video['file'] ?>" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
+                            			</div>
+                                    <?php
+                                        }
+                                     ?>
                                 </div>
 
                                 <!-- Controls -->
