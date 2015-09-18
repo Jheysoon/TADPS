@@ -94,10 +94,13 @@
 
             function delete_conv() {
                 $('.delete_conversation').on('click', function(e){
-                    $val = $(this).data('param');
-                    $.post('/messages/delete_conversation', {id:$val}, function(){
-                        getMessages();
-                    });
+                    if(confirm('Are you sure you want to delete'))
+                    {
+                        $val = $(this).data('param');
+                        $.post('/messages/delete_conversation', {id:$val}, function(){
+                            getMessages();
+                        });
+                    }
                     e.preventDefault();
                 });
             }
