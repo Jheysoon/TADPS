@@ -21,19 +21,22 @@ class Messages extends CI_Controller
         $this->converse($user_to, $user_from);
     }
 
-    function converse($user_to, $user_from)
+    function converse($user_to = '', $user_from = '')
     {
-        $this->load->helper('typography');
+        if(! empty($user_to) OR ! empty($user_from))
+        {
+            $this->load->helper('typography');
 
-        $this->db->where('user_to', $user_to)
-        ->where('user_from', $user_from)
-        ->or_where('user_to', $user_from)
-        ->where('user_from', $user_to);
-        $data['mes']        = $this->db->get('chats')->result_array();
-        $data['user_to']    = $user_to;
-        $data['user_from']  = $user_from;
+            $this->db->where('user_to', $user_to)
+            ->where('user_from', $user_from)
+            ->or_where('user_to', $user_from)
+            ->where('user_from', $user_to);
+            $data['mes']        = $this->db->get('chats')->result_array();
+            $data['user_to']    = $user_to;
+            $data['user_from']  = $user_from;
 
-        $this->load->view('messages/converse', $data);
+            $this->load->view('messages/converse', $data);
+        }
     }
 
     function getName()
