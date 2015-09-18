@@ -20,6 +20,14 @@
                           <td>Contact Number</td>
                           <td><?php echo $contact ?></td>
                         </tr>
+                        <tr>
+                          <td>Gender</td>
+                          <td><?php echo ($gender == 1) ? 'Male' : 'Female'; ?></td>
+                        </tr>
+                        <tr>
+                          <td>Address</td>
+                          <td><?php echo $address ?></td>
+                        </tr>
                         <?php if($this->session->userdata('type') == '') { ?>
                         <tr>
                           <td>Email Address</td>
