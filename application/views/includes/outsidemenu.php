@@ -14,9 +14,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <!-- <li>
                     <a href="#about"><span class="fa fa-comment"></span>&nbsp;About</a>
-                </li>
+                </li> -->
                 <li>
                     <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
                 </li>
