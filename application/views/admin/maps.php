@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div class="container-fluid">
                             <div class="col-md-12">
-                                <form action="/hazzard_maps" method="post">
+                                <form action="/hazzard_maps" method="post" enctype="multipart/form-data">
                                     <?php echo $error; ?>
                                     <div class="col-sm-4 col-sm-offset-3">
                                         <div class="fileinput fileinput-new center-block" style="margin-left:100px;" data-provides="fileinput">

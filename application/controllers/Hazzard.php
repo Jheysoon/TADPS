@@ -18,14 +18,14 @@ class Hazzard extends CI_Controller
             $config['upload_path']          = './assets/uploads/';
             // check if the attachment belongs to image
             $config['allowed_types']        = 'jpg|png|jpeg';
-            $config['max_size']             = 2048;
+            $config['max_size']             = 0;
             $config['encrypt_name']         = TRUE;
             $this->load->library('upload', $config);
             if($this->upload->do_upload())
             {
                 $data['pic']        = $this->upload->data('file_name');
                 $data['caption']    = $this->input->post('caption');
-                $this->db->insert('hazzard_maps', $data);
+                $this->db->insert('hazard_maps', $data);
                 redirect('/hazzard_maps');
             }
             else
