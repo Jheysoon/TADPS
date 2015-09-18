@@ -18,7 +18,10 @@ class Messages extends CI_Controller
         $user_to    = $this->input->post('user');
         $user_from  = $this->session->userdata('id');
 
-        $this->converse($user_to, $user_from);
+        if($user_to OR $user_from)
+        {
+            $this->converse($user_to, $user_from);
+        }
     }
 
     function converse($user_to = '', $user_from = '')
@@ -59,9 +62,11 @@ class Messages extends CI_Controller
         $d['user_from']  = $this->input->post('user_from');
         $d['message']    = $this->input->post('message');
 
-        $this->db->insert('chats', $d);
-
-        $this->converse($d['user_to'], $d['user_from']);
+        if($d['user_to'] OR $d['user_from'])
+        {
+            $this->db->insert('chats', $d);
+            $this->converse($d['user_to'], $d['user_from']);
+        }
     }
 
     function delete_conversation()
