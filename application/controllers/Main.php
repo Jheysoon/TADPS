@@ -69,7 +69,32 @@ class Main extends CI_Controller
                 ];
         $this->form_validation->set_rules($rules);
 
-        $this->load->view('change_pass');
+        if($this->form_validation->run() === FALSE)
+        {
+            $d['error'] = '';
+            $this->load->view('change_pass', $d);
+        }
+        else
+        {
+            $old = $this->input->post('old_pass');
+            $new = $this->input->post('new_pass');
+
+            $this->db->where('id', $this->session->userdata('id'));
+            $u = $this->db->get('users')->row_array();
+            if(password_verify($old, $u['password']))
+            {
+                $data['password'] = password_hash($new, PASSWORD_BCRYPT);
+                $this->db->where('id', $this->session->userdata('id'));
+                $this->db->update('users', $data);
+                redirect(base_url());
+            }
+            else {
+                $d['error'] = '<div class="alert alert-danger">Invalid Old Password</div>';
+                $this->load->view('change_pass', $d);
+            }
+
+        }
+
     }
 
     function hotline($id = '')

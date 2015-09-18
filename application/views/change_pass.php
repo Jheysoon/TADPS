@@ -1,19 +1,10 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-
-    <div class="content-section-c">
-        <div class="container-fluid">
-            <div class="row">
-            </div>
-        </div>
-    </div>
-
+    <?php $this->load->view('includes/menu', array('active' => '')) ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-md-offset-4">
+                <?php echo $error ?>
                 <form action="/change_password" method="post">
                     <label>Old password</label>
                     <input type="text" class="form-control" name="old_pass" value="<?php echo set_value('old_pass') ?>">
