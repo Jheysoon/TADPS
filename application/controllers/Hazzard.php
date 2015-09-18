@@ -42,4 +42,9 @@ class Hazzard extends CI_Controller
         $this->db->delete('hazard_maps');
         redirect('/hazzard_maps');
     }
+
+    function user_maps()
+    {
+        $this->load->view('user/map');
+    }
 }

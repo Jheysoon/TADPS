@@ -82,3 +82,4 @@ $route['edit_profile/(:num)']   = 'users/edit_profile/$1';
 $route['upload_vid']            = 'post/upload_vid';
 $route['delete_map/(:num)']     = 'hazzard/delete_map/$1';
 $route['delete_email/(:num)']   = 'subscribe/delete_email/$1';
+$route['hazzard_maps_user']     = 'hazzard/user_maps';
