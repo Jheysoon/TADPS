@@ -20,13 +20,12 @@
                           <td>Contact Number</td>
                           <td><?php echo $contact ?></td>
                         </tr>
-                        <?php if($this->session->userdata('type') == '') {?>
+                        <?php if($this->session->userdata('type') == '') { ?>
                         <tr>
                           <td>Email Address</td>
                           <td><?php echo $email ?></td>
                         </tr>
-                        <?php } ?>
-                        <?php if($this->session->userdata('type') == 'ngo') {?>
+                        <?php } if($this->session->userdata('type') == 'ngo') { ?>
                         <tr>
                           <td>Office</td>
                           <td><?php echo $office ?></td>
