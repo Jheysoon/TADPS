@@ -130,7 +130,7 @@ class Main extends CI_Controller
     function hotline_delete($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('users');
+        $this->db->delete('hotlines');
         redirect('/hotline');
     }
 
