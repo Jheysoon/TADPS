@@ -28,6 +28,32 @@
                           <td>Address</td>
                           <td><?php echo $address ?></td>
                         </tr>
+                        <tr>
+                            <td>Birthday</td>
+                            <td>
+                                <?php
+                                    $month = array('January', 'February', 'March', 'April',
+                                                'May', 'June', 'July', 'August', 'September',
+                                                'October', 'November', 'December');
+                                    $day = explode('-', $bday);
+                                    $m = (int) ($day[1] - 1);
+                                    echo $month[$m].' '.$day[2].', '.$day[0];
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>
+                                <?php
+                                    $bday1  = new DateTime($bday);
+                                    $now    = new DateTime("now");
+                                    $age    = $bday1->diff($now);
+                                    $age    = $age->format('%y');
+                                    $concat = $age > 1 ? 's':'';
+                                    echo $age.' yr'.$concat.'. old';
+                                 ?>
+                            </td>
+                        </tr>
                         <?php if($this->session->userdata('type') == '') { ?>
                         <tr>
                           <td>Email Address</td>

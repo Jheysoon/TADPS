@@ -34,6 +34,8 @@
                     </select>
                     <label>Address</label>
                     <input type="text" class="form-control" name="address" value="<?php echo set_value('address') ?>">
+                    <label>Birthday</label>
+                    <input type="date" class="form-control" name="bday" value="<?php set_value('bday') ?>">
                     <?php if($this->session->has_userdata('id')){ ?>
                     <label>Office</label>
                     <input type="text" class="form-control" name="office" value="<?php echo set_value('office') ?>">
