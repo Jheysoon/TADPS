@@ -798,12 +798,13 @@ if ( ! function_exists('date_range'))
 
 if(! function_exists('diff'))
 {
-	function diff($from , $to = 'now', $format = '%y')
+	function diff($from , $to = 'now', $format = 'y')
 	{
 		$from 	= new DateTime($from);
 		$to		= new DateTime($to);
 
 		$diff 	= $from->diff($to);
+		$format = preg_replace('/(\w+)/', '%\1', $format);
 		return $diff->format($format);
 	}
 }

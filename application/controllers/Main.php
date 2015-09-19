@@ -53,6 +53,7 @@ class Main extends CI_Controller
 
     function profile()
     {
+        $this->load->helper('date');
         $this->db->where('id', $this->session->userdata('id'));
         $data = $this->db->get('users')->row_array();
         $this->load->view('admin/profile', $data);
