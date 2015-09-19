@@ -794,3 +794,16 @@ if ( ! function_exists('date_range'))
 		return $range;
 	}
 }
+
+
+if(! function_exists('diff'))
+{
+	function diff($from , $to = 'now', $format = '%y')
+	{
+		$from 	= new DateTime($from);
+		$to		= new DateTime($to);
+
+		$diff 	= $from->diff($to);
+		return $diff->format($format);
+	}
+}
