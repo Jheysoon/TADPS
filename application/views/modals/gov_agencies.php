@@ -20,6 +20,10 @@
                             <img src="/assets/img/phivolcs.png" class="img-thumbnail" alt="" />
                             <br>
                         </div>
+                        <div class="col-md-12">
+                            <a class="text-center h3" href="http://www.tacloban.gov.ph" target="_blank">TACLOBAN OFFICIAL WEBSITE</a>
+                            <img src="/assets/img/tac.png" class="img-thumbnail" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
