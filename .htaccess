@@ -13,9 +13,6 @@ php_value memory_limit 128M
 
 	RewriteEngine on
 
-	# cut the url if the index.php is exists make it more cleaner url
-	# e.g. lcis.dev.com/index.php => lcis.dev.com
-
 	RewriteCond %{ENV:REDIRECT_STATUS} ^$
 	RewriteRule ^index\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
 
