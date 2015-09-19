@@ -10,7 +10,9 @@
     <div class="row">
         <div class="col-md-12" style="height:340px;">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Weather</h4></div>
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Weather</h4>
+                </div>
                 <div class="panel-body">
                     <div class="" style="">
                         <a href="http://www.accuweather.com/en/ph/tacloban-city/264004/weather-forecast/264004" class="aw-widget-legal"></a>
