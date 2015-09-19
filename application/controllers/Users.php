@@ -181,6 +181,7 @@ class Users extends CI_Controller
                 $data['contact']= $data1['contact'];
                 $data['address']= $data1['address'];
                 $data['gender'] = $data1['gender'];
+                $data['bday']   = $data1['bday'];
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = $data1['office'];
                 elseif($this->session->userdata('type') == '')
@@ -195,6 +196,7 @@ class Users extends CI_Controller
                 $data['contact']= set_value('contact');
                 $data['address']= set_value('address');
                 $data['gender'] = set_value('gender');
+                $data['bday']   = set_value('bday');
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = set_value('office');
                 elseif($this->session->userdata('type') == '')
@@ -227,6 +229,7 @@ class Users extends CI_Controller
                 $data['pic']    = '';
                 $data['mname']  = set_value('mname');
                 $data['contact']= set_value('contact');
+                $data['bday']   = set_value('bday');
 
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = set_value('office');
@@ -249,6 +252,7 @@ class Users extends CI_Controller
         $data['contact']    = $this->input->post('contact');
         $data['address']    = $this->input->post('address');
         $data['gender']     = $this->input->post('gender');
+        $data['bday']       = $this->input->post('bday');
         if($this->session->userdata('type') == 'ngo')
             $data['office'] = $this->input->post('office');
         elseif($this->session->userdata('type') == '')

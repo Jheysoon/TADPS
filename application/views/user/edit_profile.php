@@ -3,22 +3,25 @@
     <?php $this->load->view('includes/menu', array('active' => '')) ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="well well-lg">
                     <form action="/edit_profile/<?php echo $id ?>" method="post" enctype="multipart/form-data">
-                        <div class="fileinput fileinput-new center-block" style="margin-left:100px;" data-provides="fileinput">
-                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                                <img src="/assets/uploads/<?php echo $pic ?>" alt="" />
-                            </div>
-                            <div>
-                                <span class="btn btn-default btn-file">
-                                    <span class="fileinput-new">Select image</span>
-                                    <span class="fileinput-exists">Change</span>
-                                    <input type="file" name="userfile">
-                                </span>
-                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        <div class="col-sm-6 col-sm-offset-4">
+                            <div class="fileinput fileinput-new center-block" data-provides="fileinput">
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                                    <img src="/assets/uploads/<?php echo $pic ?>" alt="" />
+                                </div>
+                                <div>
+                                    <span class="btn btn-default btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="userfile">
+                                    </span>
+                                    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                </div>
                             </div>
                         </div>
+
                         <table class="table">
                             <tr>
                                 <td>First Name</td>
@@ -44,6 +47,12 @@
                             <tr>
                               <td>Address</td>
                               <td><input type="text" class="form-control" name="address" value="<?php echo $contact ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>Birthday</td>
+                                <td>
+                                    <input type="date" class="form-control" name="bday" value="<?php echo $bday ?>">
+                                </td>
                             </tr>
                             <tr>
                               <td>Contact Number</td>
