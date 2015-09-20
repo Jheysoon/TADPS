@@ -265,4 +265,65 @@ class Users extends CI_Controller
         $this->db->update('users', $data);
         redirect('/edit_profile/'.$id);
     }
+
+    function add_admin()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('fname', 'Firstname', 'required');
+        $this->form_validation->set_rules('lname', 'Lastname', 'required');
+        $this->form_validation->set_rules('mname', 'Middlename', 'required');
+        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('con_pass', 'Confirm Password', 'required');
+
+        if($this->form_validation->run() === FALSE)
+        {
+            $d['error'] = '';
+            $this->load->view('admin/add_admin', $d);
+        }
+        else
+        {
+            $password = $this->input->post('password');
+            $con_pass = $this->input->post('con_pass');
+            if($password == $con_pass)
+            {
+                $config['upload_path']          = './assets/uploads/';
+                // check if the attachment belongs to image
+                $config['allowed_types']        = 'jpg|png|jpeg';
+                $config['max_size']             = 2048;
+                $config['encrypt_name']         = TRUE;
+                $this->load->library('upload', $config);
+
+                if($this->upload->do_upload())
+                {
+                    $data['fname']      = ucwords($this->input->post('fname'));
+                    $data['lname']      = ucwords($this->input->post('lname'));
+                    $data['mname']      = ucwords($this->input->post('mname'));
+                    $data['gender']     = $this->input->post('gender');
+                    $data['bday']       = $this->input->post('bday');
+                    $data['address']    = ucwords($this->input->post('address'));
+                    $data['username']   = $this->input->post('username');
+                    $data['password']   = password_hash($password, PASSWORD_BCRYPT);
+                    $data['pic']        = $this->upload->data('file_name');
+                    $data['type']       = 'admin';
+                    $data['contact']    = $this->input->post('contact');
+                    $this->db->insert('users', $data);
+                    redirect('/add_admin');
+                }
+                else
+                {
+                    $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                    $this->load->view('admin/add_admin', $d);
+                }
+            }
+            else
+            {
+                $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                $this->load->view('admin/add_admin', $d);
+            }
+        }
+    }
 }

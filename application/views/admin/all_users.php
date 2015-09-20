@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="well well-lg">
+                    <a href="/add_admin" class="btn btn-primary btn-sm pull-right">Add Admin</a>
                     <span class="clearfix"></span>
                     <br/>
                     <?php
