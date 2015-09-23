@@ -67,6 +67,10 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <a href="/view_prev" class="btn btn-primary btn-sm pull-right">View Previous Announcement</a>
+                        <span class="clearfix"></span>
+                        <br>
                     </div>
                 </div>
             </div>
