@@ -169,10 +169,11 @@ class Users extends CI_Controller
         if($this->form_validation->run() === FALSE)
         {
             $data['error'] = '';
+            $this->db->where('id', $id);
+            $data1          = $this->db->get('users')->row_array();
+
             if(! $this->input->post('fname'))
             {
-                $this->db->where('id', $id);
-                $data1          = $this->db->get('users')->row_array();
                 $data['fname']  = $data1['fname'];
                 $data['lname']  = $data1['lname'];
                 $data['mname']  = $data1['mname'];
@@ -191,7 +192,7 @@ class Users extends CI_Controller
             {
                 $data['fname']  = set_value('fname');
                 $data['lname']  = set_value('lname');
-                $data['pic']    = '';
+                $data['pic']    = $data1['pic'];
                 $data['mname']  = set_value('mname');
                 $data['contact']= set_value('contact');
                 $data['address']= set_value('address');

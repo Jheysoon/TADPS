@@ -25,15 +25,15 @@
                         <table class="table">
                             <tr>
                                 <td>First Name</td>
-                                <td><input type="text" class="form-control" name="fname" value="<?php echo $fname ?>"></td>
+                                <td><input type="text" class="form-control" name="fname" value="<?php echo $fname ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Last Name</td>
-                                <td><input type="text" class="form-control" name="lname" value="<?php echo $lname ?>"></td>
+                                <td><input type="text" class="form-control" name="lname" value="<?php echo $lname ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Middle Name</td>
-                                <td><input type="text" class="form-control" name="mname" value="<?php echo $mname ?>"></td>
+                                <td><input type="text" class="form-control" name="mname" value="<?php echo $mname ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Gender</td>
@@ -46,28 +46,28 @@
                             </tr>
                             <tr>
                               <td>Address</td>
-                              <td><input type="text" class="form-control" name="address" value="<?php echo $contact ?>"></td>
+                              <td><input type="text" class="form-control" name="address" value="<?php echo $address ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Birthday</td>
                                 <td>
-                                    <input type="date" class="form-control" name="bday" value="<?php echo $bday ?>">
+                                    <input type="date" class="form-control" name="bday" value="<?php echo $bday ?>" required>
                                 </td>
                             </tr>
                             <tr>
                               <td>Contact Number</td>
-                              <td><input type="number" class="form-control" name="contact" value="<?php echo $contact ?>"></td>
+                              <td><input type="number" class="form-control" name="contact" value="<?php echo $contact ?>" required></td>
                             </tr>
                             <?php if($this->session->userdata('type') == '') { ?>
                             <tr>
                               <td>Email Address</td>
-                              <td><input type="email" class="form-control" name="email" value="<?php echo $email ?>"></td>
+                              <td><input type="email" class="form-control" name="email" value="<?php echo $email ?>" required></td>
                             </tr>
                             <?php }
                             if($this->session->userdata('type') == 'ngo') { ?>
                             <tr>
                               <td>Office</td>
-                              <td><input type="text" class="form-control" name="office" value="<?php echo $office ?>"></td>
+                              <td><input type="text" class="form-control" name="office" value="<?php echo $office ?>" required></td>
                             </tr>
                             <?php } ?>
                         </table>
