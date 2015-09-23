@@ -61,5 +61,11 @@
         &nbsp;
     </div>
     <?php $this->load->view('includes/footer') ?>
+    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+        });
+    </script>
 </body>
 </html>
