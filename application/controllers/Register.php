@@ -60,6 +60,7 @@ class Register extends CI_Controller
                     $data['mname']      = ucwords($this->input->post('mname'));
                     $data['email']      = $this->input->post('email');
                     $data['bday']       = $this->input->post('bday');
+                    $data['contact']    = $this->input->post('contact');
                     $data['username']   = $username;
                     $data['password']   = password_hash($this->input->post('password'), 1);
                     $data['address']    = $this->input->post('address');
