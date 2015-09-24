@@ -58,9 +58,12 @@ class Messages extends CI_Controller
 
     function form()
     {
+        $this->load->helper('date');
         $d['user_to']    = $this->input->post('user_to');
         $d['user_from']  = $this->input->post('user_from');
         $d['message']    = $this->input->post('message');
+        $ttime           = mdate('%h:%i%a');
+        $d['ttime']      = date('Y-m-d').' '.$ttime;
 
         if($d['user_to'] OR $d['user_from'])
         {
