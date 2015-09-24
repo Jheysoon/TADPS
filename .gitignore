@@ -23,4 +23,3 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .idea/workspace.xml
 .idea/workspace.xml
 assets/captcha/*
-assets/uploads/*
