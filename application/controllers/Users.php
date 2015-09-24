@@ -333,4 +333,10 @@ class Users extends CI_Controller
         $this->load->helper('typography');
         $this->load->view('user/view_prev');
     }
+
+    function prev_user()
+    {
+        $this->load->helper('typography');
+        $this->load->view('view_prev');
+    }
 }

@@ -1,6 +1,6 @@
 <?php $this->load->view('includes/header') ?>
 <body>
-    <?php $this->load->view('includes/menu', array('active' => '')) ?>
+    <?php $this->load->view('includes/outsidemenu') ?>
 
     <div class="container-fluid">
         <div class="row">

@@ -53,10 +53,12 @@
                                 }
                             ?>
                             <br>
+                            <a href="/prev_user" class="btn btn-primary btn-xs pull-right">View Previous Announcement</a>
+                            <br>
                         </div>
                     </div>
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="margin-top:-20px;">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <span class="fa fa-empire fa-lg"></span>
