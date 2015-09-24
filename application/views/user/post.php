@@ -80,34 +80,68 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('input[name=userfile]').change(function(){
+                $('#message').html(' ');
                 var file = document.getElementById('userfile').files[0];
+                var ext  = [".mp4", "avi", "wmv"];
+                var valid = false;
+                var inp = document.getElementById('userfile');
+                if(inp.type == 'file')
+                {
+                    var filename = inp.value;
+                    if(filename.length > 0)
+                    {
+                        for(var j = 0; j < ext.length; j++)
+                        {
+                            var curExt = ext[j];
+                            var e = filename.substr(filename.length - curExt.length, curExt.length).toLowerCase();
+                            //alert(e);
+                            if(e == curExt.toLowerCase())
+                            {
+                                valid = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(valid)
+                {
+                    var file_size = file.size / 1024 / 1024;
+                    if(file_size <= 10)
+                    {
+                        var formdata = new FormData();
 
-                var formdata = new FormData();
+                        formdata.append('file', file);
+                        var ajax = new XMLHttpRequest();
+                        ajax.open('POST', '/upload_vid');
+                        ajax.send(formdata);
 
-                formdata.append('file', file);
-                var ajax = new XMLHttpRequest();
-                ajax.open('POST', '/upload_vid');
-                ajax.send(formdata);
-                ajax.upload.addEventListener('progress', function(event){
-                    var percent = (event.loaded / event.total) * 100;
-                    //console.log(Math.round(percent));
-                    console.log(event);
-                    percent = Math.round(percent) + '%';
-                    $('#prog').removeClass('hide');
-                    $('#prog2').css('width', percent);
-                    //$('#upload_percent').html(percent+' Complete');
-                }, false);
-                ajax.addEventListener('load', function(data){
-                    $('#prog').addClass('hide');
-                    $('#message').html('<div class="alert alert-success">Successfully Uploaded</div>');
-                }, false);
-                ajax.addEventListener('error', function(data){
-                    $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
-                }, false);
-                ajax.addEventListener('abort', function(data){
-                    $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
-                }, false);
-
+                        ajax.upload.addEventListener('progress', function(event){
+                            var percent = (event.loaded / event.total) * 100;
+                            //console.log(Math.round(percent));
+                            console.log(event);
+                            percent = Math.round(percent) + '%';
+                            $('#prog').removeClass('hide');
+                            $('#prog2').css('width', percent);
+                            //$('#upload_percent').html(percent+' Complete');
+                        }, false);
+                        ajax.addEventListener('load', function(data){
+                            $('#prog').addClass('hide');
+                            $('#message').html('<div class="alert alert-success">Successfully Uploaded</div>');
+                        }, false);
+                        ajax.addEventListener('error', function(data){
+                            $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
+                        }, false);
+                        ajax.addEventListener('abort', function(data){
+                            $('#message').html('<div class="alert alert-danger">Something went wrong</div>');
+                        }, false);
+                    }
+                    else {
+                        $('#message').html('<div class="alert alert-danger text-center">File size exceeds <br/> Please upload a file less than 10MB</div>');
+                    }
+                }
+                else {
+                    $('#message').html('<div class="alert alert-danger text-center">Not a valid file type ..<br/> Valid file types are .mp4, .avi, .wmv</div>');
+                }
             });
         });
     </script>
