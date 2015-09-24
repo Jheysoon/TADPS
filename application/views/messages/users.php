@@ -17,6 +17,8 @@
         $r = $this->db->get('users')->result_array();
         foreach ($r as $user)
         {
+            if($this->session->userdata('id') != $user['id'])
+            {
         ?>
     <a href="#" data-user="<?php echo $user['id'] ?>" class="list-group-item chat_user">
         <?php
@@ -29,6 +31,7 @@
          ?>
     </a>
     <?php
+            }
         }
      ?>
 </ul>
