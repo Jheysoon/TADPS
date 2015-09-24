@@ -11,7 +11,7 @@
             <div class="panel-body">
                 <div class="container-fluid">
                     <div class="row" style="padding:0">
-                        <div class="col-md-4" style="padding:0;margin:0">
+                        <div class="col-md-4" id="user_form" style="padding:0;margin:0">
                             <?php $this->load->view('messages/users') ?>
                         </div>
                         <div class="col-md-8">
@@ -55,19 +55,6 @@
     <script type="text/javascript">
         var $user = 0;
         $(document).ready(function(){
-            $('.chat_user').click(function(e){
-                $user = $(this).data('user');
-                $('input[name=user_to]').val($user);
-
-                //get name
-                $.post('/messages/getName', {user:$user}, function(data){
-                    $('#user_name').html(data);
-                });
-
-                getMessages();
-                e.preventDefault();
-            });
-
             function getMessages()
             {
                 //get messages
@@ -85,12 +72,33 @@
                 e.preventDefault();
             });
 
+            function onUserClick()
+            {
+                $('.chat_user').on('click', function(e){
+                    $user = $(this).data('user');
+                    $('input[name=user_to]').val($user);
+
+                    //get name
+                    $.post('/messages/getName', {user:$user}, function(data){
+                        $('#user_name').html(data);
+                    });
+
+                    getMessages();
+                    e.preventDefault();
+                });
+            }
+
+            onUserClick();
+
             setInterval(function(){
                 if($user != 0)
                 {
                     getMessages();
                 }
-            },4500);
+                $('#user_form').load('/messages/get_user', function(){
+                    onUserClick();
+                });
+            }, 2500);
 
             function delete_conv() {
                 $('.delete_conversation').on('click', function(e){

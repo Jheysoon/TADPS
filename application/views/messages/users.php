@@ -28,7 +28,13 @@
                 $office = '('.$user['office'].')';
             }
             echo $user['fname'].' '.$user['lname'].' '.$office;
+
+            $this->db->where('user_from', $user['id']);
+            $this->db->where('user_to', $this->session->userdata('id'));
+            $this->db->where('status', 0);
+            $count = $this->db->count_all_results('chats');
          ?>
+         <span class="badge"><?php echo $count == 0 ? '':$count ?></span>
     </a>
     <?php
             }

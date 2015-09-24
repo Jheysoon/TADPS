@@ -54,6 +54,10 @@ class Messages extends CI_Controller
             $office = '('.$r['office'].')';
         }
         echo $r['fname'].' '.$r['lname'].' '.$office;
+        $data['status'] = 1;
+        $this->db->where('user_from', $user);
+        $this->db->where('user_to', $this->session->userdata('id'));
+        $this->db->update('chats', $data);
     }
 
     function form()
@@ -64,6 +68,7 @@ class Messages extends CI_Controller
         $d['message']    = $this->input->post('message');
         $ttime           = mdate('%h:%i%a');
         $d['ttime']      = date('Y-m-d').' '.$ttime;
+        $d['status']     = 0;
 
         if($d['user_to'] OR $d['user_from'])
         {
@@ -77,5 +82,10 @@ class Messages extends CI_Controller
         $id = $this->input->post('id');
         $this->db->where('id', $id);
         $this->db->delete('chats');
+    }
+
+    function get_user()
+    {
+        $this->load->view('messages/users');
     }
 }
