@@ -38,10 +38,22 @@
                             <tr>
                                 <td>Gender</td>
                                 <td>
-                                    <select class="form-control" name="gender">
-                                        <option value="1" <?php echo $gender == 1 ? 'selected' : '' ?>>Male</option>
-                                        <option value="0" <?php echo $gender == 0 ? 'selected' : '' ?>>Female</option>
-                                    </select>
+                                    <div class="col-md-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="1" <?php echo $gender == 1 ? 'checked':'' ?>>
+                                                Male
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="0" <?php echo $gender == 0 ? 'checked':'' ?>>
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>

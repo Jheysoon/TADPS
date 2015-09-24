@@ -28,10 +28,23 @@
                     <label>Lastname</label>
                     <input type="text" class="form-control" name="lname" value="<?php echo set_value('lname') ?>">
                     <label>Gender</label>
-                    <select class="form-control" name="gender">
-                        <option value="1" <?php echo set_select('gender', 1, TRUE) ?>>Male</option>
-                        <option value="0" <?php echo set_select('gender', 2) ?>>Female</option>
-                    </select>
+                    <span class="clearfix"></span>
+                    <div class="col-md-6">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="gender" value="1" <?php echo set_radio('gender', 1, TRUE) ?>>
+                                Male
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="gender" value="0" <?php echo set_radio('gender', 0) ?>>
+                                Female
+                            </label>
+                        </div>
+                    </div>
                     <label>Address</label>
                     <input type="text" class="form-control" name="address" value="<?php echo set_value('address') ?>">
                     <label>Birthday</label>
