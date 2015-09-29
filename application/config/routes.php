@@ -86,3 +86,4 @@ $route['hazzard_maps_user']     = 'hazzard/user_maps';
 $route['add_admin']             = 'users/add_admin';
 $route['view_prev']             = 'users/view_prev';
 $route['prev_user']             = 'users/prev_user';
+$route['logs']                  = 'users/show_logs';

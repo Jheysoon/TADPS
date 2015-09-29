@@ -149,6 +149,9 @@ class Main extends CI_Controller
                 $data['num']    = $this->input->post('number');
                 $this->db->where('id', $id);
                 $this->db->update('hotlines', $data);
+
+                // insert logs
+                $this->api->insert_logs('Added hotline number');
                 redirect('/hotline');
             }
 
@@ -160,6 +163,9 @@ class Main extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('hotlines');
+
+        // insert logs
+        $this->api->insert_logs('Deleted hotline');
         redirect('/hotline');
     }
 

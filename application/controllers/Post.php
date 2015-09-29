@@ -38,6 +38,9 @@ class Post extends CI_Controller
                 $data['user']       = $this->session->userdata('id');
                 $data['date']       = date('Y-m-d');
                 $this->db->insert('announcement', $data);
+
+                // insert logs
+                $this->api->insert_logs('Added new post');
                 redirect('/post');
             }
             else
@@ -67,6 +70,9 @@ class Post extends CI_Controller
         {
             $d['file'] = $this->upload->data('file_name');
             $this->db->insert('video', $d);
+
+            // insert logs
+            $this->api->insert_logs('Uploaded new video');
             echo '<div class="alert alert-danger text-center">Successfully Uploaded</div>';
         }
         else

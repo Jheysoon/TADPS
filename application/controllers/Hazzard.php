@@ -26,6 +26,9 @@ class Hazzard extends CI_Controller
                 $data['pic']        = $this->upload->data('file_name');
                 $data['caption']    = $this->input->post('caption');
                 $this->db->insert('hazard_maps', $data);
+
+                // insert logs
+                $this->api->insert_logs('Added new hazard map');
                 redirect('/hazzard_maps');
             }
             else

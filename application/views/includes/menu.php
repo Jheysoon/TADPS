@@ -34,7 +34,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/change_password">Change Password</a></li>
-            <!-- <li><a href="#">Logs</a></li> -->
+            <li><a href="/logs">Logs</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/logout"><span class="fa fa-sign-out fa-lg"></span> Logout</a></li>
           </ul>
