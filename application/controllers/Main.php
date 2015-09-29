@@ -27,10 +27,23 @@ class Main extends CI_Controller
             $this->db->select('type');
             $type = $this->db->get('users')->row_array();
 
-            $info = array('id' => $user_id,'type' => $type['type']);
-            // set the session
-            $this->session->set_userdata($info);
-            echo 'success';
+            $this->db->where('user', $user_id);
+            $count = $this->db->count_all_results('login');
+            if($count > 0)
+            {
+                echo '<div class="alert alert-danger text-center">Your account has already used to login</div>';
+            }
+            else
+            {
+                // insert into login tables
+                $data['user'] = $user_id;
+                $this->db->insert('login', $data);
+
+                $info = array('id' => $user_id,'type' => $type['type']);
+                // set the session
+                $this->session->set_userdata($info);
+                echo 'success';
+            }
         }
         else
         {
@@ -157,6 +170,10 @@ class Main extends CI_Controller
 
     function logout()
     {
+        // delete the user entry in login table
+        $this->db->where('user', $this->session->userdata('id'));
+        $this->db->delete('login');
+
         $this->session->unset_userdata(['id', 'type']);
         redirect(base_url());
     }
