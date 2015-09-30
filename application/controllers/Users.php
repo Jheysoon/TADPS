@@ -361,7 +361,6 @@ class Users extends CI_Controller
                         </tr>';
         foreach($range as $date)
         {
-            echo $user.' ';
             $l = $this->db->query("SELECT fname, lname, ddate, ttime, activity
                                 FROM logs a, users b
                                 WHERE b.id = a.user AND ddate = '$date'
