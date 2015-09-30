@@ -344,4 +344,39 @@ class Users extends CI_Controller
     {
         $this->load->view('user/logs');
     }
+
+    function get_logs()
+    {
+        $this->load->helper('date');
+        $date_from  = $this->input->post('date_from');
+        $date_to    = $this->input->post('date_to');
+        $user       = $this->input->post('user');
+        $range      = date_range($date_from, $date_to);
+        $template   = '';
+        $template   .= '<tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Activity</th>
+                            <th>User</th>
+                        </tr>';
+        foreach($range as $date)
+        {
+            echo $user.' ';
+            $l = $this->db->query("SELECT fname, lname, ddate, ttime, activity
+                                FROM logs a, users b
+                                WHERE b.id = a.user AND ddate = '$date'
+                                AND (fname LIKE '%$user%' OR lname LIKE '%$user%')")->result_array();
+
+            foreach($l as $logs)
+            {
+                $template   .= '<tr>
+                                    <td>'.$date.'</td>
+                                    <td>'.$logs['ttime'].'</td>
+                                    <td>'.$logs['activity'].'</td>
+                                    <td>'.$logs['fname'].' '.$logs['lname'].'</td>
+                                </tr>';
+            }
+        }
+        echo $template;
+    }
 }
