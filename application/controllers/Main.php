@@ -31,7 +31,7 @@ class Main extends CI_Controller
             $count = $this->db->count_all_results('login');
             if($count > 0)
             {
-                echo '<div class="alert alert-danger text-center">Your account has already used to login</div>';
+                echo '<div class="alert alert-warning text-center">Your account has already used to login</div>';
             }
             else
             {
