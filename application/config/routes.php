@@ -87,3 +87,4 @@ $route['add_admin']             = 'users/add_admin';
 $route['view_prev']             = 'users/view_prev';
 $route['prev_user']             = 'users/prev_user';
 $route['logs']                  = 'users/show_logs';
+$route['forgot_password']       = 'users/forgot';

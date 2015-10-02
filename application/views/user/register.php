@@ -64,6 +64,20 @@
                     <input type="password" name="password" class="form-control" value="<?php echo set_value('password') ?>">
                     <label>Confirm Password</label>
                     <input type="password" name="con_pass" class="form-control" value="<?php echo set_value('con_pass') ?>">
+                    <label>Secret Question</label>
+                    <select class="form-control" name="secret_q">
+                        <?php
+                            $t = $this->db->get('secret_q')->result_array();
+                            foreach($t as $s)
+                            {
+                                ?>
+                            <option value="<?php echo $s['id'] ?>" <?php echo set_select('secret_q', $s['id']) ?>><?php echo $s['question'] ?></option>
+                        <?php
+                            }
+                         ?>
+                    </select>
+                    <label>Answer</label>
+                    <input type="text" class="form-control" name="answer_q" value="" required>
                     <a href="<?php echo ($this->session->has_userdata('id')) ? base_url('users') : base_url() ?>" class="btn btn-default pull-left margin-top-5px">Back</a>
                     <input type="submit" class="btn btn-primary pull-right margin-top-5px" value="Register">
                 </form>

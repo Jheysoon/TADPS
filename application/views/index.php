@@ -2,10 +2,8 @@
 <body id="no_scroll">
 <?php
     $this->load->view('includes/outsidemenu');
- ?>
-    <!-- Navigation -->
-  <!--Videos and Links  -->
-
+    echo $this->session->flashdata('message');
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" style="height:340px;">

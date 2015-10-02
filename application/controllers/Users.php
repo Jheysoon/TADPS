@@ -378,4 +378,39 @@ class Users extends CI_Controller
         }
         echo $template;
     }
+
+    function forgot()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('answer', 'Answer', 'required');
+
+        if($this->form_validation->run() === FALSE)
+        {
+            $d['error'] = '';
+            $this->load->view('user/forgot', $d);
+        }
+        else
+        {
+            $username = $this->input->post('username');
+            $u = $this->db->get_where('users', array('username' => $username))->row_array();
+            if($this->input->post('secret_q') == $u['question'] AND $this->input->post('answer') == $u['answer'])
+            {
+                $pass               = 'welcome';
+                $pass               = password_hash($pass, PASSWORD_BCRYPT);
+                $data['password']   = $pass;
+                $this->db->where('username', $username);
+                $this->db->update('users', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-info text-center">Your password has been reset to <strong>welcome</strong></div>');
+                redirect(base_url());
+            }
+            else
+            {
+                $d['error'] = '<div class="alert alert-danger">Invalid</div>';
+                $this->load->view('user/forgot', $d);
+            }
+        }
+    }
 }

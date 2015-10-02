@@ -69,6 +69,8 @@ class Register extends CI_Controller
                         $data['password']   = password_hash($password, 1);
                         $data['address']    = $this->input->post('address');
                         $data['gender']     = $this->input->post('gender');
+                        $data['question']   = $this->input->post('secret_q');
+                        $data['answer']     = $this->input->post('answer_q');
                         $this->db->insert('users', $data);
                         $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully registered</div>');
                         redirect('/register');

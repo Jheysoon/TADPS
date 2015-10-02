@@ -13,6 +13,7 @@
                     <input type="text" class="form-control input-lg" name="username1"  autofocus placeholder="Username" required>
                     <input type="password" class="form-control input-lg margin-top-5px" name="password1" placeholder="Password" required>
                     <div class="modal-footer">
+                        <a href="/forgot_password" class="btn btn-default pull-left margin-top-5px">Forgot Password</a>
                         <a href="#" data-dismiss="modal" id="close" class="btn btn-default margin-top-5px">Close</a>
                         <button type="submit" class="btn btn-primary pull-right margin-top-5px" id="btnSubmit" data-loading-text="Loading..." name="btnSubmit">Login</button>
                     </div>
