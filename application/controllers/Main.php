@@ -92,10 +92,18 @@ class Main extends CI_Controller
             $u = $this->db->get('users')->row_array();
             if(password_verify($old, $u['password']))
             {
-                $data['password'] = password_hash($new, PASSWORD_BCRYPT);
-                $this->db->where('id', $this->session->userdata('id'));
-                $this->db->update('users', $data);
-                redirect(base_url());
+                if($this->input->post('r_pass') == $new)
+                {
+                    $data['password'] = password_hash($new, PASSWORD_BCRYPT);
+                    $this->db->where('id', $this->session->userdata('id'));
+                    $this->db->update('users', $data);
+                    redirect(base_url());
+                }
+                else
+                {
+                    $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                    $this->load->view('change_pass', $d);
+                }
             }
             else {
                 $d['error'] = '<div class="alert alert-danger">Invalid Old Password</div>';
