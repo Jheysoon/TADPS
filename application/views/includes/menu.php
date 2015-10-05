@@ -37,7 +37,6 @@
             <?php if($this->session->userdata('type') == 'admin') { ?>
             <li><a href="/logs">Logs</a></li>
             <?php } ?>
-            <li role="separator" class="divider"></li>
           </ul>
         </li>
       </ul>
