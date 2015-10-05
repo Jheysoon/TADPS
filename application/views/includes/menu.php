@@ -38,10 +38,16 @@
             <li><a href="/logs">Logs</a></li>
             <?php } ?>
             <li role="separator" class="divider"></li>
-            <li><a href="/logout"><span class="fa fa-sign-out fa-lg"></span> Logout</a></li>
           </ul>
         </li>
       </ul>
+      <?php $a = $this->db->get('users')->row_array() ?>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout">Logout</a></a></li>
+      </ul>
+      <p class="navbar-text navbar-right">
+          Welcome <?php echo $a['fname'] ?>
+      </p>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
