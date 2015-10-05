@@ -398,12 +398,12 @@ class Users extends CI_Controller
             $u = $this->db->get_where('users', array('username' => $username))->row_array();
             if($this->input->post('secret_q') == $u['question'] AND $this->input->post('answer') == $u['answer'])
             {
-                $pass               = 'welcome';
+                $pass               = $this->input->post('password');
                 $pass               = password_hash($pass, PASSWORD_BCRYPT);
                 $data['password']   = $pass;
                 $this->db->where('username', $username);
                 $this->db->update('users', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info text-center">Your password has been reset to <strong>welcome</strong></div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-info text-center">Your password has been reset to <strong>'.$pass.'</strong></div>');
                 redirect(base_url());
             }
             else

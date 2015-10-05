@@ -22,6 +22,8 @@
                     </select>
                     <label>Answer</label>
                     <input type="text" name="answer" class="form-control" value="<?php echo set_value('answer') ?>">
+                    <label>New Password</label>
+                    <input type="text" name="password" value="<?php echo set_value('password') ?>">
                     <input type="submit" name="name" class="btn btn-primary pull-right margin-top-5px" value="Submit">
                     <span class="clearfix"></span>
                 </form>
