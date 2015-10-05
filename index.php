@@ -57,7 +57,7 @@
     ini_set('memory_limit', '96M');
 	ini_set('post_max_size', '64M');
 	ini_set('upload_max_filesize', '64M');
-	$_SERVER['CI_ENV'] = 'production';
+	//$_SERVER['CI_ENV'] = 'production';
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*

@@ -45,36 +45,65 @@ class Messages extends CI_Controller
     function getName()
     {
         $user = $this->input->post('user');
-        $this->db->where('id', $user);
-        $this->db->select('fname,lname,office');
-        $r      = $this->db->get('users')->row_array();
-        $office = '';
-        if(! empty($r['office']))
+        if($user == 0)
         {
-            $office = '('.$r['office'].')';
+            echo 'Send to All';
         }
-        echo $r['fname'].' '.$r['lname'].' '.$office;
-        $data['status'] = 1;
-        $this->db->where('user_from', $user);
-        $this->db->where('user_to', $this->session->userdata('id'));
-        $this->db->update('chats', $data);
+        else
+        {
+            $this->db->where('id', $user);
+            $this->db->select('fname,lname,office');
+            $r      = $this->db->get('users')->row_array();
+            $office = '';
+            if(! empty($r['office']))
+            {
+                $office = '('.$r['office'].')';
+            }
+            echo $r['fname'].' '.$r['lname'].' '.$office;
+            $data['status'] = 1;
+            $this->db->where('user_from', $user);
+            $this->db->where('user_to', $this->session->userdata('id'));
+            $this->db->update('chats', $data);
+        }
     }
 
     function form()
     {
         $this->load->helper('date');
-        $d['user_to']    = $this->input->post('user_to');
-        $d['user_from']  = $this->input->post('user_from');
-        $d['message']    = $this->input->post('message');
-        $ttime           = mdate('%h:%i%a');
-        $d['ttime']      = date('Y-m-d').' '.$ttime;
-        $d['status']     = 0;
-
-        if($d['user_to'] OR $d['user_from'])
+        $user_to    = $this->input->post('user_to');
+        if($user_to == 0)
         {
-            $this->db->insert('chats', $d);
-            $this->converse($d['user_to'], $d['user_from']);
+            $this->db->where('id !=', $this->session->userdata('id'));
+            $message = $this->input->post('message');
+            $u = $this->db->get('users')->result_array();
+            foreach($u as $user)
+            {
+                $d['user_to']    = $user['id'];
+                $d['user_from']  = $this->session->userdata('id');
+                $ttime           = mdate('%h:%i%a');
+                $d['ttime']      = date('Y-m-d').' '.$ttime;
+                $d['status']     = 0;
+                $d['message']    = $message;
+                $this->db->insert('chats', $d);
+            }
+            echo '<div class="alert alert-info text-center">Successfully Send to All</div>';
         }
+        else
+        {
+            $d['user_to']    = $this->input->post('user_to');
+            $d['user_from']  = $this->input->post('user_from');
+            $d['message']    = $this->input->post('message');
+            $ttime           = mdate('%h:%i%a');
+            $d['ttime']      = date('Y-m-d').' '.$ttime;
+            $d['status']     = 0;
+
+            if($d['user_to'] OR $d['user_from'])
+            {
+                $this->db->insert('chats', $d);
+                $this->converse($d['user_to'], $d['user_from']);
+            }
+        }
+
     }
 
     function delete_conversation()
