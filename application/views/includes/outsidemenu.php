@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img src="/assets/img/logo1.jpg" class="img-circle" alt="" style="width:40px;padding-top:6px;" />
-            <a class="navbar-brand topnav" href="/">CDRRMO </a>
+            <a class="navbar-brand topnav" href="/"><h4>CDRRMO</h4> </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
