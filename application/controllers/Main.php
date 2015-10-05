@@ -73,7 +73,7 @@ class Main extends CI_Controller
         $this->load->library('form_validation');
 
         $rules = [
-                    ['field' => 'n_pass', 'label' => 'Password', 'rules' => 'required'],
+                    ['field' => 'new_pass', 'label' => 'Password', 'rules' => 'required'],
                     ['field' => 'r_pass', 'label' => 'Password', 'rules' => 'required']
                 ];
         $this->form_validation->set_rules($rules);
