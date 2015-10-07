@@ -40,7 +40,10 @@
           </ul>
         </li>
       </ul>
-      <?php $a = $this->db->get('users')->row_array() ?>
+      <?php
+            $this->db->where('id', $this->session->userdata('id'));
+            $a = $this->db->get('users')->row_array();
+        ?>
       <ul class="nav navbar-nav navbar-right">
           <li><a href="/logout">Logout</a></a></li>
       </ul>
