@@ -14,7 +14,7 @@
                     <table class="table">
                         <tr>
                             <td>Name</td>
-                            <td><?php echo $fname.' '.$lname.' '.$mname ?></td>
+                            <td><?php echo $fname.' '.$mname.' '.$lname ?></td>
                         </tr>
                         <tr>
                           <td>Contact Number</td>
