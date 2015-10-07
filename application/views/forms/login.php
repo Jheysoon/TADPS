@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <form action="/login" class="center-block" method="post" style="max-width:300px;" id="login_form">
                     <div id="error_message">
-
+                        
                     </div>
                     <input type="text" class="form-control input-lg" name="username1"  autofocus placeholder="Username" required>
                     <input type="password" class="form-control input-lg margin-top-5px" name="password1" placeholder="Password" required>

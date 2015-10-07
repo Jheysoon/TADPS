@@ -94,5 +94,17 @@
     <script type="text/javascript" src="/assets/js/login_register.js">
 
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            <?php
+                if($this->session->flashdata('message'))
+                {
+                ?>
+                $('#myModal').modal();
+            <?php
+                }
+            ?>
+        });
+    </script>
 </body>
 </html>
