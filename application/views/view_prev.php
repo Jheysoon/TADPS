@@ -8,7 +8,7 @@
                     <div class="well well-lg">
                     <ul class="media-list">
                         <?php
-                            $a = $this->db->query('SELECT * FROM announcement ORDER BY id ASC')->result_array();
+                            $a = $this->db->query('SELECT * FROM announcement ORDER BY id DESC')->result_array();
                             foreach($a as $aa)
                             {
                                 $u = $this->db->get_where('users', array('id' => $aa['user']))->row_array();
