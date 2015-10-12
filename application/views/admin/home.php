@@ -42,7 +42,7 @@
                             <div class="media-left">
                                 <a href="#">
                                     <?php
-                                        $this->db->where('id', 1);
+                                        $this->db->where('id', $a['user']);
                                         $r = $this->db->get('users')->row_array();
                                     ?>
                                     <img class="media-object" style="max-width:120px;" src="/assets/uploads/<?php echo $r['pic'] ?>" alt="...">
