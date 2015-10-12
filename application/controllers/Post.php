@@ -81,4 +81,12 @@ class Post extends CI_Controller
             echo '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
         }
     }
+
+    function delete_post($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('announcement');
+        $this->api->insert_logs('Delete Post');
+        redirect('/view_prev');
+    }
 }
