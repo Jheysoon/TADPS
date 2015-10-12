@@ -20,7 +20,7 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Announcement</h4>
+                                <h4 class="media-heading">Announcement from: <?php echo $u['fname'].' '.$u['lname'] ?></h4>
                                 <?php echo auto_typography($aa['message']) ?>
                                 <?php echo $aa['ttime'].' '.$aa['date'] ?>
                             </div>
