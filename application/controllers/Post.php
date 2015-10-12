@@ -4,7 +4,7 @@ class Post extends CI_Controller
 {
     function all()
     {
-        $this->load->helper(array('form', 'typography'));
+        $this->load->helper(array('form', 'typography', 'date'));
         $this->load->library('form_validation');
         $this->load->model('announce');
 
@@ -37,6 +37,7 @@ class Post extends CI_Controller
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('id');
                 $data['date']       = date('Y-m-d');
+                $data['ttime']      = mdate('%h:%i %a', time());
                 $this->db->insert('announcement', $data);
 
                 // insert logs

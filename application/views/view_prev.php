@@ -22,7 +22,7 @@
                             <div class="media-body">
                                 <h4 class="media-heading">Announcement</h4>
                                 <?php echo auto_typography($aa['message']) ?>
-                                <?php echo $aa['date'] ?>
+                                <?php echo $aa['ttime'].' '.$aa['date'] ?>
                             </div>
                         </li>
                       <?php } ?>
