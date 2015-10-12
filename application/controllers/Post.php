@@ -67,17 +67,14 @@ class Post extends CI_Controller
         $this->load->library('upload', $config);
 
 
-        if($this->upload->do_upload('file'))
-        {
+        if ($this->upload->do_upload('file')) {
             $d['file'] = $this->upload->data('file_name');
             $this->db->insert('video', $d);
 
             // insert logs
             $this->api->insert_logs('Uploaded new video');
             echo '<div class="alert alert-danger text-center">Successfully Uploaded</div>';
-        }
-        else
-        {
+        } else {
             echo '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
         }
     }
