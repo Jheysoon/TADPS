@@ -37,7 +37,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Announcement</h4></div>
                     <div class="panel-body">
-                        <small>Date&nbsp;:&nbsp;<?php echo $a['date'] ?></small>
+                        <small>Date&nbsp;:&nbsp;<?php echo $a['date'].' '.$a['ttime'] ?></small>
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
@@ -49,11 +49,13 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Announcement</h4>
+                                <h4 class="media-heading">Announcement from <?php echo $r['fname'].' '.$r['lname'] ?></h4>
                             <?php
                                 $a = $this->announce->latest();
                                 echo auto_typography($a['message']);
                              ?>
+                             <br>
+                             <a href="/view_prev" class="btn btn-primary btn-xs">View Previous Annoucement</a>
                             </div>
                         </div>
                     </div>
