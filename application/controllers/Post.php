@@ -9,13 +9,11 @@ class Post extends CI_Controller
         $this->load->model('announce');
 
         $this->form_validation->set_rules('post', 'Message', 'required');
-        if($this->form_validation->run() === FALSE)
-        {
+
+        if ($this->form_validation->run() === FALSE) {
             $d['error'] = '';
             $this->load->view('user/post', $d);
-        }
-        else
-        {
+        } else {
             $config['upload_path']          = './assets/uploads/';
             // check if the attachment belongs to image/document/spreadsheet
             $config['allowed_types']        = 'jpg|png|jpeg|doc|docx|pdf|xlsx';
@@ -25,13 +23,11 @@ class Post extends CI_Controller
             $error = '';
 
             // upload the file
-            if(! $this->upload->do_upload('attachment'))
-            {
+            if (! $this->upload->do_upload('attachment')) {
                 $error = $this->upload->display_errors();
             }
 
-            if($error == '<p>You did not select a file to upload.</p>' OR $error == '')
-            {
+            if ($error == '<p>You did not select a file to upload.</p>' OR $error == '') {
                 //<p>You did not select a file to upload.</p>
                 $data['attach']     = ($error == '') ? $this->upload->data('file_name') : '';
                 $data['message']    = $this->input->post('post');
@@ -43,9 +39,7 @@ class Post extends CI_Controller
                 // insert logs
                 $this->api->insert_logs('Added new post');
                 redirect('/post');
-            }
-            else
-            {
+            } else {
                 $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
                 $this->load->view('user/post', $d);
             }
