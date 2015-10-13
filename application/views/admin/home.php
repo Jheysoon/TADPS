@@ -15,8 +15,7 @@
                     <?php
                         $vid = $this->db->get('video')->result_array();
                         $ctr = 0;
-                        foreach($vid as $video)
-                        {
+                        foreach ($vid as $video) {
                             ?>
                         <div class="item <?php echo $ctr == 0 ? 'active':'' ?>">
                             <video width="100%" height="500px" src="/assets/uploads/<?php echo $video['file'] ?>" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
