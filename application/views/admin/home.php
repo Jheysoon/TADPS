@@ -15,7 +15,8 @@
                     <?php
                         $vid = $this->db->get('video')->result_array();
                         $ctr = 0;
-                        foreach ($vid as $video) {
+                        foreach($vid as $video)
+                        {
                             ?>
                         <div class="item <?php echo $ctr == 0 ? 'active':'' ?>">
                             <video width="100%" height="500px" src="/assets/uploads/<?php echo $video['file'] ?>" controls preload="none" poster="posterimage.jpg" allowfullscreen=""></video>
@@ -36,25 +37,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Announcement</h4></div>
                     <div class="panel-body">
-                        <small>Date&nbsp;:&nbsp;<?php echo $a['date'].' '.$a['ttime'] ?></small>
+                        <small>Date&nbsp;:&nbsp;<?php echo $a['date'] ?></small>
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
                                     <?php
-                                        $this->db->where('id', $a['user']);
+                                        $this->db->where('id', 1);
                                         $r = $this->db->get('users')->row_array();
                                     ?>
                                     <img class="media-object" style="max-width:120px;" src="/assets/uploads/<?php echo $r['pic'] ?>" alt="...">
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Announcement from <?php echo $r['fname'].' '.$r['lname'] ?></h4>
+                                <h4 class="media-heading">Announcement</h4>
                             <?php
                                 $a = $this->announce->latest();
                                 echo auto_typography($a['message']);
                              ?>
-                             <br>
-                             <a href="/view_prev" class="btn btn-primary btn-xs">View Previous Annoucement</a>
                             </div>
                         </div>
                     </div>

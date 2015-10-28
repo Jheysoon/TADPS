@@ -23,6 +23,7 @@
                             </div>
                         </div>
                         <hr>
+                        <?php if ($this->session->userdata('type') == 'admin') { ?>
                         <div class="container-fluid">
                             <div class="col-md-12">
                                 <form class="" action="index.html" method="post">
@@ -44,6 +45,7 @@
                                 </form>
                             </div>
                         </div>
+                        <?php } ?>
 
                         <div class="container-fluid">
                             <div class="col-md-12">
@@ -51,7 +53,8 @@
                                     <div class="media-left">
                                         <a href="#">
                                             <?php
-                                                $this->db->where('id', 1);
+                                                $a = $this->announce->latest();
+                                                $this->db->where('id', $a['user']);
                                                 $r = $this->db->get('users')->row_array();
                                             ?>
                                             <img class="media-object" style="max-width:120px;" src="/assets/uploads/<?php echo $r['pic'] ?>" alt="...">
@@ -59,10 +62,7 @@
                                     </div>
                                     <div class="media-body">
                                         <h4 class="media-heading">Announcement</h4>
-                                    <?php
-                                        $a = $this->announce->latest();
-                                        echo auto_typography($a['message']);
-                                    ?>
+                                    <?php echo auto_typography($a['message']); ?>
                                     </div>
                                 </div>
                             </div>
@@ -81,10 +81,10 @@
         $(document).ready(function(){
             $('input[name=userfile]').change(function(){
                 $('#message').html(' ');
-                var file = document.getElementById('userfile').files[0];
-                var ext  = [".mp4", "avi", "wmv"];
-                var valid = false;
-                var inp = document.getElementById('userfile');
+                var file    = document.getElementById('userfile').files[0];
+                var ext     = [".mp4", "avi", "wmv"];
+                var valid   = false;
+                var inp     = document.getElementById('userfile');
                 if(inp.type == 'file')
                 {
                     var filename = inp.value;

@@ -8,7 +8,7 @@
                     <div class="well well-lg">
                     <ul class="media-list">
                         <?php
-                            $a = $this->db->query('SELECT * FROM announcement ORDER BY id DESC')->result_array();
+                            $a = $this->db->query('SELECT * FROM announcement ORDER BY id ASC')->result_array();
                             foreach($a as $aa)
                             {
                                 $u = $this->db->get_where('users', array('id' => $aa['user']))->row_array();
@@ -20,9 +20,9 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Announcement from: <?php echo $u['fname'].' '.$u['lname'] ?></h4>
+                                <h4 class="media-heading">Announcement</h4>
                                 <?php echo auto_typography($aa['message']) ?>
-                                <?php echo $aa['ttime'].' '.$aa['date'] ?>
+                                <?php echo $aa['date'] ?>
                             </div>
                         </li>
                       <?php } ?>
