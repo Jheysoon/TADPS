@@ -88,4 +88,5 @@ $route['view_prev']             = 'users/view_prev';
 $route['prev_user']             = 'users/prev_user';
 $route['logs']                  = 'users/show_logs';
 $route['forgot_password']       = 'users/forgot';
-$route['delete_annouce/(:num)'] = 'post/delete_post/$1';
+$route['confirm_post']			= 'post/confirm';
+$route['confirm/(:num)']		= 'post/conf/$1';
