@@ -48,42 +48,47 @@ class Register extends CI_Controller
             {
                 $password = $this->input->post('password');
                 $con_pass = $this->input->post('con_pass');
-                if($password == $con_pass)
-                {
-                    $config['upload_path']          = './assets/uploads/';
-                    // check if the attachment belongs to image
-                    $config['allowed_types']        = 'jpg|png|jpeg';
-                    $config['max_size']             = 2048;
-                    $config['encrypt_name']         = TRUE;
-                    $this->load->library('upload', $config);
-                    if($this->upload->do_upload())
-                    {
-                        $data['pic']        = $this->upload->data('file_name');
-                        $data['fname']      = ucwords($this->input->post('fname'));
-                        $data['lname']      = ucwords($this->input->post('lname'));
-                        $data['mname']      = ucwords($this->input->post('mname'));
-                        $data['email']      = $this->input->post('email');
-                        $data['bday']       = $this->input->post('bday');
-                        $data['contact']    = $this->input->post('contact');
-                        $data['username']   = $username;
-                        $data['password']   = password_hash($password, 1);
-                        $data['address']    = $this->input->post('address');
-                        $data['gender']     = $this->input->post('gender');
-                        $data['question']   = $this->input->post('secret_q');
-                        $data['answer']     = $this->input->post('answer_q');
-                        $this->db->insert('users', $data);
-                        $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully registered</div>');
-                        redirect('/register');
-                    }
-                    else
-                    {
-                        $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+
+                // TODO: check for a strong password
+
+                if (preg_match("#.*^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $password)) {
+
+                    if ($password == $con_pass) {
+                        $config['upload_path']          = './assets/uploads/';
+                        // check if the attachment belongs to image
+                        $config['allowed_types']        = 'jpg|png|jpeg';
+                        $config['max_size']             = 2048;
+                        $config['encrypt_name']         = TRUE;
+                        $this->load->library('upload', $config);
+
+                        if ($this->upload->do_upload()) {
+                            $data['pic']        = $this->upload->data('file_name');
+                            $data['fname']      = ucwords($this->input->post('fname'));
+                            $data['lname']      = ucwords($this->input->post('lname'));
+                            $data['mname']      = ucwords($this->input->post('mname'));
+                            $data['email']      = $this->input->post('email');
+                            $data['bday']       = $this->input->post('bday');
+                            $data['contact']    = $this->input->post('contact');
+                            $data['username']   = $username;
+                            $data['password']   = password_hash($password, 1);
+                            $data['address']    = $this->input->post('address');
+                            $data['gender']     = $this->input->post('gender');
+                            $data['question']   = $this->input->post('secret_q');
+                            $data['answer']     = $this->input->post('answer_q');
+                            $this->db->insert('users', $data);
+                            $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully registered</div>');
+                            redirect('/register');
+                        } else {
+                            $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                            $this->load->view('user/register', $d);
+                        }
+                    } else {
+                        $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
                         $this->load->view('user/register', $d);
                     }
-                }
-                else
-                {
-                    $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                } else {
+                    $d['error'] = '<div class="alert alert-danger">Password must have at
+                                    least one capital letter and number and special character</div>';
                     $this->load->view('user/register', $d);
                 }
             }
