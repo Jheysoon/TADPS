@@ -8,9 +8,9 @@
                 <div id="map" style="display:none">
                   <!-- -->
                 </div>
-                <div class="" width="100%">
+                <div class="" width="100%">                     <!-- 11.2435784,125.0064294,17.5z -->
                   <iframe class= "col-md-12" height="400" frameborder="0"
-                    src="https://www.google.com/maps/embed/v1/directions?origin= 11.2395445,125.0024079&destination=Tacloban City Astrodome&key=AIzaSyCQsaQYMeegD3H-wv6149gnnKWezQXQ4MU" allowfullscreen style="overflow:auto"></iframe>
+                    src="https://www.google.com/maps/embed/v1/directions?origin= 11.2435784,125.0064294&destination=Tacloban City Hall&key=AIzaSyCQsaQYMeegD3H-wv6149gnnKWezQXQ4MU" allowfullscreen style="overflow:auto"></iframe>
                    </iframe>
                 </div>
             </div>
@@ -29,7 +29,6 @@
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
         zoom: 15
     });
     var infoWindow = new google.maps.InfoWindow({map: map});
