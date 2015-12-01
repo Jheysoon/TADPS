@@ -11,6 +11,7 @@ class Main extends CI_Controller
         } else
             $this->home();
     }
+    
     function login()
     {
         $username = $this->input->post('username');
@@ -172,14 +173,17 @@ class Main extends CI_Controller
         $this->session->unset_userdata(['id', 'type']);
         redirect(base_url());
     }
+    
     function hazzard()
     {
       $this->load->view('hazzardmap');
     }
+    
     function hot()
     {
       $this->load->view('hotlines');
     }
+    
     function hazzardmaps()
     {
       $this->load->view('includes/header');
