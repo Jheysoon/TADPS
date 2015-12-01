@@ -4,13 +4,11 @@ class Main extends CI_Controller
 {
     function index()
     {
-        if(!$this->session->has_userdata('id'))
-        {
+        if (!$this->session->has_userdata('id')) {
             $this->load->helper(array('text', 'typography'));
             $this->load->model('announce');
             $this->load->view('index');
-        }
-        else
+        } else
             $this->home();
     }
     function login()
@@ -21,20 +19,18 @@ class Main extends CI_Controller
         $this->load->model('user');
 
         $user_id = $this->user->login($username, $password);
-        if($user_id != FALSE)
-        {
+        
+        if ($user_id != FALSE) {
             $this->db->where('id', $user_id);
             $this->db->select('type');
             $type = $this->db->get('users')->row_array();
 
             $this->db->where('user', $user_id);
             $count = $this->db->count_all_results('login');
-            if($count > 0)
-            {
+            
+            if ($count > 0) {
                 echo '<div class="alert alert-warning text-center">Your account has already used to login</div>';
-            }
-            else
-            {
+            } else {
                 // insert into login tables
                 $data['user'] = $user_id;
                 $this->db->insert('login', $data);
@@ -44,9 +40,8 @@ class Main extends CI_Controller
                 $this->session->set_userdata($info);
                 echo 'success';
             }
-        }
-        else
-        {
+            
+        } else {
             echo '<div class="alert alert-danger text-center">Authentication Failed</div>';
         }
     }
@@ -78,40 +73,33 @@ class Main extends CI_Controller
                 ];
         $this->form_validation->set_rules($rules);
 
-        if($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE) {
             $d['error'] = '';
             $this->load->view('change_pass', $d);
-        }
-        else
-        {
+        } else {
             $old = $this->input->post('old_pass');
             $new = $this->input->post('new_pass');
 
             $this->db->where('id', $this->session->userdata('id'));
             $u = $this->db->get('users')->row_array();
-            if(password_verify($old, $u['password']))
-            {
-                if($this->input->post('r_pass') == $new)
-                {
+            
+            if (password_verify($old, $u['password'])) {
+                
+                if ($this->input->post('r_pass') == $new) {
                     $data['password'] = password_hash($new, PASSWORD_BCRYPT);
                     $this->db->where('id', $this->session->userdata('id'));
                     $this->db->update('users', $data);
                     redirect(base_url());
-                }
-                else
-                {
+                } else {
                     $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
                     $this->load->view('change_pass', $d);
                 }
-            }
-            else {
+                
+            } else {
                 $d['error'] = '<div class="alert alert-danger">Invalid Old Password</div>';
                 $this->load->view('change_pass', $d);
             }
-
         }
-
     }
 
     function hotline($id = '')
@@ -122,16 +110,13 @@ class Main extends CI_Controller
         $this->form_validation->set_rules('office', 'Office', 'required');
         $this->form_validation->set_rules('number', 'Telephone Number', 'required');
 
-        if($this->form_validation->run() === FALSE)
-        {
-            if(empty($id))
-            {
+        if ($this->form_validation->run() === FALSE) {
+            
+            if (empty($id)) {
                 $d['id']        = '';
                 $d['office']    = set_value('office');
                 $d['num']       = set_value('num');
-            }
-            else
-            {
+            } else {
                 $this->db->where('id', $id);
                 $h = $this->db->get('hotlines')->row_array();
 
@@ -141,18 +126,14 @@ class Main extends CI_Controller
             }
 
             $this->load->view('admin/hotline', $d);
-        }
-        else
-        {
-            if(empty($id))
-            {
+        } else {
+            
+            if (empty($id)) {
                 $data['office'] = ucwords($this->input->post('office'));
                 $data['num']    = $this->input->post('number');
 
                 $this->db->insert('hotlines', $data);
-            }
-            else
-            {
+            } else {
                 $data['office'] = $this->input->post('office');
                 $data['num']    = $this->input->post('number');
                 $this->db->where('id', $id);
