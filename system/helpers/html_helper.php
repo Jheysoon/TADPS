@@ -408,3 +408,11 @@ if ( ! function_exists('nbs'))
 		return str_repeat('&nbsp;', $num);
 	}
 }
+
+if ( ! function_exists('alert')) {
+	
+	function alert($message, $type = 'danger')
+	{
+		return '<div class="alert alert-'.$type.' text-center">'.$message.'</div>';
+	}
+}
