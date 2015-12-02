@@ -105,7 +105,7 @@ class Users extends CI_Controller
                     }
                     else
                     {
-                        $d['error'] = '<div class="alert alert-danger">Please Confirm Password</div>';
+                        $d['error'] = alert('Please Confirm Password');
                         $d['id']        = '';
                         $d['fname']     = set_value('fname');
                         $d['lname']     = set_value('lname');
@@ -117,7 +117,7 @@ class Users extends CI_Controller
                 }
                 else
                 {
-                    $d['error'] = '<div class="alert alert-danger">Invalid Contact Number</div>';
+                    $d['error']     = alert('Invalid Contact Number');
                     $d['id']        = '';
                     $d['fname']     = set_value('fname');
                     $d['lname']     = set_value('lname');
@@ -136,7 +136,7 @@ class Users extends CI_Controller
                 $data['contact']    = $this->input->post('contact');
                 $this->db->where('id' ,$id);
                 $this->db->update('users', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully edited</div>');
+                $this->session->set_flashdata('message', alert('Successfully edited', 'success'));
                 redirect('/users');
             }
 

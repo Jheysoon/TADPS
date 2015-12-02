@@ -86,7 +86,7 @@ class Messages extends CI_Controller
                 $d['message']    = $message;
                 $this->db->insert('chats', $d);
             }
-            echo '<div class="alert alert-info text-center">Successfully Send to All</div>';
+            echo alert('Successfully Send to All', 'info');
         }
         else
         {

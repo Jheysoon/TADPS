@@ -76,14 +76,14 @@ class Register extends CI_Controller
                             $data['question']   = $this->input->post('secret_q');
                             $data['answer']     = $this->input->post('answer_q');
                             $this->db->insert('users', $data);
-                            $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully registered</div>');
+                            $this->session->set_flashdata('message', alert('Successfully registered', 'success'));
                             redirect('/register');
                         } else {
-                            $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                            $d['error'] = alert($this->upload->display_errors());
                             $this->load->view('user/register', $d);
                         }
                     } else {
-                        $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                        $d['error'] = alert('Please confirm your password');
                         $this->load->view('user/register', $d);
                     }
                 } else {
