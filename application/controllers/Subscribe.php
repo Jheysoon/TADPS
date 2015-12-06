@@ -75,6 +75,7 @@ class Subscribe extends CI_Controller
 
     function all()
     {
+        $this->load->helper('text');
         $this->load->view('admin/email');
     }
 

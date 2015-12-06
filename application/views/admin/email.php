@@ -30,7 +30,7 @@
                                         <?php echo $email['email'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $email['password'] ?>
+                                        <?php echo ellipsize($email['password'], 30) ?>
                                     </td>
                                     <td>
                                         <a href="/delete_email/<?php echo $email['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="btn btn-danger btn-block btn-sm">Delete</a>
