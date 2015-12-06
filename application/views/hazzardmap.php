@@ -2,7 +2,7 @@
 <body>
 <?php $this->load->view('includes/outsidemenu') ?>
 <div class="container-fluid">
-    <div class="col-md-12">
+    <div class="col-md-12 hidden-print">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo"><h4 class="panel-title">Hazzard Maps</h4></div>
             <div class="panel-body">
@@ -46,7 +46,9 @@
 </div>
 
 
-<div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<img src="" id="img_hazzard1" class="img-thumbnail visible-print" alt="..." width="100%">
+
+<div class="modal fade hidden-print" id="map" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header navbar navbar-inverse">
@@ -57,6 +59,7 @@
                 <div class="container-fluid">
                     <div class="col-md-12">
                         <a href="" id="download_link" class="btn btn-primary pull-right" download="hazzard_map" target="_blank">Download</a>
+                        <a href="#" onclick="window.print();" class="btn btn-default pull-left hidden-print">Print</a>
                         <span class="clearfix"></span>
                         <br>
                         <img src="" id="img_hazzard" class="img-thumbnail" alt="..." width="100%">
@@ -82,6 +85,7 @@
             $path   = '/assets/uploads/' + $img;
             $('#download_link').attr('href', $path);
             $('#img_hazzard').attr('src', $path);
+            $('#img_hazzard1').attr('src', $path);
             $('#map').modal('show');
             e.preventDefault();
         });
