@@ -11,6 +11,7 @@
                           <tr class="table_header">
                               <th>Name</th>
                               <th>Email Address</th>
+                              <th>Password</th>
                               <th>
                                   Action
                               </th>
@@ -27,6 +28,9 @@
                                     </td>
                                     <td>
                                         <?php echo $email['email'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo ellipsize($email['password'], 30) ?>
                                     </td>
                                     <td>
                                         <a href="/delete_email/<?php echo $email['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="btn btn-danger btn-block btn-sm">Delete</a>

@@ -2,7 +2,7 @@
 <body>
     <?php $this->load->view('includes/menu', array('active' => 'maps')) ?>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row hidden-print">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3 class="panel-title">Hazzard Map</h3></div>
@@ -75,8 +75,49 @@
             </div>
         </div>
 
+        <img src="" id="img_hazzard1" class="img-thumbnail visible-print" alt="..." width="100%">
+
+        <div class="modal fade hidden-print" id="map" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header navbar navbar-inverse">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:red">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel" style="color:white">Flood Hazzard Map</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="col-md-12">
+                                <a href="" id="download_link" class="btn btn-primary pull-right hidden-print" download="hazzard_map" target="_blank">Download</a>
+                                <a href="#" onclick="window.print();" class="btn btn-default pull-left hidden-print">Print</a>
+                                <span class="clearfix"></span>
+                                <br>
+                                <img src="" id="img_hazzard" class="img-thumbnail" alt="..." width="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer hidden-print">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <?php $this->load->view('includes/footer') ?>
     <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.hazzardmap').click(function(e){
+                $img    = $(this).data('param');
+                $path   = '/assets/uploads/' + $img;
+                $('#download_link').attr('href', $path);
+                $('#img_hazzard').attr('src', $path);
+                $('#img_hazzard1').attr('src', $path);
+                $('#map').modal('show');
+                e.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>

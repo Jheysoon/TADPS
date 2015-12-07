@@ -33,7 +33,7 @@ class Hazzard extends CI_Controller
             }
             else
             {
-                $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                $d['error'] = alert($this->upload->display_errors());
                 $this->load->view('admin/maps', $d);
             }
         }

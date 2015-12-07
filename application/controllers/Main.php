@@ -30,7 +30,7 @@ class Main extends CI_Controller
             $count = $this->db->count_all_results('login');
             
             if ($count > 0) {
-                echo '<div class="alert alert-warning text-center">Your account has already used to login</div>';
+                echo alert('Your account has already used to login', 'warning');
             } else {
                 // insert into login tables
                 $data['user'] = $user_id;
@@ -43,7 +43,7 @@ class Main extends CI_Controller
             }
             
         } else {
-            echo '<div class="alert alert-danger text-center">Authentication Failed</div>';
+            echo alert('Authentication Failed', 'danger');
         }
     }
 
@@ -92,12 +92,12 @@ class Main extends CI_Controller
                     $this->db->update('users', $data);
                     redirect(base_url());
                 } else {
-                    $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                    $d['error'] = alert('Please confirm your password', 'danger');
                     $this->load->view('change_pass', $d);
                 }
                 
             } else {
-                $d['error'] = '<div class="alert alert-danger">Invalid Old Password</div>';
+                $d['error'] = alert('Invalid Old Password', 'danger');
                 $this->load->view('change_pass', $d);
             }
         }

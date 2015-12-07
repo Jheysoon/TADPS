@@ -40,7 +40,7 @@ class Post extends CI_Controller
                 $this->api->insert_logs('Added new post');
                 redirect('/post');
             } else {
-                $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                $d['error'] = alert($this->upload->display_errors());
                 $this->load->view('user/post', $d);
             }
 
@@ -69,11 +69,11 @@ class Post extends CI_Controller
 
             // insert logs
             $this->api->insert_logs('Uploaded new video');
-            echo '<div class="alert alert-danger text-center">Successfully Uploaded</div>';
+            echo alert('Successfully Uploaded');
         }
         else
         {
-            echo '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+            echo alert($this->upload->display_errors());
         }
     }
 
