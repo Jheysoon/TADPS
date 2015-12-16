@@ -82,15 +82,18 @@ class Register extends CI_Controller
                             $d['error'] = alert($this->upload->display_errors());
                             $this->load->view('user/register', $d);
                         }
+                        
                     } else {
                         $d['error'] = alert('Please confirm your password');
                         $this->load->view('user/register', $d);
                     }
+                    
                 } else {
                     $d['error'] = '<div class="alert alert-danger">Password must have at
                                     least one capital letter and number and special character</div>';
                     $this->load->view('user/register', $d);
                 }
+                
             }
         }
     }
