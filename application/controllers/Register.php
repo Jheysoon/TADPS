@@ -90,7 +90,7 @@ class Register extends CI_Controller
                     
                 } else {
                     $d['error'] = '<div class="alert alert-danger">Password must have at
-                                    least one capital letter and number and special character</div>';
+                                    least one capital letter a small letter a number and special character</div>';
                     $this->load->view('user/register', $d);
                 }
                 
