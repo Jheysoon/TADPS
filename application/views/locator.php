@@ -26,6 +26,22 @@
                                     <a href="<?php echo '/locator/11.244072/124.999341' ?>" class="btn btn-primary btn-sm btn-block">Locate</a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    M.H. Del Pilar St.
+                                </td>
+                                <td>
+                                    <a href="<?php echo '/locator/11.243967/125.002195' ?>" class="btn btn-primary btn-sm btn-block">Locate</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    EVRMC
+                                </td>
+                                <td>
+                                    <a href="<?php echo '/locator/11.250954/125.004426' ?>" class="btn btn-primary btn-sm btn-block">Locate</a>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
