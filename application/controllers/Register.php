@@ -51,7 +51,7 @@ class Register extends CI_Controller
 
                 // TODO: check for a strong password
 
-                if (preg_match("#.*^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $password)) {
+                if ($this->valid_pass($password)) {
 
                     if ($password == $con_pass) {
                         $config['upload_path']          = './assets/uploads/';
@@ -96,5 +96,23 @@ class Register extends CI_Controller
                 
             }
         }
+    }
+    
+    function valid_pass($candidate) 
+    {
+        $r1='/[A-Z]/';  //Uppercase
+        $r2='/[a-z]/';  //lowercase
+        $r3='/[!@#$%&*()^,._;:-]/';  // whatever you mean by 'special char'
+        $r4='/[0-9]/';  //numbers
+        
+        if(preg_match_all($r1,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r2,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r3,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r4,$candidate, $o)<1) return FALSE;
+        
+        return TRUE;
     }
 }
