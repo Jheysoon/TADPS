@@ -7,7 +7,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="card" style="background-color: #fff;">
                     <iframe class= "card-img-top" height="400" frameborder="0" style="width:100%;"
-                      src="https://www.google.com/maps/embed/v1/directions?origin=11.244072,124.999341&destination=Tacloban City Hall&key=AIzaSyCQsaQYMeegD3H-wv6149gnnKWezQXQ4MU" allowfullscreen style="overflow:auto"></iframe>
+                      src="https://www.google.com/maps/embed/v1/directions?origin=<?php echo $lat ?>,<?php echo $long ?>&destination=Tacloban City Hall&key=AIzaSyCQsaQYMeegD3H-wv6149gnnKWezQXQ4MU" allowfullscreen style="overflow:auto"></iframe>
                      </iframe>
                     <div class="card-header" style="margin-top:-5px;">
                         <h3 class="card-title text-center">List Of Locations</h3>
@@ -23,7 +23,7 @@
                                     Burgos St.
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm btn-block">Locate</a>
+                                    <a href="<?php echo '/locator/11.244072/124.999341' ?>" class="btn btn-primary btn-sm btn-block">Locate</a>
                                 </td>
                             </tr>
                         </table>

@@ -192,8 +192,11 @@ class Main extends CI_Controller
       $this->load->view('includes/footer');
     }
 
-    function locator()
+    function locator($lat = 11.244072, $long = 124.999341)
     {
-        $this->load->view('locator');
+        $data['lat']    = $lat;
+        $data['long']   = $long;
+        
+        $this->load->view('locator', $data);
     }
 }
