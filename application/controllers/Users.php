@@ -337,6 +337,7 @@ class Users extends CI_Controller
     function prev_user()
     {
         $this->load->helper('typography');
+        $this->load->model('announce');
         $this->load->view('view_prev');
     }
 
