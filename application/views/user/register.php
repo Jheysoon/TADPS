@@ -16,7 +16,7 @@
                     </div>
                     <form action="/register" method="post" enctype="multipart/form-data">
                         <div class="card-block">
-                            
+
                             <div class="fileinput fileinput-new center-block" style="margin-left:100px;" data-provides="fileinput">
                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                                 <div>
@@ -104,15 +104,12 @@
     ?>
     <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/login_register.js">
-
-    </script>
+    <script type="text/javascript" src="/assets/js/login_register.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             <?php
-                if($this->session->flashdata('message'))
-                {
-                ?>
+                if ($this->session->flashdata('message')) {
+            ?>
                 $('#myModal').modal();
             <?php
                 }
