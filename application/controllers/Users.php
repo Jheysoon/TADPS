@@ -140,7 +140,7 @@ class Users extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('users');
-        $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully deleted</div>');
+        $this->session->set_flashdata('message', alert('Successfully deleted', 'success'));
         redirect('/users');
     }
 
@@ -226,7 +226,7 @@ class Users extends CI_Controller
 
                 $data['id']     = $id;
 
-                $data['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                $data['error'] = alert($this->upload->display_errors());
 
                 $this->load->view('user/edit_profile', $data);
             }
@@ -301,12 +301,12 @@ class Users extends CI_Controller
 
                     redirect('/add_admin');
                 } else {
-                    $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                    $d['error'] = alert($this->upload->display_errors());
                     $this->load->view('admin/add_admin', $d);
                 }
 
             } else {
-                $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+                $d['error'] = alert('Please confirm your password');
                 $this->load->view('admin/add_admin', $d);
             }
         }
@@ -388,10 +388,10 @@ class Users extends CI_Controller
 
                 $this->db->where('username', $username);
                 $this->db->update('users', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info text-center">Your password has been reset to <strong>'.$pass.'</strong></div>');
+                $this->session->set_flashdata('message', alert('Your password has been reset to <strong>'.$pass.'</strong>', 'info'));
                 redirect(base_url());
             } else {
-                $d['error'] = '<div class="alert alert-danger">Invalid</div>';
+                $d['error'] = alert('Invalid');
                 $this->load->view('user/forgot', $d);
             }
         }
