@@ -33,6 +33,11 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view('includes/footer') ?>
+    <?php
+        $this->load->view('forms/login');
+        $this->load->view('forms/registration');
+        $this->load->view('includes/footer');
+    ?>
+    <script type="text/javascript" src="/assets/js/login_register.js"></script>
 </body>
 </html>
