@@ -24,24 +24,22 @@
                         </tr>
                         <?php
                             $h = $this->db->get('hotlines')->result_array();
-                            foreach($h as $hotline)
-                            {
+                            
+                            foreach ($h as $hotline) {
                                 ?>
-                                <tr>
-                                    <td>
-                                        <?php  echo $hotline['office']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $hotline['num'] ?>
-                                    </td>
-                                    <td>
-                                        <a href="/hotline/<?php echo $hotline['id'] ?>" class="label label-info col-md-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
-                                        <a href="/hotline_delete/<?php echo $hotline['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="label label-danger col-md-5 col-md-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                         ?>
+                            <tr>
+                                <td>
+                                    <?php  echo $hotline['office']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $hotline['num'] ?>
+                                </td>
+                                <td>
+                                    <a href="/hotline/<?php echo $hotline['id'] ?>" class="label label-info col-md-5">Edit&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="/hotline_delete/<?php echo $hotline['id'] ?>" onclick="return confirm('Are you sure to delete ?')" class="label label-danger col-md-5 col-md-offset-1">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                   </table>
               </div>
             </div>
