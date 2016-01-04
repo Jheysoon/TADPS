@@ -67,11 +67,12 @@ class Main extends CI_Controller
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
+        
+        $rules = array(
+            array('field' => 'new_pass', 'label' => 'Password', 'rules' => 'required'),
+            array('field' => 'r_pass', 'label' => 'Password', 'rules' => 'required')
+        );
 
-        $rules = [
-                    ['field' => 'new_pass', 'label' => 'Password', 'rules' => 'required'],
-                    ['field' => 'r_pass', 'label' => 'Password', 'rules' => 'required']
-                ];
         $this->form_validation->set_rules($rules);
 
         if ($this->form_validation->run() === FALSE) {
