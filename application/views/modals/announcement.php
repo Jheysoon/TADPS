@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <?php
                     $announce = $this->announce->latest();
-                    $user = $this->db->get_where('users', ['id' => $announce['user']])->row_array();
+                    $user = $this->db->get_where('users', array('id' => $announce['user']))->row_array();
                  ?>
                 <div class="media">
                     <div class="media-left">
