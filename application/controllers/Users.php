@@ -8,13 +8,14 @@ class Users extends CI_Controller
         $this->load->library('form_validation');
 
         // set all rules
-        $rules = [
-                    ['field' => 'fname',    'label' => 'Firstname',     'rules' => 'required'],
-                    ['field' => 'lname',    'label' => 'Lastname',      'rules' => 'required'],
-                    ['field' => 'mname',    'label' => 'Middlename',    'rules' => 'required'],
-                    ['field' => 'office',   'label' => 'Office',        'rules' => 'required'],
-                    ['field' => 'contact',  'label' => 'Contact Number','rules' => 'required']
-                ];
+        $rules = array(
+            array('field' => 'fname',    'label' => 'Firstname',     'rules' => 'required'),
+            array('field' => 'lname',    'label' => 'Lastname',      'rules' => 'required'),
+            array('field' => 'mname',    'label' => 'Middlename',    'rules' => 'required'),
+            array('field' => 'office',   'label' => 'Office',        'rules' => 'required'),
+            array('field' => 'contact',  'label' => 'Contact Number','rules' => 'required')
+        );
+        
         $this->form_validation->set_rules($rules);
 
         if ($this->form_validation->run() === FALSE) {
