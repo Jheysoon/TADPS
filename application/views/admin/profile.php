@@ -33,11 +33,11 @@
                                 <td>Birthday</td>
                                 <td>
                                     <?php
-                                        $month = array('January', 'February', 'March', 'April',
+                                        $month  = array('January', 'February', 'March', 'April',
                                                     'May', 'June', 'July', 'August', 'September',
                                                     'October', 'November', 'December');
-                                        $day = explode('-', $bday);
-                                        $m = (int) ($day[1] - 1);
+                                        $day    = explode('-', $bday);
+                                        $m      = (int) ($day[1] - 1);
                                         echo $month[$m].' '.$day[2].', '.$day[0];
                                     ?>
                                 </td>
@@ -52,7 +52,7 @@
                                      ?>
                                 </td>
                             </tr>
-                            <?php if($this->session->userdata('type') == '') { ?>
+                            <?php if ($this->session->userdata('type') == '') { ?>
                             <tr>
                               <td>Email Address</td>
                               <td><?php echo $email ?></td>
