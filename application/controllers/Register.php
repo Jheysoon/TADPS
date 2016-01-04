@@ -51,7 +51,7 @@ class Register extends CI_Controller
 
                 // TODO: check for a strong password
 
-                if (preg_match("#.*^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $password)) {
+                if ($this->valid_pass($password)) {
 
                     if ($password == $con_pass) {
                         $config['upload_path']          = './assets/uploads/';
@@ -82,16 +82,37 @@ class Register extends CI_Controller
                             $d['error'] = alert($this->upload->display_errors());
                             $this->load->view('user/register', $d);
                         }
+                        
                     } else {
                         $d['error'] = alert('Please confirm your password');
                         $this->load->view('user/register', $d);
                     }
+                    
                 } else {
                     $d['error'] = '<div class="alert alert-danger">Password must have at
-                                    least one capital letter and number and special character</div>';
+                                    least one capital letter a small letter a number and special character</div>';
                     $this->load->view('user/register', $d);
                 }
+                
             }
         }
+    }
+    
+    function valid_pass($candidate) 
+    {
+        $r1='/[A-Z]/';  //Uppercase
+        $r2='/[a-z]/';  //lowercase
+        $r3='/[!@#$%&*()^,._;:-]/';  // whatever you mean by 'special char'
+        $r4='/[0-9]/';  //numbers
+        
+        if(preg_match_all($r1,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r2,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r3,$candidate, $o)<1) return FALSE;
+        
+        if(preg_match_all($r4,$candidate, $o)<1) return FALSE;
+        
+        return TRUE;
     }
 }

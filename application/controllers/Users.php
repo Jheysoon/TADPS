@@ -17,10 +17,9 @@ class Users extends CI_Controller
                 ];
         $this->form_validation->set_rules($rules);
 
-        if($this->form_validation->run() === FALSE)
-        {
-            if(empty($id))
-            {
+        if ($this->form_validation->run() === FALSE) {
+
+            if (empty($id)) {
                 $d['error']     = '';
                 $d['id']        = '';
                 $d['fname']     = set_value('fname');
@@ -28,9 +27,7 @@ class Users extends CI_Controller
                 $d['mname']     = set_value('mname');
                 $d['office']    = set_value('office');
                 $d['contact']   = set_value('contact');
-            }
-            else
-            {
+            } else {
                 // @todo: ask if the username and password is neccessary in
                 // edit user
                 $this->db->where('id', $id);
@@ -43,36 +40,34 @@ class Users extends CI_Controller
                 $d['id']        = $id;
                 $d['error']     = '';
             }
+
             $this->load->view('admin/all_users', $d);
-        }
-        else
-        {
-            if(empty($id))
-            {
+        } else {
+
+            if (empty($id)) {
                 // check if the length is 11
                 $contact = $this->input->post('contact');
-                if(strlen($contact) == 11)
-                {
+
+                if (strlen($contact) == 11) {
                     $password = $this->input->post('password');
                     $con_pass = $this->input->post('con_pass');
+
                     // does it match the password and confirm password
-                    if($password == $con_pass)
-                    {
+                    if ($password == $con_pass) {
                         $username = $this->input->post('username');
 
                         // check if the username already exists
                         $this->db->where('username', $username);
                         $c = $this->db->count_all_results('users');
-                        if($c > 0)
-                        {
+
+                        if ($c > 0) {
                             // if it exists recommend a username
                             $this->load->helper('string');
 
                             $ar     = $this->db->get('users')->result_array();
                             $data1  = array();
 
-                            foreach($ar as $user)
-                            {
+                            foreach ($ar as $user) {
                                 $data1[] = $user['username'];
                             }
 
@@ -87,9 +82,7 @@ class Users extends CI_Controller
                             $d['office']    = set_value('office');
                             $d['contact']   = set_value('contact');
                             $this->load->view('admin/all_users', $d);
-                        }
-                        else
-                        {
+                        } else {
                             // after all the validation insert it to table
                             $data['fname']      = ucwords($this->input->post('fname'));
                             $data['lname']      = ucwords($this->input->post('lname'));
@@ -99,12 +92,12 @@ class Users extends CI_Controller
                             $data['contact']    = $contact;
                             $data['username']   = $this->input->post('username');
                             $data['password']   = password_hash($password, PASSWORD_BCRYPT);
+
                             $this->db->insert('users', $data);
                             redirect('/users');
                         }
-                    }
-                    else
-                    {
+
+                    } else {
                         $d['error'] = alert('Please Confirm Password');
                         $d['id']        = '';
                         $d['fname']     = set_value('fname');
@@ -114,9 +107,8 @@ class Users extends CI_Controller
                         $d['contact']   = set_value('contact');
                         $this->load->view('admin/all_users', $d);
                     }
-                }
-                else
-                {
+
+                } else {
                     $d['error']     = alert('Invalid Contact Number');
                     $d['id']        = '';
                     $d['fname']     = set_value('fname');
@@ -126,9 +118,8 @@ class Users extends CI_Controller
                     $d['contact']   = set_value('contact');
                     $this->load->view('admin/all_users', $d);
                 }
-            }
-            else
-            {
+
+            } else {
                 $data['fname']      = $this->input->post('fname');
                 $data['lname']      = $this->input->post('lname');
                 $data['mname']      = $this->input->post('mname');
@@ -137,6 +128,7 @@ class Users extends CI_Controller
                 $this->db->where('id' ,$id);
                 $this->db->update('users', $data);
                 $this->session->set_flashdata('message', alert('Successfully edited', 'success'));
+
                 redirect('/users');
             }
 
@@ -148,7 +140,7 @@ class Users extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('users');
-        $this->session->set_flashdata('message', '<div class="alert alert-success">Successfully deleted</div>');
+        $this->session->set_flashdata('message', alert('Successfully deleted', 'success'));
         redirect('/users');
     }
 
@@ -166,14 +158,12 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('mname', 'Middlename', 'required');
 
-        if($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE) {
             $data['error'] = '';
             $this->db->where('id', $id);
             $data1          = $this->db->get('users')->row_array();
 
-            if(! $this->input->post('fname'))
-            {
+            if (! $this->input->post('fname')) {
                 $data['fname']  = $data1['fname'];
                 $data['lname']  = $data1['lname'];
                 $data['mname']  = $data1['mname'];
@@ -183,13 +173,13 @@ class Users extends CI_Controller
                 $data['address']= $data1['address'];
                 $data['gender'] = $data1['gender'];
                 $data['bday']   = $data1['bday'];
+
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = $data1['office'];
                 elseif($this->session->userdata('type') == '')
                     $data['email']  = $data1['email'];
-            }
-            else
-            {
+
+            } else {
                 $data['fname']  = set_value('fname');
                 $data['lname']  = set_value('lname');
                 $data['pic']    = $data1['pic'];
@@ -198,16 +188,18 @@ class Users extends CI_Controller
                 $data['address']= set_value('address');
                 $data['gender'] = set_value('gender');
                 $data['bday']   = set_value('bday');
+
                 if($this->session->userdata('type') == 'ngo')
                     $data['office'] = set_value('office');
                 elseif($this->session->userdata('type') == '')
                     $data['email']  = set_value('email');
+
                 $data['id']     = $id;
             }
+
             $this->load->view('user/edit_profile', $data);
-        }
-        else
-        {
+
+        } else {
             $config['upload_path']          = './assets/uploads/';
             // check if the attachment belongs to image
             $config['allowed_types']        = 'jpg|png|jpeg';
@@ -215,16 +207,11 @@ class Users extends CI_Controller
             $config['encrypt_name']         = TRUE;
             $this->load->library('upload', $config);
 
-            if($this->upload->do_upload())
-            {
+            if ($this->upload->do_upload()) {
                 $this->update_user($id, $this->upload->data('file_name'));
-            }
-            elseif ($this->upload->display_errors() == '<p>You did not select a file to upload.</p>')
-            {
+            } elseif ($this->upload->display_errors() == '<p>You did not select a file to upload.</p>') {
                 $this->update_user($id);
-            }
-            else
-            {
+            } else {
                 $data['fname']  = set_value('fname');
                 $data['lname']  = set_value('lname');
                 $data['pic']    = '';
@@ -236,9 +223,10 @@ class Users extends CI_Controller
                     $data['office'] = set_value('office');
                 elseif($this->session->userdata('type') == '')
                     $data['email']  = set_value('email');
+
                 $data['id']     = $id;
 
-                $data['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                $data['error'] = alert($this->upload->display_errors());
 
                 $this->load->view('user/edit_profile', $data);
             }
@@ -254,6 +242,7 @@ class Users extends CI_Controller
         $data['address']    = $this->input->post('address');
         $data['gender']     = $this->input->post('gender');
         $data['bday']       = $this->input->post('bday');
+
         if($this->session->userdata('type') == 'ngo')
             $data['office'] = $this->input->post('office');
         elseif($this->session->userdata('type') == '')
@@ -264,6 +253,7 @@ class Users extends CI_Controller
 
         $this->db->where('id', $id);
         $this->db->update('users', $data);
+
         redirect('/edit_profile/'.$id);
     }
 
@@ -280,17 +270,14 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('con_pass', 'Confirm Password', 'required');
 
-        if($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE) {
             $d['error'] = '';
             $this->load->view('admin/add_admin', $d);
-        }
-        else
-        {
+        } else {
             $password = $this->input->post('password');
             $con_pass = $this->input->post('con_pass');
-            if($password == $con_pass)
-            {
+
+            if ($password == $con_pass) {
                 $config['upload_path']          = './assets/uploads/';
                 // check if the attachment belongs to image
                 $config['allowed_types']        = 'jpg|png|jpeg';
@@ -298,8 +285,7 @@ class Users extends CI_Controller
                 $config['encrypt_name']         = TRUE;
                 $this->load->library('upload', $config);
 
-                if($this->upload->do_upload())
-                {
+                if ($this->upload->do_upload()) {
                     $data['fname']      = ucwords($this->input->post('fname'));
                     $data['lname']      = ucwords($this->input->post('lname'));
                     $data['mname']      = ucwords($this->input->post('mname'));
@@ -312,17 +298,15 @@ class Users extends CI_Controller
                     $data['type']       = 'admin';
                     $data['contact']    = $this->input->post('contact');
                     $this->db->insert('users', $data);
+
                     redirect('/add_admin');
-                }
-                else
-                {
-                    $d['error'] = '<div class="alert alert-danger">'.$this->upload->display_errors().'</div>';
+                } else {
+                    $d['error'] = alert($this->upload->display_errors());
                     $this->load->view('admin/add_admin', $d);
                 }
-            }
-            else
-            {
-                $d['error'] = '<div class="alert alert-danger">Please confirm your password</div>';
+
+            } else {
+                $d['error'] = alert('Please confirm your password');
                 $this->load->view('admin/add_admin', $d);
             }
         }
@@ -331,12 +315,14 @@ class Users extends CI_Controller
     function view_prev()
     {
         $this->load->helper('typography');
+        $this->load->model('announce');
         $this->load->view('user/view_prev');
     }
 
     function prev_user()
     {
         $this->load->helper('typography');
+        $this->load->model('announce');
         $this->load->view('view_prev');
     }
 
@@ -359,15 +345,13 @@ class Users extends CI_Controller
                             <th>Activity</th>
                             <th>User</th>
                         </tr>';
-        foreach($range as $date)
-        {
+        foreach ($range as $date) {
             $l = $this->db->query("SELECT fname, lname, ddate, ttime, activity
                                 FROM logs a, users b
                                 WHERE b.id = a.user AND ddate = '$date'
                                 AND (fname LIKE '%$user%' OR lname LIKE '%$user%')")->result_array();
 
-            foreach($l as $logs)
-            {
+            foreach ($l as $logs) {
                 $template   .= '<tr>
                                     <td>'.$date.'</td>
                                     <td>'.$logs['ttime'].'</td>
@@ -376,6 +360,7 @@ class Users extends CI_Controller
                                 </tr>';
             }
         }
+
         echo $template;
     }
 
@@ -387,28 +372,26 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('answer', 'Answer', 'required');
 
-        if($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE) {
             $d['error'] = '';
             $this->load->view('user/forgot', $d);
-        }
-        else
-        {
-            $username = $this->input->post('username');
-            $u = $this->db->get_where('users', array('username' => $username))->row_array();
-            if($this->input->post('secret_q') == $u['question'] AND $this->input->post('answer') == $u['answer'])
-            {
+        } else {
+            $username   = $this->input->post('username');
+            $u          = $this->db->get_where('users', array('username' => $username))->row_array();
+            $secret_q   = $this->input->post('secret_q');
+            $answer     = $this->input->post('answer');
+
+            if ($secret_q == $u['question'] AND $answer == $u['answer']) {
                 $pass               = $this->input->post('password');
                 $pass               = password_hash($pass, PASSWORD_BCRYPT);
                 $data['password']   = $pass;
+
                 $this->db->where('username', $username);
                 $this->db->update('users', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info text-center">Your password has been reset to <strong>'.$pass.'</strong></div>');
+                $this->session->set_flashdata('message', alert('Your password has been reset to <strong>'.$pass.'</strong>', 'info'));
                 redirect(base_url());
-            }
-            else
-            {
-                $d['error'] = '<div class="alert alert-danger">Invalid</div>';
+            } else {
+                $d['error'] = alert('Invalid');
                 $this->load->view('user/forgot', $d);
             }
         }

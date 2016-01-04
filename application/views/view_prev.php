@@ -8,9 +8,9 @@
                     <div class="well well-lg">
                     <ul class="media-list">
                         <?php
-                            $a = $this->db->query('SELECT * FROM announcement ORDER BY id ASC')->result_array();
-                            foreach($a as $aa)
-                            {
+                            $a = $this->announce->confirmedPost();
+
+                            foreach ($a as $aa) {
                                 $u = $this->db->get_where('users', array('id' => $aa['user']))->row_array();
                          ?>
                         <li class="media">
@@ -21,8 +21,10 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Announcement</h4>
-                                <?php echo auto_typography($aa['message']) ?>
-                                <?php echo $aa['date'] ?>
+                                <?php
+                                    echo auto_typography($aa['message']);
+                                    echo $aa['date'];
+                                ?>
                             </div>
                         </li>
                       <?php } ?>
@@ -31,6 +33,11 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view('includes/footer') ?>
+    <?php
+        $this->load->view('forms/login');
+        $this->load->view('forms/registration');
+        $this->load->view('includes/footer');
+    ?>
+    <script type="text/javascript" src="/assets/js/login_register.js"></script>
 </body>
 </html>

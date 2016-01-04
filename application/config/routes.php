@@ -76,6 +76,7 @@ $route['hotline/(:num)']        = 'main/hotline/$1';
 $route['hotline']               = 'main/hotline';
 $route['hotline_delete/(:num)'] = 'main/hotline_delete/$1';
 $route['hazzard_maps']          = 'hazzard/maps';
+$route['locator/(:any)/(:any)'] = 'main/locator/$1/$2';
 $route['locator']               = 'main/locator';
 $route['delete_user/(:num)']    = 'users/delete/$1';
 $route['edit_profile/(:num)']   = 'users/edit_profile/$1';

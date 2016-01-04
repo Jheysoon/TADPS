@@ -17,20 +17,18 @@
                         </tr>
                         <?php
                             $h = $this->db->get('hotlines')->result_array();
-                            foreach($h as $hotline)
-                            {
+
+                            foreach ($h as $hotline) {
                                 ?>
-                                <tr class="text-center">
-                                    <td>
-                                        <?php  echo $hotline['office']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $hotline['num'] ?>
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                         ?>
+                            <tr class="text-center">
+                                <td>
+                                    <?php  echo $hotline['office']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $hotline['num'] ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </table>
                 </div>
             </div>

@@ -176,24 +176,27 @@ class Main extends CI_Controller
     
     function hazzard()
     {
-      $this->load->view('hazzardmap');
+        $this->load->view('hazzardmap');
     }
     
     function hot()
     {
-      $this->load->view('hotlines');
+        $this->load->view('hotlines');
     }
     
     function hazzardmaps()
     {
-      $this->load->view('includes/header');
-      $this->load->view('includes/menu', array('active' =>  'maps'));
-      $this->load->view('hazzardmap');
-      $this->load->view('includes/footer');
+        $this->load->view('includes/header');
+        $this->load->view('includes/menu', array('active' =>  'maps'));
+        $this->load->view('hazzardmap');
+        $this->load->view('includes/footer');
     }
 
-    function locator()
+    function locator($lat = 11.244072, $long = 124.999341)
     {
-        $this->load->view('locator');
+        $data['lat']    = $lat;
+        $data['long']   = $long;
+        
+        $this->load->view('locator', $data);
     }
 }
