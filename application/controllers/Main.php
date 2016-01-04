@@ -171,7 +171,7 @@ class Main extends CI_Controller
         $this->db->where('user', $this->session->userdata('id'));
         $this->db->delete('login');
 
-        $this->session->unset_userdata(['id', 'type']);
+        $this->session->unset_userdata(array('id', 'type'));
         redirect(base_url());
     }
     
