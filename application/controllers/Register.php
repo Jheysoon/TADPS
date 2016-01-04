@@ -6,14 +6,15 @@ class Register extends CI_Controller
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
+        
+        $rules = array(
+            array('field' => 'fname',    'label' => 'Firstname',     'rules' => 'required'),
+            array('field' => 'lname',    'label' => 'Lastname',      'rules' => 'required'),
+            array('field' => 'mname',    'label' => 'Middlename',    'rules' => 'required'),
+            array('field' => 'username', 'label' => 'Username',      'rules' => 'required'),
+            array('field' => 'password', 'label' => 'Password',      'rules' => 'required')
+        );
 
-        $rules = [
-                    ['field' => 'fname',    'label' => 'Firstname',     'rules' => 'required'],
-                    ['field' => 'lname',    'label' => 'Lastname',      'rules' => 'required'],
-                    ['field' => 'mname',    'label' => 'Middlename',    'rules' => 'required'],
-                    ['field' => 'username', 'label' => 'Username',      'rules' => 'required'],
-                    ['field' => 'password', 'label' => 'Password',      'rules' => 'required']
-                ];
         $this->form_validation->set_rules($rules);
 
         if($this->form_validation->run() === FALSE)
