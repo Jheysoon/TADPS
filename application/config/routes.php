@@ -91,3 +91,4 @@ $route['logs']                  = 'users/show_logs';
 $route['forgot_password']       = 'users/forgot';
 $route['confirm_post']			= 'post/confirm';
 $route['confirm/(:num)']		= 'post/conf/$1';
+$route['phpinfo']               = 'main/phpinfo';

@@ -200,4 +200,9 @@ class Main extends CI_Controller
         
         $this->load->view('locator', $data);
     }
+    
+    public function phpinfo()
+    {
+        phpinfo();
+    }
 }
