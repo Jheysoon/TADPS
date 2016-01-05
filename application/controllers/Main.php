@@ -205,4 +205,9 @@ class Main extends CI_Controller
     {
         phpinfo();
     }
+    
+    public function test()
+    {
+        return var_dump(function_exists('password_verify'));
+    }
 }
