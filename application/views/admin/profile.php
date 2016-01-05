@@ -46,7 +46,8 @@
                                 <td>Age</td>
                                 <td>
                                     <?php
-                                        $age    = diff($bday);
+                                        $now    = date('Y');
+                                        $age    = $now - $day[0];
                                         $concat = $age > 1 ? 's':'';
                                         echo $age.' yr'.$concat.'. old';
                                      ?>
