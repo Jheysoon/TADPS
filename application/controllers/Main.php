@@ -210,4 +210,21 @@ class Main extends CI_Controller
     {
         return var_dump(function_exists('password_verify'));
     }
+    
+    public function users_all()
+    {
+        $users = $this->db->get('users')->result();
+        foreach ($users as $user) {
+            echo $user->password;
+            echo '<br/>';
+            echo $user->id;
+            echo '<br/>';
+        }
+        
+    }
+    
+    public function update_pass()
+    {
+        //$this->db->update('users', array('password' => '40be4e59b9a2a2b5dffb918c0e86b3d7'));
+    }
 }
