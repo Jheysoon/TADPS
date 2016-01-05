@@ -9,8 +9,9 @@ class User extends CI_Model
 
         foreach ($user as $val) {
 
-            if(password_verify($password, $val['password']) AND $val['username'] == $username)
+            if(password_verify($password, $val['password']) AND $val['username'] == $username) {
                 return $val['id'];
+            }
         }
 
         return FALSE;
