@@ -85,10 +85,10 @@ class Main extends CI_Controller
             $this->db->where('id', $this->session->userdata('id'));
             $u = $this->db->get('users')->row_array();
             
-            if (password_verify($old, $u['password'])) {
+            if (md5($old) == $u['password'] ) {
                 
                 if ($this->input->post('r_pass') == $new) {
-                    $data['password'] = password_hash($new, PASSWORD_BCRYPT);
+                    $data['password'] = md5($new);
                     $this->db->where('id', $this->session->userdata('id'));
                     $this->db->update('users', $data);
                     redirect(base_url());

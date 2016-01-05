@@ -92,7 +92,7 @@ class Users extends CI_Controller
                             $data['type']       = 'ngo';
                             $data['contact']    = $contact;
                             $data['username']   = $this->input->post('username');
-                            $data['password']   = password_hash($password, PASSWORD_BCRYPT);
+                            $data['password']   = md5($password);
 
                             $this->db->insert('users', $data);
                             redirect('/users');
@@ -294,7 +294,7 @@ class Users extends CI_Controller
                     $data['bday']       = $this->input->post('bday');
                     $data['address']    = ucwords($this->input->post('address'));
                     $data['username']   = $this->input->post('username');
-                    $data['password']   = password_hash($password, PASSWORD_BCRYPT);
+                    $data['password']   = md5($password);
                     $data['pic']        = $this->upload->data('file_name');
                     $data['type']       = 'admin';
                     $data['contact']    = $this->input->post('contact');
@@ -383,13 +383,13 @@ class Users extends CI_Controller
             $answer     = $this->input->post('answer');
 
             if ($secret_q == $u['question'] AND $answer == $u['answer']) {
-                $pass               = $this->input->post('password');
-                $pass               = password_hash($pass, PASSWORD_BCRYPT);
+                $pass1              = $this->input->post('password');
+                $pass               = md5($pass1);
                 $data['password']   = $pass;
 
                 $this->db->where('username', $username);
                 $this->db->update('users', $data);
-                $this->session->set_flashdata('message', alert('Your password has been reset to <strong>'.$pass.'</strong>', 'info'));
+                $this->session->set_flashdata('message', alert('Your password has been reset to <strong>'.$pass1.'</strong>', 'info'));
                 redirect(base_url());
             } else {
                 $d['error'] = alert('Invalid');

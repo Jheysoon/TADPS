@@ -71,7 +71,7 @@ class Register extends CI_Controller
                             $data['bday']       = $this->input->post('bday');
                             $data['contact']    = $this->input->post('contact');
                             $data['username']   = $username;
-                            $data['password']   = password_hash($password, 1);
+                            $data['password']   = md5($password);
                             $data['address']    = $this->input->post('address');
                             $data['gender']     = $this->input->post('gender');
                             $data['question']   = $this->input->post('secret_q');
