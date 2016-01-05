@@ -14,23 +14,23 @@ class Post extends CI_Controller
             $d['error'] = '';
             $this->load->view('user/post', $d);
         } else  {
-            $config['upload_path']          = './assets/uploads/';
+            //$config['upload_path']          = './assets/uploads/';
             // check if the attachment belongs to image/document/spreadsheet
-            $config['allowed_types']        = 'jpg|png|jpeg|doc|docx|pdf|xlsx';
-            $config['max_size']             = 2048;
-            $config['encrypt_name']         = TRUE;
-            $this->load->library('upload', $config);
-            $error = '';
+            // $config['allowed_types']        = 'jpg|png|jpeg|doc|docx|pdf|xlsx';
+            // $config['max_size']             = 2048;
+            // $config['encrypt_name']         = TRUE;
+            // $this->load->library('upload', $config);
+            // $error = '';
 
             // upload the file
-            if (! $this->upload->do_upload('attachment')) {
-                $error = $this->upload->display_errors();
-            }
+            // if (! $this->upload->do_upload('attachment')) {
+            //     $error = $this->upload->display_errors();
+            // }
 
-            if ($error == '<p>You did not select a file to upload.</p>' OR $error == '') {
+            //if ($error == '<p>You did not select a file to upload.</p>' OR $error == '') {
                 //<p>You did not select a file to upload.</p>
                 $data['confirmed']  = ($this->session->userdata('type') == 'admin') ? '1' : '0';
-                $data['attach']     = ($error == '') ? $this->upload->data('file_name') : '';
+                //$data['attach']     = ($error == '') ? $this->upload->data('file_name') : '';
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('id');
                 $data['date']       = date('Y-m-d');
@@ -39,11 +39,10 @@ class Post extends CI_Controller
                 // insert logs
                 $this->api->insert_logs('Added new post');
                 redirect('/post');
-            } else {
-                $d['error'] = alert($this->upload->display_errors());
-                $this->load->view('user/post', $d);
-            }
-
+            // } else {
+            //     $d['error'] = alert($this->upload->display_errors());
+            //     $this->load->view('user/post', $d);
+            // }
         }
     }
 

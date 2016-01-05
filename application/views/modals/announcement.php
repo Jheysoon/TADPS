@@ -24,7 +24,7 @@
                             if(! empty($announce['attach']))
                             {
                                 ?>
-                            <a href="/assets/uploads/<?php echo $announce['attach'] ?>" download="attachment_file">Download Attachment</a>
+                            <!-- <a href="/assets/uploads/<?php echo $announce['attach'] ?>" download="attachment_file">Download Attachment</a> -->
                         <?php
                             }
                          ?>
