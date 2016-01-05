@@ -58,8 +58,8 @@ class Subscribe extends CI_Controller
         if(!empty($id))
         {
             $this->db->where('id', $id);
-            $this->db->update('emails', ['status' => 1]);
-            $this->load->view('email/confirm_email', ['message' => 'You Have Successfully Confirmed Your Email']);
+            $this->db->update('emails', array('status' => 1));
+            $this->load->view('email/confirm_email', array('message' => 'You Have Successfully Confirmed Your Email'));
         }
     }
 
@@ -69,7 +69,7 @@ class Subscribe extends CI_Controller
         {
             $this->db->where('id', $id);
             $this->db->delete('emails');
-            $this->load->view('email/confirm_email', ['message' => 'You are successfully unsubscribe']);
+            $this->load->view('email/confirm_email', array('message' => 'You are successfully unsubscribe'));
         }
     }
 
