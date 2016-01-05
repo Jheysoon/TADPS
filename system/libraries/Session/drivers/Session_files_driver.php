@@ -351,7 +351,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 				continue;
 			}
 
-			unlink($this->_config['save_path'].DIRECTORY_SEPARATOR.$file);
+			@unlink($this->_config['save_path'].DIRECTORY_SEPARATOR.$file);
 		}
 
 		closedir($directory);
