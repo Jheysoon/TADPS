@@ -54,7 +54,7 @@ class Post extends CI_Controller
     function upload_vid()
     {
         $config['upload_path']          = './assets/uploads/';
-        // check if the attachment belongs to image/document/spreadsheet
+        // check if the attachment is video
         $config['allowed_types']        = 'mp4|avi|wmv';
         $config['max_size']             = 0;
         $config['encrypt_name']         = TRUE;
