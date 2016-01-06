@@ -33,7 +33,7 @@ class Post extends CI_Controller
                 //$data['attach']     = ($error == '') ? $this->upload->data('file_name') : '';
                 $data['message']    = $this->input->post('post');
                 $data['user']       = $this->session->userdata('id');
-                $data['date']       = date('Y-m-d');
+                $data['date']       = date('Y-m-d h:i a');
                 $this->db->insert('announcement', $data);
 
                 // insert logs
