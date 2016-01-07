@@ -351,3 +351,7 @@ textarea.form-control
     width: 100%;
   }
 }
+
+.card-img {
+    width: 100%;
+}
