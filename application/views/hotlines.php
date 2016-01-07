@@ -41,3 +41,4 @@
      ?>
     <script type="text/javascript" src="/assets/js/login_register.js"></script>
 </body>
+</html>

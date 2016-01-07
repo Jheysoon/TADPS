@@ -227,4 +227,9 @@ class Main extends CI_Controller
     {
         //$this->db->update('users', array('password' => '40be4e59b9a2a2b5dffb918c0e86b3d7'));
     }
+    
+    public function help()
+    {
+        $this->load->view('help');
+    }
 }
