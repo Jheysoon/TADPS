@@ -24,9 +24,6 @@
                     <a href="/hazzard"><span class="fa fa-map"></span>&nbsp;Hazzard Maps</a>
                 </li>
                 <li>
-                    <a href="/locator"><span class="fa fa-globe fa-lg"></span>&nbsp;Locator</a>
-                </li>
-                <li>
                     <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
                 </li>
                 <li>

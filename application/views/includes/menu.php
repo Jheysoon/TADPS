@@ -42,6 +42,9 @@
                             <li><a href="/logs">Logs</a></li>
                         <?php } ?>
                         <li class="divider"></li>
+                        <li>
+                            <a href="/locator"><span class="fa fa-globe fa-lg"></span>&nbsp;Locator</a>
+                        </li>
                         <li><a href="/help">Help</a></li>
                     </ul>
                 </li>
