@@ -18,9 +18,6 @@
                     <a href="#about"><span class="fa fa-comment"></span>&nbsp;About</a>
                 </li> -->
                 <li>
-                    <a href="/help">Help</a>
-                </li>
-                <li>
                     <a href="/hotlines"><span class="fa fa-phone"></span>&nbsp;Hotline</a>
                 </li>
                 <li>

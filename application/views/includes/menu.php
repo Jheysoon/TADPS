@@ -31,6 +31,7 @@
                     <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>><a href="/hotline_numbers"><span class="glyphicon glyphicon-earphone fa-lg"></span> Hotline</a></li>
                     <li <?php echo $active == 'maps' ? 'class="active"':'' ?>><a href="/hazzard_maps_user"><span class="fa fa-map fa-lg"></span> Hazzard Maps</a></li>
                 <?php } ?>
+
             </ul>
             
             <ul class="nav navbar-nav navbar-right">
@@ -43,7 +44,10 @@
                         <?php } ?>
                         <li class="divider"></li>
                         <li>
-                            <a href="/locator"><span class="fa fa-globe fa-lg"></span>&nbsp;Locator</a>
+                            <a href="/help">Help</a>
+                        </li>
+                        <li>
+                            <a href="/locator">Locator</a>
                         </li>
                     </ul>
                 </li>
