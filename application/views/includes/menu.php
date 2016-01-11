@@ -45,7 +45,6 @@
                         <li>
                             <a href="/locator"><span class="fa fa-globe fa-lg"></span>&nbsp;Locator</a>
                         </li>
-                        <li><a href="/help">Help</a></li>
                     </ul>
                 </li>
             </ul>
