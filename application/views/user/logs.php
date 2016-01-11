@@ -27,6 +27,7 @@
                             <th>User</th>
                         </tr>
                         <?php
+                            $this->db->order_by('id', 'DESC');
                             $l = $this->db->get('logs')->result_array();
                             foreach($l as $logs)
                             {
