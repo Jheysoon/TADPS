@@ -41,8 +41,10 @@
         }
         if($this->session->userdata('type') == 'admin') {
     ?>
-     <a href="#" data-user="0" class="list-group-item chat_user">
-         Send To All
+     <a href="#" data-user="0" class="list-group-item chat_user" style="background-color: #d9edf7;">
+         <strong>
+             Send To All
+         </strong>
      </a>
      <?php } ?>
 </ul>
