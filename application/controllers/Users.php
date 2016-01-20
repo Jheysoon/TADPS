@@ -53,29 +53,55 @@ class Users extends CI_Controller
                     $password = $this->input->post('password');
                     $con_pass = $this->input->post('con_pass');
 
-                    // does it match the password and confirm password
-                    if ($password == $con_pass) {
-                        $username = $this->input->post('username');
+                    // check for strong password
+                    if (valid_pass($password)) {
+                        // does it match the password and confirm password
+                        if ($password == $con_pass) {
+                            $username = $this->input->post('username');
 
-                        // check if the username already exists
-                        $this->db->where('username', $username);
-                        $c = $this->db->count_all_results('users');
+                            // check if the username already exists
+                            $this->db->where('username', $username);
+                            $c = $this->db->count_all_results('users');
 
-                        if ($c > 0) {
-                            // if it exists recommend a username
-                            $this->load->helper('string');
+                            if ($c > 0) {
+                                // if it exists recommend a username
+                                $this->load->helper('string');
 
-                            $ar     = $this->db->get('users')->result_array();
-                            $data1  = array();
+                                $ar     = $this->db->get('users')->result_array();
+                                $data1  = array();
 
-                            foreach ($ar as $user) {
-                                $data1[] = $user['username'];
-                            }
+                                foreach ($ar as $user) {
+                                    $data1[] = $user['username'];
+                                }
 
-                            $suggest = increment_exists($username, $data1);
-                            $d['error'] = '<div class="alert alert-danger text-center">
+                                $suggest = increment_exists($username, $data1);
+                                $d['error'] = '<div class="alert alert-danger text-center">
                                     Username is already taken <br/>
                                     Recommended username: '.$suggest.'</div>';
+                                $d['id']        = '';
+                                $d['fname']     = set_value('fname');
+                                $d['lname']     = set_value('lname');
+                                $d['mname']     = set_value('mname');
+                                $d['office']    = set_value('office');
+                                $d['contact']   = set_value('contact');
+                                $this->load->view('admin/all_users', $d);
+                            } else {
+                                // after all the validation insert it to table
+                                $data['fname']      = ucwords($this->input->post('fname'));
+                                $data['lname']      = ucwords($this->input->post('lname'));
+                                $data['mname']      = ucwords($this->input->post('mname'));
+                                $data['office']     = ucwords($this->input->post('office'));
+                                $data['type']       = 'ngo';
+                                $data['contact']    = $contact;
+                                $data['username']   = $this->input->post('username');
+                                $data['password']   = md5($password);
+
+                                $this->db->insert('users', $data);
+                                redirect('/users');
+                            }
+
+                        } else {
+                            $d['error'] = alert('Please Confirm Password');
                             $d['id']        = '';
                             $d['fname']     = set_value('fname');
                             $d['lname']     = set_value('lname');
@@ -83,23 +109,11 @@ class Users extends CI_Controller
                             $d['office']    = set_value('office');
                             $d['contact']   = set_value('contact');
                             $this->load->view('admin/all_users', $d);
-                        } else {
-                            // after all the validation insert it to table
-                            $data['fname']      = ucwords($this->input->post('fname'));
-                            $data['lname']      = ucwords($this->input->post('lname'));
-                            $data['mname']      = ucwords($this->input->post('mname'));
-                            $data['office']     = ucwords($this->input->post('office'));
-                            $data['type']       = 'ngo';
-                            $data['contact']    = $contact;
-                            $data['username']   = $this->input->post('username');
-                            $data['password']   = md5($password);
-
-                            $this->db->insert('users', $data);
-                            redirect('/users');
                         }
 
                     } else {
-                        $d['error'] = alert('Please Confirm Password');
+                        $d['error'] = alert('Password must have at
+                                    least one capital letter a small letter a number and special character');
                         $d['id']        = '';
                         $d['fname']     = set_value('fname');
                         $d['lname']     = set_value('lname');
