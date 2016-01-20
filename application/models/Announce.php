@@ -11,6 +11,6 @@ class Announce extends CI_Model
 
     public function confirmedPost()
     {
-        return $this->db->query("SELECT * FROM announcement WHERE confirmed = 1 ORDER BY id ASC")->result_array();
+        return $this->db->query("SELECT * FROM announcement WHERE confirmed = 1 ORDER BY id DESC")->result_array();
     }
 }
