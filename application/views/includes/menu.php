@@ -39,12 +39,6 @@
                                     Users
                                 </a>
                             </li>
-                            <li>
-                                <a href="/help">
-                                    <span class="fa fa-comment fa-lg"></span>
-                                    Help
-                                </a>
-                            </li>
                             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>>
                                 <a href="/hotline">
                                     <span class="glyphicon glyphicon-earphone fa-lg"></span>
@@ -85,12 +79,6 @@
                         <?php } ?>
 
                         <?php if ($this->session->userdata('type') != 'admin') { ?>
-                            <li>
-                                <a href="/help">
-                                    <span class="fa fa-comment fa-lg"></span>
-                                    Help
-                                </a>
-                            </li>
                             <li <?php echo $active == 'hotline' ? 'class="active"':'' ?>>
                                 <a href="/hotline_numbers">
                                     <span class="glyphicon glyphicon-earphone fa-lg"></span>
@@ -110,6 +98,12 @@
                     <a href="/messages">
                         <span class="glyphicon glyphicon-comment fa-lg"></span>
                         Chat
+                    </a>
+                </li>
+                <li>
+                    <a href="/help">
+                        <span class="fa fa-comment fa-lg"></span>
+                        Help
                     </a>
                 </li>
 
